@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descomplicador de IA com Gemini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            /* Azul Marinho Escuro */
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .app-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #1e293b;
+            /* Azul Escuro Suave */
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            padding: 32px;
+            border: 1px solid #334155;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        #nameInput,
+        #promptInput {
+            flex-grow: 1;
+            padding: 12px 16px;
+            border-radius: 0.5rem;
+            border: 1px solid #475569;
+            background-color: #334155;
+            color: #e2e8f0;
+            transition: border-color 0.3s;
+        }
+
+        #nameInput:focus,
+        #promptInput:focus {
+            border-color: #38bdf8;
+            /* Azul Ciano */
+            outline: none;
+        }
+
+        .action-button {
+            background-color: #38bdf8;
+            /* Azul Ciano */
+            color: #0f172a;
+            padding: 12px 24px;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .action-button:hover {
+            background-color: #0ea5e9;
+            transform: translateY(-1px);
+        }
+
+        .action-button:disabled {
+            background-color: #475569;
+            color: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #responseArea {
+            margin-top: 32px;
+            padding: 20px;
+            background-color: #1a2434;
+            /* Um pouco mais escuro que o container */
+            border-radius: 0.5rem;
+            min-height: 150px;
+            border: 1px solid #334155;
+            white-space: pre-wrap;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .loading {
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 6px 10px;
+            background-color: #334155;
+            border-radius: 0.375rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .source-link:hover {
+            background-color: #475569;
+            color: #f8fafc;
+        }
+
+        .llm-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: flex-end;
+        }
+
+        .name-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <h1 class="text-3xl font-bold text-center text-sky-400 mb-4">
+            <i class="fa-solid fa-magic mr-2"></i> Descomplicador de IA com Gemini
+        </h1>
+        <p class="text-center text-slate-400 mb-6">
+            Pergunte algo. Eu vou usar o Gemini com Google Search para garantir que as informações sejam precisas.
+        </p>
+
+        <!-- Novo Campo de Nome do Utilizador -->
+        <div class="name-input-container">
+            <label for="nameInput" class="text-slate-300 font-semibold w-1/4 sm:w-1/5">O Meu Nome:</label>
+            <input type="text" id="nameInput" value="Gabriel" placeholder="Introduza o seu nome" class="w-3/4 sm:w-4/5">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="promptInput"
+                placeholder="Ex: Qual a diferença entre LLM e LMM? (Seja um cético visionário!)">
+            <button id="submitBtn" class="action-button">
+                <i class="fa-solid fa-arrow-right-long"></i> Enviar
+            </button>
+        </div>
+
+        <div id="responseArea" class="shadow-lg">
+            <p class="text-slate-500">Aguardando sua pergunta, Gabriel...</p>
+        </div>
+
+        <!-- Novas Ações LLM -->
+        <div class="llm-actions">
+            <button id="summarizeBtn" class="action-button bg-purple-600 hover:bg-purple-700" disabled>
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> ✨ Resumir e Palavras-Chave
+            </button>
+            <button id="ttsBtn" class="action-button bg-emerald-600 hover:bg-emerald-700" disabled>
+                <i class="fa-solid fa-volume-up mr-2"></i> 🗣️ Ouvir Resposta
+            </button>
+        </div>
+
+        <div id="audioArea" class="mt-4 flex items-center hidden">
+            <audio id="audioPlayer" controls class="w-full"></audio>
+        </div>
+
+        <div id="sourcesArea" class="mt-4 border-t border-slate-700 pt-4">
+            <h3 class="text-lg font-semibold text-slate-300 mb-2">
+                <i class="fa-solid fa-book-open-reader mr-1"></i> Fontes de Grounding (Verificação):
+            </h3>
+            <div id="sourcesList" class="flex flex-wrap">
+                <p class="text-sm text-slate-500">As fontes aparecerão aqui para verificação.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nameInput = document.getElementById('nameInput'); // Novo
+            const promptInput = document.getElementById('promptInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const summarizeBtn = document.getElementById('summarizeBtn');
+            const ttsBtn = document.getElementById('ttsBtn');
+            const responseArea = document.getElementById('responseArea');
+            const sourcesList = document.getElementById('sourcesList');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioArea = document.getElementById('audioArea');
+
+            // Estado inicial dos botões LLM
+            summarizeBtn.disabled = true;
+            ttsBtn.disabled = true;
+
+            // --- Configurações da API ---
+            const apiKey = "";
+            const generalApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const ttsApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+            // --- Funções Auxiliares para TTS ---
+
+            function base64ToArrayBuffer(base64) {
+                const binaryString = atob(base64);
+                const len = binaryString.length;
+                const bytes = new Uint8Array(len);
+                for (let i = 0; i < len; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                return bytes.buffer;
+            }
+
+            function pcmToWav(pcm16, sampleRate) {
+                const buffer = new ArrayBuffer(44 + pcm16.length * 2);
+                const view = new DataView(buffer);
+                let offset = 0;
+
+                function writeString(s) {
+                    for (let i = 0; i < s.length; i++) {
+                        view.setUint8(offset + i, s.charCodeAt(i));
+                    }
+                    offset += s.length;
+                }
+
+                function writeUint32(i) {
+                    view.setUint32(offset, i, true);
+                    offset += 4;
+                }
+
+                function writeUint16(i) {
+                    view.setUint16(offset, i, true);
+                    offset += 2;
+                }
+
+                // RIFF chunk
+                writeString('RIFF');
+                writeUint32(36 + pcm16.length * 2);
+                writeString('WAVE');
+
+                // fmt chunk
+                writeString('fmt ');
+                writeUint32(16); // Chunk size
+                writeUint16(1); // Format (1 for PCM)
+                writeUint16(1); // Channels (1)
+                writeUint32(sampleRate);
+                writeUint32(sampleRate * 2); // Byte rate (SampleRate * Channels * BitsPerSample/8)
+                writeUint16(2); // Block align (Channels * BitsPerSample/8)
+                writeUint16(16); // Bits per sample (16)
+
+                // data chunk
+                writeString('data');
+                writeUint32(pcm16.length * 2);
+
+                // PCM data
+                for (let i = 0; i < pcm16.length; i++) {
+                    view.setInt16(offset, pcm16[i], true);
+                    offset += 2;
+                }
+
+                return new Blob([buffer], { type: 'audio/wav' });
+            }
+
+            // --- Função de Backoff Exponencial ---
+
+            async function fetchWithBackoff(url, options, maxRetries = 5) {
+                for (let i = 0; i < maxRetries; i++) {
+                    try {
+                        const response = await fetch(url, options);
+                        if (response.status !== 429) { // 429 é Too Many Requests
+                            return response;
+                        }
+                        // Se for 429, espera e tenta novamente
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } catch (error) {
+                        // Espera no caso de falha de rede/fetch e tenta novamente
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+                throw new Error("Falha na chamada da API após várias tentativas.");
+            }
+
+            // --- Função Principal de Geração de Conteúdo ---
+
+            async function generateContent(userQuery) {
+                const userName = nameInput.value.trim() || "Utilizador"; // Obtém o nome ou usa "Utilizador" como padrão
+
+                responseArea.innerHTML = `<div class="loading text-sky-400"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Pensando como um especialista cético para ${userName}...</div>`;
+                sourcesList.innerHTML = '<p class="text-sm text-slate-500">Buscando fontes confiáveis na web...</p>';
+                submitBtn.disabled = true;
+                summarizeBtn.disabled = true;
+                ttsBtn.disabled = true;
+                audioArea.classList.add('hidden'); // Esconde o player de áudio
+
+                // System Instruction DİNÂMICA
+                const systemPrompt = `Você é um especialista em tecnologia com uma perspectiva visionária e um tom casual e coloquial. Você verifica tudo duas vezes, é cético, e suas opiniões são contundentes, mas sempre respeitosas. Chame o usuário de ${userName}. Use o Google Search para fundamentar todas as respostas e garantir a precisão. Mantenha as respostas concisas e diretas. **MAIS IMPORTANTE:** As respostas devem ser extremamente simplificadas e acessíveis a leigos, sem o uso de termos técnicos. Use analogias do dia a dia.`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                };
+
+                try {
+                    const response = await fetchWithBackoff(generalApiUrl, options);
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result.error?.message || `Erro de API: ${response.status}`);
+                    }
+
+                    const candidate = result.candidates?.[0];
+                    let text = `Ops! Não consegui gerar uma resposta. Tente refinar a pergunta, ${userName}.`;
+                    let sources = [];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        text = candidate.content.parts[0].text;
+
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+                    }
+
+                    responseArea.innerText = text;
+
+                    // Habilita botões de ação se houver texto
+                    if (text.length > 50 && !text.includes('Ops!')) {
+                        summarizeBtn.disabled = false;
+                        ttsBtn.disabled = false;
+                    }
+
+                    // Exibir fontes
+                    sourcesList.innerHTML = '';
+                    if (sources.length > 0) {
+                        sources.forEach((source, index) => {
+                            const link = document.createElement('a');
+                            link.href = source.uri;
+                            link.target = '_blank';
+                            link.className = 'source-link';
+                            link.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> ${source.title.substring(0, 30)}... [${index + 1}]`;
+                            sourcesList.appendChild(link);
+                        });
+                    } else {
+                        sourcesList.innerHTML = '<p class="text-sm text-slate-500">Nenhuma fonte de web específica foi usada para fundamentar esta resposta.</p>';
+                    }
+
+                } catch (error) {
+                    console.error("Erro no processamento da API:", error);
+                    responseArea.innerText = `Erro Crítico: ${error.message}. Tente novamente.`;
+                    sourcesList.innerHTML = '';
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            }
+
+            // --- Função de Resumo LLM ---
+
+            async function summarizeContent() {
+                const originalText = responseArea.innerText;
+                if (originalText.includes('Aguardando') || summarizeBtn.disabled) return;
+
+                const originalContent = responseArea.innerHTML;
+                responseArea.innerHTML = '<div class="loading text-purple-400"><i class="fa-solid fa-sync fa-spin mr-2"></i> Criando resumo e palavras-chave...</div>';
+                summarizeBtn.disabled = true;
+                ttsBtn.disabled = true;
+
+                // Nova System Instruction para forçar o resumo e extração de palavras-chave
+                const systemPrompt = "Você é um assistente de estudo eficiente. Dada a resposta do utilizador, forneça um resumo super conciso de uma frase (no máximo 20 palavras) e liste as 3 palavras-chave mais importantes no final, separadas por vírgulas. Mantenha o tom informal e use a analogia da resposta original.";
+
+                const userQuery = `Resuma o seguinte conteúdo e extraia as palavras-chave:\n\n---\n${originalText}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                };
+
+                try {
+                    const response = await fetchWithBackoff(generalApiUrl, options);
+                    const result = await response.json();
+
+                    if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                        responseArea.innerText = result.candidates[0].content.parts[0].text;
+                    } else {
+                        responseArea.innerHTML = originalContent; // Volta ao original se falhar
+                        console.error("Falha ao resumir.");
+                    }
+
+                } catch (error) {
+                    console.error("Erro no resumo:", error);
+                    responseArea.innerHTML = originalContent; // Volta ao original se falhar
+                } finally {
+                    summarizeBtn.disabled = false;
+                    ttsBtn.disabled = false;
+                }
+            }
+
+            // --- Função de TTS ---
+
+            async function generateAudio() {
+                const textToSpeak = responseArea.innerText;
+                if (textToSpeak.includes('Aguardando') || ttsBtn.disabled || textToSpeak.includes('Ops!')) return;
+
+                ttsBtn.disabled = true;
+                const originalText = ttsBtn.innerHTML;
+                ttsBtn.innerHTML = '<i class="fa-solid fa-sync fa-spin mr-2"></i> A gerar áudio...';
+                audioArea.classList.add('hidden');
+                audioPlayer.src = '';
+
+                const payload = {
+                    contents: [{
+                        parts: [{ text: textToSpeak }]
+                    }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { voiceName: "Puck" } // Voz alegre e amigável
+                            }
+                        }
+                    },
+                    model: "gemini-2.5-flash-preview-tts"
+                };
+
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                };
+
+                try {
+                    const response = await fetchWithBackoff(ttsApiUrl, options);
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result.error?.message || `Erro TTS: ${response.status}`);
+                    }
+
+                    const part = result?.candidates?.[0]?.content?.parts?.[0];
+                    const audioData = part?.inlineData?.data;
+                    const mimeType = part?.inlineData?.mimeType;
+
+                    if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                        const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                        const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 16000;
+
+                        const pcmData = base64ToArrayBuffer(audioData);
+                        const pcm16 = new Int16Array(pcmData);
+                        const wavBlob = pcmToWav(pcm16, sampleRate);
+
+                        const audioUrl = URL.createObjectURL(wavBlob);
+                        audioPlayer.src = audioUrl;
+                        audioArea.classList.remove('hidden');
+                        // audioPlayer.play(); // Não reproduzir automaticamente para evitar problemas de navegador
+
+                    } else {
+                        alert('Erro ao processar o áudio TTS. Tente novamente.');
+                    }
+
+                } catch (error) {
+                    console.error("Erro TTS:", error);
+                    // Usamos 'alert' aqui pois é uma função utilitária de erro do navegador para um problema de API/code
+                    alert(`Erro ao gerar áudio: ${error.message}`);
+                } finally {
+                    ttsBtn.disabled = false;
+                    ttsBtn.innerHTML = originalText;
+                }
+            }
+
+
+            // --- Listeners de Eventos ---
+
+            submitBtn.addEventListener('click', () => {
+                const query = promptInput.value.trim();
+                if (query) {
+                    generateContent(query);
+                }
+            });
+
+            promptInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !submitBtn.disabled) {
+                    submitBtn.click();
+                }
+            });
+
+            summarizeBtn.addEventListener('click', summarizeContent);
+            ttsBtn.addEventListener('click', generateAudio);
+
+            // Atualiza a mensagem inicial de boas-vindas
+            nameInput.addEventListener('input', () => {
+                const userName = nameInput.value.trim() || "Utilizador";
+                if (responseArea.innerText.startsWith("Aguardando sua pergunta")) {
+                    responseArea.innerText = `Aguardando sua pergunta, ${userName}...`;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
