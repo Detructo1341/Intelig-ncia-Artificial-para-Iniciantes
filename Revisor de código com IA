@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisor de Código com IA</title>
+    <!-- Carrega o Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Fundo suave */
+        }
+        .code-area {
+            min-height: 300px;
+            max-height: 50vh; /* Limite de altura para telas pequenas */
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .review-output {
+            min-height: 300px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilos específicos para o loader */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Estilização para o código refatorado dentro da saída */
+        .review-output pre {
+            background-color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">
+            <span class="text-blue-600">Revisor</span> de Código com IA
+        </h1>
+        <p class="text-gray-600 mb-8">Cole o seu código para uma análise detalhada sobre clareza, eficiência e segurança, alimentada pelo Gemini.</p>
+
+        <!-- Container Flex/Grid para Layout Responsivo -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <!-- Painel de Entrada de Código -->
+            <div>
+                <label for="codeInput" class="block text-lg font-semibold text-gray-700 mb-2">
+                    Código para Revisão (HTML, JS, Python, etc.)
+                </label>
+                <textarea id="codeInput" class="w-full code-area p-4 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out resize-none text-sm" placeholder="// Cole o seu código aqui..." spellcheck="false"></textarea>
+            </div>
+
+            <!-- Painel de Saída da Revisão -->
+            <div>
+                <label for="reviewOutput" class="block text-lg font-semibold text-gray-700 mb-2">
+                    Resultado da Revisão (Gemini)
+                </label>
+                <div id="reviewOutput" class="review-output text-sm">
+                    Aguardando o seu código...
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Ações -->
+        <div class="mt-8 flex justify-center">
+            <button id="reviewButton" onclick="reviewCode()" class="px-8 py-3 bg-blue-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 flex items-center justify-center" disabled>
+                <span id="buttonText">Revisar Código</span>
+                <div id="loadingIndicator" class="loader ml-3 hidden"></div>
+            </button>
+        </div>
+
+        <!-- Área de Mensagens de Erro/Status -->
+        <div id="messageArea" class="mt-4 text-center text-red-600 font-medium hidden"></div>
+
+    </div>
+
+    <script>
+        // Variáveis globais para o Gemini API. O apiKey é deixado como vazio, 
+        // pois o ambiente Canvas o fornecerá em tempo de execução.
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        // Referências DOM
+        const codeInput = document.getElementById('codeInput');
+        const reviewOutput = document.getElementById('reviewOutput');
+        const reviewButton = document.getElementById('reviewButton');
+        const buttonText = document.getElementById('buttonText');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const messageArea = document.getElementById('messageArea');
+
+        // Habilita/Desabilita o botão baseado no conteúdo da área de texto
+        codeInput.addEventListener('input', () => {
+            reviewButton.disabled = codeInput.value.trim().length === 0;
+        });
+
+        // Configurações e Persona da IA (System Instruction)
+        const systemInstruction = `Você é um engenheiro de software especialista em revisão de código. Sua tarefa é analisar o código fornecido pelo usuário. Avalie a clareza, a eficiência, a segurança e as melhores práticas. Forneça o feedback em Português (Portugal) de forma profissional e detalhada. Estruture a resposta com as seguintes secções:
+1. **Resumo Geral:** Uma avaliação concisa (3-4 frases).
+2. **Pontos Fortes:** O que o código faz bem.
+3. **Sugestões de Melhoria:** Detalhes de problemas de segurança, eficiência, clareza ou aderência a padrões.
+4. **Código Refatorado:** Apresente uma versão refatorada do código, se houver mudanças significativas e claras a serem feitas. Se não houver, apenas declare isso. O código refatorado deve ser fornecido num bloco de código Markdown.`;
+
+        // Função para realizar a chamada da API com exponential backoff
+        async function callGeminiApiWithRetry(payload, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        return response.json();
+                    }
+
+                    // Se for um erro que pode ser resolvido com retry (e.g., 429 Too Many Requests)
+                    if (response.status === 429 || (response.status >= 500 && response.status < 600)) {
+                        // Corrigido: Usando template literals limpos
+                        console.warn(`Tentativa ${i + 1} falhou com status ${response.status}. Tentando novamente em ${delay / 1000}s...`);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2; // Aumenta o atraso (exponential backoff)
+                        continue;
+                    }
+
+                    // Para outros erros (e.g., 400 Bad Request, 403 Forbidden), falha imediatamente
+                    const errorJson = await response.json();
+                    // Corrigido: Usando template literals limpos
+                    throw new Error(`Erro da API: ${response.status} - ${errorJson.error?.message || 'Erro desconhecido.'}`);
+
+                } catch (error) {
+                    if (i === maxRetries - 1) {
+                        // Corrigido: Usando template literals limpos
+                        throw new Error(`Falha ao contactar a API após ${maxRetries} tentativas: ${error.message}`);
+                    }
+                    // Corrigido: Usando template literals limpos
+                    console.error(`Erro na tentativa ${i + 1}: ${error.message}`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        /**
+         * Inicia o processo de revisão de código.
+         */
+        async function reviewCode() {
+            const code = codeInput.value.trim();
+            if (!code) {
+                messageArea.textContent = 'Por favor, insira o código para iniciar a revisão.';
+                messageArea.classList.remove('hidden');
+                return;
+            }
+
+            // 1. UI: Estado de Carregamento
+            reviewButton.disabled = true;
+            buttonText.textContent = 'A Rever...';
+            loadingIndicator.classList.remove('hidden');
+            reviewOutput.innerHTML = '<div class="text-gray-500">A processar a sua revisão... Isto pode demorar alguns segundos.</div>';
+            messageArea.classList.add('hidden');
+            messageArea.textContent = '';
+
+
+            // 2. Montar o Payload da API
+            // Corrigido: Usando template literals limpos
+            const userQuery = `Revisa este código. O código é: \n\n\`\`\`\n${code}\n\`\`\``;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+            };
+
+            try {
+                // 3. Chamar a API
+                const result = await callGeminiApiWithRetry(payload);
+                
+                // 4. Processar e Exibir o Resultado
+                const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (generatedText) {
+                    // Substitui blocos de código markdown por tags <pre> para estilização
+                    const htmlContent = formatMarkdownToHtml(generatedText);
+                    reviewOutput.innerHTML = htmlContent;
+                    reviewOutput.scrollTop = 0; // Vai para o topo do resultado
+                } else {
+                    reviewOutput.innerHTML = '<p class="text-red-600 font-bold">A IA não forneceu uma resposta. Tente novamente ou use um código diferente.</p>';
+                }
+
+            } catch (error) {
+                console.error("Erro fatal durante a revisão:", error);
+                // Corrigido: Usando template literals limpos
+                messageArea.textContent = `Ocorreu um erro: ${error.message}. Por favor, verifique a sua ligação ou tente mais tarde.`;
+                messageArea.classList.remove('hidden');
+                reviewOutput.innerHTML = '<p class="text-red-600">Erro ao obter a revisão. Verifique a área de mensagens.</p>';
+
+            } finally {
+                // 5. UI: Voltar ao Estado Normal
+                reviewButton.disabled = codeInput.value.trim().length === 0;
+                buttonText.textContent = 'Revisar Código';
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Função utilitária para converter blocos de código Markdown em HTML para exibição.
+         * Simplificação: apenas converte blocos de código (`...`) e parágrafos.
+         */
+        function formatMarkdownToHtml(markdownText) {
+            let html = '';
+            const parts = markdownText.split(/```/); // Divide pelo bloco de código markdown
+
+            for (let i = 0; i < parts.length; i++) {
+                const part = parts[i];
+
+                if (i % 2 === 1) {
+                    // É um bloco de código (entre dois '```')
+                    let content = part.trim();
+                    const firstNewline = content.indexOf('\n');
+                    let code = content;
+
+                    if (firstNewline !== -1) {
+                        // Remove a linguagem (ex: javascript) da primeira linha
+                        code = content.substring(firstNewline + 1).trim();
+                    }
+
+                    // Envolve em tags <pre> para formatação de código
+                    html += `<pre><code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
+                } else {
+                    // É texto normal
+                    const paragraphs = part.split('\n').filter(p => p.trim() !== '');
+                    paragraphs.forEach(p => {
+                        // Converte negrito (**)
+                        let formattedP = p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        // Envolve em tags <p> para quebra de linha
+                        html += `<p class="mb-3">${formattedP}</p>`;
+                    });
+                }
+            }
+            return html;
+        }
+
+        // Habilita o botão inicialmente se houver algum conteúdo
+        if (codeInput.value.trim().length > 0) {
+             reviewButton.disabled = false;
+        }
+
+    </script>
+</body>
+</html>
