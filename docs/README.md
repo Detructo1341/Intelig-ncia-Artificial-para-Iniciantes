@@ -3,16 +3,16 @@
 
 Este repositório consolida um ecossistema prático e estratégico projetado para acelerar a transição de usuários comuns para especialistas em IA. O foco reside no domínio de ferramentas de fronteira, como o Google Gemini 3 Flash e o n8n, aplicados à produtividade real e automação de alto nível.
 
-## **📂 Arquitetura do Ecossistema** ##
-O projeto é estruturado de forma modular para facilitar a implementação e o estudo:
+## 📂 Organização do Projeto
 
-- /scripts: Motores de automação em Python, incluindo o Coach de Fluência e o Analista Multimodal.
-
-- /prompts: Uma biblioteca de Agentes de Bolso (instruções estruturadas) que convertem a IA em especialistas setoriais.
-
-- /docs: Documentação estratégica, roadmaps e frameworks (como o Framework dos 4Ds).
-
-- /web: Interfaces leves e ferramentas em HTML para interação direta via navegador.
+* **`/scripts`**: Motores de execução em Python.
+    * `bot_gemini_inteligente.py`: O núcleo de interação.
+    * `agente_de_bolso.py`: O orquestrador de perfis.
+    * `analista_de_contexto.py`: Ferramenta multimodal.
+* **`/prompts`**: A base de conhecimento do sistema.
+    * `agentes/`: Ficheiros `.md` com instruções de especialistas.
+* **`/docs`**: Material educativo e estratégico.
+    * `4Ds.md`: O guia da metodologia de fluência.
 
 ## **🛠️ Pilares Tecnológicos** ##
 
