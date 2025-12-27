@@ -1,9 +1,9 @@
-Ecossistema de Fluência em IA
+# **Ecossistema de Fluência em IA** #
 "A inteligência artificial não substitui o capital humano; ela potencializa o humano que a domina."
 
 Este repositório consolida um ecossistema prático e estratégico projetado para acelerar a transição de usuários comuns para especialistas em IA. O foco reside no domínio de ferramentas de fronteira, como o Google Gemini 3 Flash e o n8n, aplicados à produtividade real e automação de alto nível.
 
-📂 Arquitetura do Ecossistema
+## **📂 Arquitetura do Ecossistema** ##
 O projeto é estruturado de forma modular para facilitar a implementação e o estudo:
 
 /scripts: Motores de automação em Python, incluindo o Coach de Fluência e o Analista Multimodal.
@@ -14,7 +14,8 @@ O projeto é estruturado de forma modular para facilitar a implementação e o e
 
 /web: Interfaces leves e ferramentas em HTML para interação direta via navegador.
 
-🛠️ Pilares Tecnológicos
+## **🛠️ Pilares Tecnológicos** ##
+
 Framework dos 4Ds: Metodologia exclusiva para Discernimento, Descrição, Delegação e Diligência no uso de IAs Generativas.
 
 Agentes de Bolso: Pack de agentes especializados (Arquiteto de Automação, Revisor Executivo, etc.) que rodam sob o motor do Gemini 3 Flash.
@@ -23,7 +24,8 @@ Análise Multimodal: Ferramentas capazes de interpretar textos, imagens e arquiv
 
 Automação de Fluxos: Integrações focadas em eliminar o "trabalho de robô" através de Python e n8n.
 
-🚀 Como Implementar
+## **🚀 Como Implementar** ##
+
 Configuração: Certifique-se de possuir uma GOOGLE_API_KEY ativa para os modelos Gemini 3.
 
 Instalação: Execute pip install -r requirements.txt para preparar o ambiente de execução.
