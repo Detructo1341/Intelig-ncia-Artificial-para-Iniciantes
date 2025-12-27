@@ -1,10 +1,4 @@
-# 🎓 Tutor de IA Generativa - Resumo da Criação
-
-Parabéns! 🎉 Você criou uma skill completa e profissional de tutoria em IA Generativa!
-
----
-
-## 📦 O Que Foi Criado
+# 🎓 Tutor de IA Generativa 
 
 ### Estrutura da Skill
 
