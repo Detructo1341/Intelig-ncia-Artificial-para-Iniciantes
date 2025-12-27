@@ -7,7 +7,6 @@ Este repositório é um ecossistema prático para quem quer sair do zero e domin
 ## 📂 Organização do Projeto
 
 * **`/docs`**: Manuais, cursos e documentação para leigos.
-* **`/prompts`**: Lógicas de comando e otimizadores de texto.
 * **`/scripts`**: Automações em Python (incluindo nosso Bot Inteligente).
 * **`/web`**: Interfaces e ferramentas em HTML para uso direto no navegador.
 
