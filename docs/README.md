@@ -6,13 +6,13 @@ Este repositório consolida um ecossistema prático e estratégico projetado par
 ## **📂 Arquitetura do Ecossistema** ##
 O projeto é estruturado de forma modular para facilitar a implementação e o estudo:
 
-/scripts: Motores de automação em Python, incluindo o Coach de Fluência e o Analista Multimodal.
+- /scripts: Motores de automação em Python, incluindo o Coach de Fluência e o Analista Multimodal.
 
-/prompts: Uma biblioteca de Agentes de Bolso (instruções estruturadas) que convertem a IA em especialistas setoriais.
+- /prompts: Uma biblioteca de Agentes de Bolso (instruções estruturadas) que convertem a IA em especialistas setoriais.
 
-/docs: Documentação estratégica, roadmaps e frameworks (como o Framework dos 4Ds).
+- /docs: Documentação estratégica, roadmaps e frameworks (como o Framework dos 4Ds).
 
-/web: Interfaces leves e ferramentas em HTML para interação direta via navegador.
+- /web: Interfaces leves e ferramentas em HTML para interação direta via navegador.
 
 ## **🛠️ Pilares Tecnológicos** ##
 
