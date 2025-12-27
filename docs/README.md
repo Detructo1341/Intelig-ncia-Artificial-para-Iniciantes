@@ -1,27 +1,33 @@
-# 🚀 Inteligência Artificial para Iniciantes
+Ecossistema de Fluência em IA
+"A inteligência artificial não substitui o capital humano; ela potencializa o humano que a domina."
 
-> **"A IA não vai substituir os humanos, mas os humanos que usam IA vão substituir os que não usam."**
+Este repositório consolida um ecossistema prático e estratégico projetado para acelerar a transição de usuários comuns para especialistas em IA. O foco reside no domínio de ferramentas de fronteira, como o Google Gemini 3 Flash e o n8n, aplicados à produtividade real e automação de alto nível.
 
-Este repositório é um ecossistema prático para quem quer sair do zero e dominar as ferramentas que estão moldando o futuro. Aqui você encontra automações, guias de fluência e scripts para turbinar sua produtividade com Google Gemini e n8n.
+📂 Arquitetura do Ecossistema
+O projeto é estruturado de forma modular para facilitar a implementação e o estudo:
 
-## 📂 Organização do Projeto
+/scripts: Motores de automação em Python, incluindo o Coach de Fluência e o Analista Multimodal.
 
-* **`/docs`**: Manuais, cursos e documentação para leigos.
-* **`/scripts`**: Automações em Python (incluindo nosso Bot Inteligente).
-* **`/web`**: Interfaces e ferramentas em HTML para uso direto no navegador.
+/prompts: Uma biblioteca de Agentes de Bolso (instruções estruturadas) que convertem a IA em especialistas setoriais.
 
-## 🛠️ O que você vai encontrar aqui?
+/docs: Documentação estratégica, roadmaps e frameworks (como o Framework dos 4Ds).
 
-1.  **Curso de Fluência em IA:** Um guia completo para entender como as IAs generativas pensam.
-2.  **Agente Universal:** Prompts estruturados para transformar o Gemini em um especialista em qualquer área.
-3.  **Automação com n8n:** Como conectar ferramentas e criar fluxos de trabalho automáticos.
-4.  **Bot Gemini Inteligente:** Script Python para integração direta.
+/web: Interfaces leves e ferramentas em HTML para interação direta via navegador.
 
-## 🚀 Como começar
+🛠️ Pilares Tecnológicos
+Framework dos 4Ds: Metodologia exclusiva para Discernimento, Descrição, Delegação e Diligência no uso de IAs Generativas.
 
-1.  Explore a pasta `/docs` para entender os conceitos básicos.
-2.  Use os arquivos `.html` na pasta `/web` para testar ferramentas de interface.
-3.  Contribua! Este é um projeto aberto para quem quer aprender ensinando.
+Agentes de Bolso: Pack de agentes especializados (Arquiteto de Automação, Revisor Executivo, etc.) que rodam sob o motor do Gemini 3 Flash.
 
----
-Mantenha a curiosidade. O futuro é de quem automatiza. 🧠✨
+Análise Multimodal: Ferramentas capazes de interpretar textos, imagens e arquivos complexos para gerar insights acionáveis.
+
+Automação de Fluxos: Integrações focadas em eliminar o "trabalho de robô" através de Python e n8n.
+
+🚀 Como Implementar
+Configuração: Certifique-se de possuir uma GOOGLE_API_KEY ativa para os modelos Gemini 3.
+
+Instalação: Execute pip install -r requirements.txt para preparar o ambiente de execução.
+
+Exploração: Inicie pelos agentes em /scripts/agente_de_bolso.py para experienciar a especialização da IA em tempo real.
+
+O futuro pertence aos que automatizam a execução e priorizam a estratégia. 🧠✨
