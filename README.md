@@ -1,4 +1,4 @@
-# **Ecossistema de Fluência em IA** #
+# **Inteligência Artificial para Iniciantes** #
 "A inteligência artificial não substitui o capital humano; ela potencializa o humano que a domina."
 
 Este repositório consolida um ecossistema prático e estratégico projetado para acelerar a transição de usuários comuns para especialistas em IA. O foco reside no domínio de ferramentas de fronteira, como o Google Gemini 3 Flash e o n8n, aplicados à produtividade real e automação de alto nível.
