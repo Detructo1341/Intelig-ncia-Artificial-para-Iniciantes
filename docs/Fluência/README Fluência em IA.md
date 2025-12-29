@@ -16,7 +16,7 @@ Este repositório consolida um ecossistema prático e estratégico projetado par
 
 ## **🛠️ Pilares Tecnológicos** ##
 
-- Framework dos 4Ds: Metodologia exclusiva para Discernimento, Descrição, Delegação e Diligência no uso de IAs Generativas.
+- Framework dos 4Ds: Metodologia exclusiva para Discernimento, Descrição, Delegação e Diligência no uso de IAs Generativas. (Feito com base no material da Anthropic)
 
 - Agentes de Bolso: Pack de agentes especializados (Arquiteto de Automação, Revisor Executivo, etc.) que rodam sob o motor do Gemini 3 Flash.
 
