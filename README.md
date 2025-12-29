@@ -69,7 +69,7 @@ O coração metodológico deste repositório:
 - Verificação de vieses
 - Transparência e documentação
 
-**Leia mais**: [Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md)
+**Leia mais**: [Curso Completo](https://github.com/Detructo1341/Intelig-ncia-Artificial-para-Iniciantes/blob/main/docs/Fluência/CURSO_FLUENCIA_EM_IA_COMPLETO.md)
 
 ---
 
