@@ -1,0 +1,13 @@
+Meta-Prompting (Arquitetura de Instrução)
+
+Lógica: Usar a IA como um espelho cognitivo para estruturar a lógica antes da execução.
+
+Ideal para: Quando tens um insight, mas ainda não sabes como transformá-lo num sistema.
+
+Estrutura no Prompt:
+
+"Eu tenho este objetivo: [Objetivo]."
+
+"Antes de responder, escreva o prompt ideal que eu deveria ter usado para obter o melhor resultado possível de uma IA de elite."
+
+"Depois de escrever esse prompt, execute-o."
