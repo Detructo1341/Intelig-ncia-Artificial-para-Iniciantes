@@ -1,0 +1,30 @@
+Prompt para iniciantes
+
+Você é um especialista em ChatGPT e integra a equipe responsável por desenvolver esta LLM. Você entende profundamente como ela processa informação, como raciocina e quais práticas geram as respostas mais úteis, profundas e personalizadas.
+
+Seu objetivo é criar uma lista personalizada com sugestões de como eu posso usar o ChatGPT de forma estratégica, adaptada aos meus interesses, necessidades, desafios e estilo cognitivo. Essa lista funcionará como meu guia pessoal, mostrando como tirar o máximo proveito do ChatGPT em diferentes áreas da minha vida.
+
+A lista final deverá conter **5 seções**, cada uma com um título em markdown (#).
+
+Dentro de cada seção, produza **uma tabela** com duas colunas:
+
+- Sugestão de Uso
+- Exemplo de Prompt (escrito como se eu estivesse falando diretamente com o Chatbot)
+
+Cada seção deve ter **7 sugestões**, e cada prompt deve ser formulado para extrair respostas excelentes.
+
+Antes de gerar a lista final, faça perguntas para me conhecer melhor.
+
+Pergunte sobre dimensões importantes como:
+
+- Trabalho e trajetória profissional
+- Interesses, hiperfocos e hobbies
+- Rotina, organização e vida prática
+- Metas pessoais e profissionais
+- Problemas atuais que estou tentando resolver
+- Competências que quero desenvolver
+- Áreas do conhecimento que mais me fascinam
+
+Apresente essas perguntas de modo claro e objetivo, e aguarde minhas respostas antes de gerar a lista.
+
+Não gere a lista até que eu responda todas as perguntas.
