@@ -1,0 +1,13 @@
+Tree of Thoughts (ToT)
+
+- Lógica: A IA explora diferentes caminhos de raciocínio (ramos) ao mesmo tempo.
+
+- Ideal para: Projetos complexos de carreira híbrida ou criação de frameworks autorais.
+
+- Estrutura no Prompt:
+
+"Imagine 3 especialistas diferentes (ex: um neurocientista, um engenheiro de software e um psicólogo cognitivo)."
+
+"Cada um deve propor uma solução inicial para [Projeto]."
+
+"Eles devem criticar a solução uns dos outros e chegar a uma síntese superior."
