@@ -1,0 +1,23 @@
+## 🧪 Prompt Engineering Avançado (`/prompts/`)
+
+Desenvolvi uma **coleção de prompts especializados** que transformam qualquer IA em um parceiro cognitivo de alto nível. Cada um é um "modo de pensamento" para diferentes necessidades:
+
+| Prompt | Para quê? | Link |
+|-------|----------|------|
+| **Prompt Mestre 2.0** | Criar prompts perfeitos, passo a passo | [`prompt-mestre-2.0.md`](prompts/prompt-mestre-2.0.md) |
+| **Professor Especialista** | Aprender qualquer habilidade com didática progressiva | [`prompt-professor-especialista.md`](prompts/prompt-professor-especialista.md) |
+| **Ecossistema Cognitivo** | Pensar **com** a IA, como um sistema mental expandido | [`ecossistema-cognitivo-prompt.md`](prompts/ecossistema-cognitivo-prompt.md) |
+| **O Estrategista Cognitivo** | Análise estratégica com base em Ng, Altman, Marcus, Gebru e outros | [`estrategista-cognitivo-prompt.md`](prompts/estrategista-cognitivo-prompt.md) |
+| **Sistema Autocrítico** | Garantir respostas com validação epistêmica dupla | [`sistema-autocritico-prompt.md`](prompts/sistema-autocritico-prompt.md) |
+| **Prompt Universal – Razão & Pesquisa** | Co-pesquisa científica com rigor metodológico | [`prompt-universal-sistema-razao-pesquisa.md`](prompts/prompt-universal-sistema-razao-pesquisa.md) |
+
+> 💡 **Dica**: Use esses prompts no ChatGPT, Claude, Gemini ou Copilot para **elevar sua interação com IA de assistente para co-pensador**.
+
+---
+
+## 📚 Comece por aqui (roteiro para iniciantes)
+
+1. **Leia** → [`/teoria/o-que-e-ia-generativa.md`](teoria/o-que-e-ia-generativa.md)  
+2. **Teste** → Rode um exemplo simples em [`/pratica/hello-llm/`](pratica/hello-llm/)  
+3. **Aprenda a perguntar** → Use o [`Prompt Mestre 2.0`](prompts/prompt-mestre-2.0.md) para criar seu primeiro prompt eficaz  
+4. **Aprofunde** → Escolha um tema (ética, negócios, educação) e explore com o **Professor Especialista**
