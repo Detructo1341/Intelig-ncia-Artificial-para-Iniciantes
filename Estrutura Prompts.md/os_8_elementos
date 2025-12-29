@@ -1,73 +1,116 @@
-# Os 8 Elementos do Prompt Mapeados** #
+# 🧠 Os 8 Elementos do Prompt Mapeados
 
-## 1. Objetivo (Vetor de Intenção)
-O que é: O que você quer que a IA faça, com nitidez.
+> Uma arquitetura para prompts eficazes, pensada como um sistema de fluência cognitiva. Cada elemento atua como um “pilar” que orienta a IA a produzir saídas mais precisas, úteis e contextualizadas.
 
-Pilar da Fluência: Diligência.
+---
 
-Análise de Arquiteto: Este é o âncoramento primário. Ele define a tarefa principal e evita o "vapor" (geração aleatória de tokens). Sem um objetivo nítido, o modelo apenas prevê a probabilidade estatística mais genérica.
+## 1. **Objetivo** *(Vetor de Intenção)*
 
-Exemplo: "Gerar uma oficina de 45 minutos sobre regulação emocional para alunos do 7º ano."
+- **O que é**: O que você quer que a IA faça — com nitidez e propósito.
+- **Pilar da Fluência**: 🧭 Diligência
+- **Exemplo**:  
+  > "Gerar uma oficina de 45 minutos sobre regulação emocional para alunos do 7º ano."
 
-2. Contexto (Filtro de Espaço Latente)
-O que é: O pano de fundo que dá sentido ao objetivo.
+<!-- Preencha seu objetivo aqui -->
+> **Seu objetivo**: 
 
-Pilar da Fluência: Discernimento.
+---
 
-Análise de Arquiteto: O contexto ativa subconjuntos específicos de conhecimento. Ao definir "escola pública", você "mascara" bilhões de tokens irrelevantes, forçando a atenção do modelo para um domínio semântico específico.
+## 2. **Contexto** *(Filtro de Espaço Latente)*
 
-Exemplo: "Turma de 25 alunos em escola pública; maioria com baixa motivação; professor sem formação em CNV; sem projetor."
+- **O que é**: O pano de fundo que dá sentido ao objetivo — restrições, ambiente, perfil do público.
+- **Pilar da Fluência**: 🔍 Discernimento
+- **Exemplo**:  
+  > "Turma de 25 alunos em escola pública; maioria com baixa motivação; professor sem formação em CNV; sem projetor."
 
-3. Passo a Passo (Instruções Processuais)
-O que é: Como você quer que a IA estruture a entrega.
+<!-- Preencha seu contexto aqui -->
+> **Seu contexto**: 
 
-Pilar da Fluência: Descrição.
+---
 
-Análise de Arquiteto: É a forma mais robusta de Chain-of-Thought (CoT). Ao definir os passos, o output do Passo 1 torna-se o contexto para o Passo 2, aumentando exponencialmente a coerência lógica.
+## 3. **Passo a Passo** *(Instruções Processuais)*
 
-Exemplo: "1. Objetivos de aprendizagem; 2. Materiais; 3. Roteiro minuto-a-minuto; 4. Avaliação."
+- **O que é**: Como você quer que a IA estruture a entrega.
+- **Pilar da Fluência**: 📝 Descrição
+- **Análise de Arquiteto**:  
+  É a forma mais robusta de *Chain-of-Thought (CoT)*. A saída do Passo 1 vira contexto para o Passo 2, aumentando exponencialmente a coerência lógica.
+- **Exemplo**:  
+  > "1. Objetivos de aprendizagem; 2. Materiais; 3. Roteiro minuto-a-minuto; 4. Avaliação."
 
-4. Persona e Formato (Ancoragem e Redução de Entropia)
-O que é: Quem "fala" (tom) e qual a estrutura final (JSON, Tabela, Markdown).
+<!-- Preencha seus passos aqui -->
+> **Seus passos**: 
 
-Pilar da Fluência: Delegação.
+---
 
-Análise de Arquiteto: A Persona imita padrões de linguagem específicos, enquanto o Formato define o "esquema" estrutural. Ambos reduzem a entropia (aleatoriedade) da saída.
+## 4. **Persona e Formato** *(Ancoragem e Redução de Entropia)*
 
-Exemplo: "Persona de professor experiente; entrega em formato de roteiro com seções e bullets."
+- **O que é**: Quem “fala” (tom) e qual a estrutura final (JSON, tabela, markdown, etc.).
+- **Pilar da Fluência**: 🤖 Delegação
+- **Análise de Arquiteto**:  
+  A *Persona* imita padrões de linguagem; o *Formato* define o esquema estrutural. Ambos reduzem a entropia da saída.
+- **Exemplo**:  
+  > "Persona de professor experiente; entrega em formato de roteiro com seções e bullets."
 
-5. Exemplo (Few-Shot Learning)
-O que é: Uma referência concreta do resultado desejado.
+<!-- Preencha aqui -->
+> **Sua persona**:  
+> **Seu formato**: 
 
-Pilar da Fluência: Descrição + Observabilidade.
+---
 
-Análise de Arquiteto: O modelo funciona por comparação de padrões. O exemplo fornece um "vetor-alvo". O objetivo da IA é atingir uma alta similaridade de cosseno com esse padrão.
+## 5. **Exemplo** *(Few-Shot Learning)*
 
-Exemplo: "Exemplo de atividade: 'Respiração 4-4: 3 minutos, foco no corpo'."
+- **O que é**: Uma referência concreta do resultado desejado.
+- **Pilar da Fluência**: 👁️ Descrição + Observabilidade
+- **Análise de Arquiteto**:  
+  O modelo compara padrões. O exemplo é um “vetor-alvo” para similaridade de cosseno.
+- **Exemplo**:  
+  > "Exemplo de atividade: 'Respiração 4-4: 3 minutos, foco no corpo'."
 
-6. Background (Manual RAG)
-O que é: Teorias, fontes ou dados adicionais que devem ser usados.
+<!-- Cole seu exemplo aqui -->
+> **Seu exemplo**: 
 
-Pilar da Fluência: Discernimento Crítico.
+---
 
-Análise de Arquiteto: É uma injeção manual de conhecimento no contexto. Você instrui o mecanismo de atenção a dar um peso maior a conceitos específicos (ex: Neurociência, CNV).
+## 6. **Background** *(Manual RAG)*
 
-Exemplo: "Baseie-se em princípios de neurociência da atenção e CNV."
+- **O que é**: Teorias, fontes ou dados adicionais que devem ser usados.
+- **Pilar da Fluência**: 🧪 Discernimento Crítico
+- **Análise de Arquiteto**:  
+  Injeção manual de conhecimento no contexto — orienta o mecanismo de atenção.
+- **Exemplo**:  
+  > "Baseie-se em princípios de neurociência da atenção e CNV."
 
-7. Limitação (Guardrails e Poda Probabilística)
-O que é: O que não fazer; limites operacionais.
+<!-- Liste suas fontes ou conceitos aqui -->
+> **Seu background**: 
 
-Pilar da Fluência: Diligência Ética.
+---
 
-Análise de Arquiteto: São instruções negativas que realizam a "poda" (pruning) de caminhos probabilísticos indesejados, evitando riscos, jargões ou custos desnecessários.
+## 7. **Limitação** *(Guardrails e Poda Probabilística)*
 
-Exemplo: "Não use jargão técnico; nada que envolva intervenção clínica."
+- **O que é**: O que **não** fazer — limites operacionais, éticos ou práticos.
+- **Pilar da Fluência**: ⚖️ Diligência Ética
+- **Análise de Arquiteto**:  
+  Instruções negativas que podam caminhos indesejados no espaço de resposta.
+- **Exemplo**:  
+  > "Não use jargão técnico; nada que envolva intervenção clínica."
 
-8. Critérios de Sucesso (Validação e Loop de Feedback)
-O que é: Como medir se o output está "bom".
+<!-- Defina seus limites aqui -->
+> **Suas limitações**: 
 
-Pilar da Fluência: Observabilidade + Discernimento.
+---
 
-Análise de Arquiteto: Força um loop de autoverificação algorítmica. Funciona como uma especificação de teste (Test Spec) em software, garantindo o atendimento dos requisitos funcionais.
+## 8. **Critérios de Sucesso** *(Validação e Loop de Feedback)*
 
-Exemplo: "Critérios: 3 objetivos claros; roteiro de 45 min; 2 atividades práticas; linguagem para 12-14 anos."
+- **O que é**: Como medir se o output está “bom” ou “pronto”.
+- **Pilar da Fluência**: 🎯 Observabilidade + Discernimento
+- **Análise de Arquiteto**:  
+  Funciona como uma *especificação de teste* (*Test Spec*) em software.
+- **Exemplo**:  
+  > "Critérios: 3 objetivos claros; roteiro de 45 min; 2 atividades práticas; linguagem para 12–14 anos."
+
+<!-- Liste seus critérios aqui -->
+> **Seus critérios de sucesso**: 
+
+---
+
+> 💡 **Dica de ouro**: Combinar todos os 8 elementos transforma um prompt casual em um **sistema de instrução** — quase como um contrato cognitivo com a IA.
