@@ -1,22 +1,22 @@
-# 🧠 Inteligência Artificial para Iniciantes
+# Inteligência Artificial para Iniciantes
 
 
 **Aprenda IA Generativa de forma prática, crítica e acessível**
 
 ---
 
-## 🎯 Sobre o Projeto
+## Sobre o Projeto
 
 Este repositório oferece:
 
-- 📖 **Cursos completos** de fluência em IA (30-40h)
-- 🛠️ **Ferramentas web** prontas para usar (sem instalação)
-- 🧩 **Framework dos 4Ds** - metodologia única de aprendizado
-- 🔬 **Visão crítica** sobre IA (sem hype, só realidade)
+- **Cursos completos** de fluência em IA (30-40h)
+- **Ferramentas web** prontas para usar (sem instalação)
+- **Framework dos 4Ds** - metodologia única de aprendizado
+- **Visão crítica** sobre IA (sem hype, só realidade)
 
 ---
 
-## 🚀 Como Usar
+## Como Usar
 
 ### **Opção 1: Ferramentas Web** (0 instalação)
 
@@ -44,21 +44,21 @@ python scripts/bot_gemini_inteligente.py
 
 ---
 
-## 🎓 Framework dos 4Ds
+## Framework dos 4Ds
 
 O coração metodológico deste repositório:
 
-### **1. 🔍 Discernimento**
+### **1. Discernimento**
 *Quando usar IA?*
 - Avalie contexto técnico, ético e estratégico
 - Identifique tarefas adequadas vs. inadequadas
 
-### **2. 📝 Descrição**
+### **2. Descrição**
 *Como comunicar com IA?*
 - Técnicas de prompt engineering
 - Estruturação de contexto eficaz
 
-### **3. 🤝 Delegação**
+### **3. Delegação**
 *O que delegar?*
 - Matriz de responsabilidades (IA vs. Humano)
 - Processos de validação
@@ -69,11 +69,11 @@ O coração metodológico deste repositório:
 - Verificação de vieses
 - Transparência e documentação
 
-📖 **Leia mais**: [Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md)
+**Leia mais**: [Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md)
 
 ---
 
-## 🛠️ Ferramentas Disponíveis
+## Ferramentas Disponíveis
 
 ### **Ferramentas Web** (navegador)
 
@@ -95,26 +95,26 @@ O coração metodológico deste repositório:
 
 ---
 
-## 📚 Conteúdo Educacional
+## Conteúdo Educacional
 
 ### **Curso Principal**
-- 📖 [Fluência em IA - Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md) (30-40h)
+- [Fluência em IA - Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md) (30-40h)
   - 8 módulos progressivos
   - Exercícios práticos
   - Projetos aplicados
 
 ### **Guias Rápidos**
-- 📝 [Agente Universal](docs/AGENTE_UNIVERSAL_V1.md)
-- 📝 [Bot Quick Start](docs/BOT_V3_QUICK_START.md)
-- 📝 [Documentação IA para Leigos](docs/documentacao_ia_leigos.md)
+- [Agente Universal](docs/AGENTE_UNIVERSAL_V1.md)
+- [Bot Quick Start](docs/BOT_V3_QUICK_START.md)
+- [Documentação IA para Leigos](docs/documentacao_ia_leigos.md)
 
 ### **Skills para Claude**
-- 🧩 [Tutor de IA Generativa](docs/SKILL.md)
-- 🧩 [Professor de IA](docs/professor_ia_generativa.md.md)
+- [Tutor de IA Generativa](docs/SKILL.md)
+- [Professor de IA](docs/professor_ia_generativa.md.md)
 
 ---
 
-## 📦 Instalação
+## Instalação
 
 ### **Requisitos**
 - Python 3.9 ou superior
@@ -133,7 +133,7 @@ nano .env  # Adicione suas API keys
 
 ---
 
-## 🤝 Como Contribuir
+## Como Contribuir
 
 Contribuições são muito bem-vindas!
 
@@ -142,29 +142,6 @@ Contribuições são muito bem-vindas!
 3. Commit suas mudanças: `git commit -m 'Adiciona nova feature'`
 4. Push: `git push origin minha-contribuicao`
 5. Abra um Pull Request
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja [LICENSE](LICENSE) para detalhes.
-
----
-
-## 🌟 Agradecimentos
-
-- **Google Gemini** - API de IA generativa
-- **Anthropic Claude** - Modelo de linguagem avançado
-- **Comunidade Open Source** - Inspiração constante
-
----
-
-## 📞 Contato
-
-- **Issues**: [GitHub Issues](https://github.com/seu-usuario/repo/issues)
-- **Email**: gabriel@exemplo.com
-
----
 
 <div align="center">
 
