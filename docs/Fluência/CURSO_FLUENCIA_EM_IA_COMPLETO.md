@@ -91,27 +91,27 @@ Responda com sinceridade:
 
 ---
 
-## Lição 1.2: Os 3 Pilares da Fluência Cognitiva
+# Lição 1.2: Os 3 Pilares da Fluência Cognitiva
 
-### Pilar 1: Efetividade
-**O que é:** Escolher ferramentas certas com decisões sobre modalidades (Automação para eficiência, Augmentação para criatividade)
-**Como treinar:** Use IA diariamente; deixe ficar natural
-**Métrica:** Você não "pensa em usar IA", apenas usa
+## Pilar 1: Efetividade
+**O que é:** Escolher ferramentas certas com decisões sobre modalidades (Automação para eficiência, Augmentação para criatividade)  
+**Como treinar:** Use IA diariamente; deixe ficar natural  
+**Métrica:** Você não "pensa em usar IA", apenas usa  
 
-### Pilar 2: Ética
-**O que é:** Integrar considerações éticas como fundamentais, reconhecendo que uso responsável é tão importante quanto design de IA
-**Como treinar:** Refletir sobre vieses em outputs de saúde mental; decidir não usar IA em diagnósticos sensíveis por exemplo
-**Exemplo:** Você é capaz de avaliar se o uso de IA é ou não adequado
+## Pilar 2: Ética
+**O que é:** Integrar considerações éticas como fundamentais, reconhecendo que uso responsável é tão importante quanto design de IA  
+**Como treinar:** Refletir sobre vieses em outputs de saúde mental; decidir não usar IA em diagnósticos sensíveis, por exemplo  
+**Exemplo:** Você é capaz de avaliar se o uso de IA é ou não adequado  
 
-### Pilar 3: Eficiência
-**O que é:** Otimizar fluxos híbridos, movendo entre modalidades em projetos únicos
-**Como treinar:** Mantenha diário de reflexão; questione-se continuamente
-**Exemplo:** Automatizar com responsabilidade
+## Pilar 3: Eficiência
+**O que é:** Otimizar fluxos híbridos, movendo entre modalidades em projetos únicos  
+**Como treinar:** Mantenha diário de reflexão; questione-se continuamente  
+**Exemplo:** Automatizar com responsabilidade  
 
-### Pilar 4: Segurança
-**O que é:** Garantir que sistemas de IA operem de forma confiável e protegida, minimizando riscos para usuários e dados. Segurança envolve tanto proteção contra ataques quanto prevenção de falhas inesperadas.
-**Como treinar:** Testar outputs em cenários críticos; revisar vulnerabilidades de dados; implementar salvaguardas contra manipulação ou mau uso.
-**Exemplo:** Você valida se um chatbot de saúde mental não divulga informações pessoais, evita instruções perigosas e mantém consistência nos conselhos oferecidos.
+## Pilar 4: Segurança
+**O que é:** Garantir que sistemas de IA operem de forma confiável e protegida, minimizando riscos para usuários e dados. Segurança envolve tanto proteção contra ataques quanto prevenção de falhas inesperadas  
+**Como treinar:** Testar outputs em cenários críticos; revisar vulnerabilidades de dados; implementar salvaguardas contra manipulação ou mau uso  
+**Exemplo:** Você valida se um chatbot de saúde mental não divulga informações pessoais, evita instruções perigosas e mantém consistência nos conselhos oferecidos
 
 ---
 
