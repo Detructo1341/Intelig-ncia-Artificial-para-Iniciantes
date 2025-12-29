@@ -63,7 +63,7 @@ O coração metodológico deste repositório:
 - Matriz de responsabilidades (IA vs. Humano)
 - Processos de validação
 
-### **4. ✅ Diligência**
+### **4. Diligência**
 *Como validar resultados?*
 - Checklist de qualidade
 - Verificação de vieses
