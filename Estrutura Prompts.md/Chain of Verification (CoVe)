@@ -1,0 +1,14 @@
+***Chain-of-Verification (CoVe)***
+Este é o framework definitivo para quem rejeita a superficialidade e quer evitar alucinações da IA.
+
+- Lógica: Força a IA a gerar uma resposta, criar perguntas para verificar se a própria resposta está correta e, depois, reescrever a resposta final com base nessa verificação.
+
+- Ideal para: Diagnósticos, análises de artigos de neurociência e frameworks teóricos.
+
+Estrutura no Prompt:
+
+- "Gere uma resposta inicial para [Problema]."
+
+- "Agora, identifique 3 pontos potenciais de erro ou suposições fracas na sua resposta."
+
+- "Verifique esses pontos com base em factos/teoria e forneça a versão final refinada."
