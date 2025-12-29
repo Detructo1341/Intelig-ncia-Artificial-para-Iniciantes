@@ -1,8 +1,5 @@
 # 🧠 Inteligência Artificial para Iniciantes
 
-![Status](https://img.shields.io/badge/status-ativo-brightgreen)
-![Python](https://img.shields.io/badge/python-3.9+-blue)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-blue)
 
 **Aprenda IA Generativa de forma prática, crítica e acessível**
 
