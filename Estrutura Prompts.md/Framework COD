@@ -1,0 +1,40 @@
+# Chain of Density (CoD)
+
+## O que é
+A técnica **Chain of Density** (Cadeia de Densidade) é um método para criar resumos cada vez mais densos e informativos sem aumentar o comprimento do texto final. A ideia é iterar sobre um resumo inicial, identificando entidades importantes que faltam e fundindo-as no resumo anterior, mantendo o mesmo número de palavras.
+
+## Como funciona
+O processo geralmente envolve 5 passos (ou iterações):
+1.  **Resumo Inicial**: Criar um resumo esparso e verboso.
+2.  **Identificação de Entidades**: Identificar 1-3 entidades importantes do texto original que não estão no resumo.
+3.  **Fusão/Reescrita**: Reescrever o resumo para incluir as novas entidades sem aumentar o tamanho (palavras).
+4.  **Repetição**: Repetir os passos 2 e 3 até atingir a densidade desejada (geralmente 5 vezes).
+
+## Exemplo de Prompt
+```markdown
+Artigo: [Colar Artigo Aqui]
+
+Você gerará resumos cada vez mais concisos e densos em entidades do artigo acima.
+
+Repita os 5 passos a seguir 5 vezes.
+
+Passo 1. Identifique 1-3 Entidades Informativas (EIs) do Artigo que estão faltando no resumo gerado anteriormente.
+Passo 2. Escreva um novo resumo, mais denso, com o mesmo comprimento que cubra cada entidade e detalhe do resumo anterior, mais as Entidades Informativas Ausentes.
+
+Uma Entidade Informativa Ausente é:
+- Relevante: para a história principal.
+- Específica: descritiva, mas concisa (5 palavras ou menos).
+- Nova: não está no resumo anterior.
+
+Diretrizes:
+- O primeiro resumo deve ser longo (4-5 sentenças, ~80 palavras), mas não específico, contendo poucas EIs.
+- Use estrutura de frase fundida. Melhor fazer uso de frases auxiliares.
+- O resumo deve fluir e fazer sentido gramatical.
+
+Saída em JSON com a lista de dicionários por iteração.
+```
+
+## Benefícios
+- **Alta Densidade de Informação**: Maximiza a informação por token.
+- **Clareza**: Mantém o texto conciso e direto.
+- **Redução de Viés**: Foca em entidades factuais.
