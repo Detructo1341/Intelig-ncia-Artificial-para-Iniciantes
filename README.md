@@ -34,6 +34,8 @@ A estrutura foi organizada seguindo princípios de **Clean Code** e separação 
 2.  **Ambiente:** Configure o arquivo `ia_generativa.yaml` na pasta `/config`.
 3.  **Execução:** Utilize o **Google Antigravity** ou o terminal do **VS Code** para rodar os componentes em `/scripts`.
 
+Quer criar prompts eficazes? Use nossa arquitetura de 8 elementos para guiar sua interação com modelos de IA.
+
 ---
 
 ## 🧠 Filosofia de Desenvolvimento
