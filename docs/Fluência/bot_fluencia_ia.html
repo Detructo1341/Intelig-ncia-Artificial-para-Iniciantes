@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach de Fluência em IA - Bot Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #f5e6ff 50%, #ffe6f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 1rem;
+        }
+
+        .header-content {
+            max-width: 60rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bot-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #3b82f6, #7c3aed);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .header-title p {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .reset-btn {
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: transform 0.2s;
+        }
+
+        .reset-btn:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 56rem;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+            overflow: hidden;
+        }
+
+        /* Messages Area */
+        .messages-area {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+            space: 1.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .messages-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages-area::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .messages-area::-webkit-scrollbar-thumb {
+            background: rgba(168, 85, 247, 0.3);
+            border-radius: 3px;
+        }
+
+        .messages-area::-webkit-scrollbar-thumb:hover {
+            background: rgba(168, 85, 247, 0.5);
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 32rem;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #3b82f6, #7c3aed);
+            color: white;
+            border-bottom-right-radius: 0.25rem;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .message.bot .message-bubble {
+            background: white;
+            color: #1f2937;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-bottom-left-radius: 0.25rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .user .message-time {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: right;
+        }
+
+        .bot .message-time {
+            color: #9ca3af;
+            text-align: left;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #7c3aed;
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite;
+        }
+
+        .dot:nth-child(1) { animation-delay: 0s; }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { opacity: 0.5; transform: translateY(0); }
+            40% { opacity: 1; transform: translateY(-10px); }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            margin-bottom: 2rem;
+        }
+
+        .quick-actions-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            padding: 1rem;
+            background: white;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-label {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        /* Input Area */
+        .input-container {
+            position: sticky;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            padding: 1rem;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: #f3f4f6;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 0.75rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        #messageInput:focus {
+            outline: none;
+            border-color: #7c3aed;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .send-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .input-hint {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            max-width: 56rem;
+            margin: 0 auto 2rem;
+            width: calc(100% - 2rem);
+            background: linear-gradient(135deg, #f0f4ff, #f5e6ff);
+            border: 2px solid #a78bfa;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            font-size: 0.875rem;
+            color: #374151;
+        }
+
+        .info-title {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .message-bubble {
+                max-width: 100%;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-title p {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <div class="bot-icon">🤖</div>
+                <div class="header-title">
+                    <h1>Coach de Fluência em IA</h1>
+                    <p>Desenvolvendo pensamento estratégico</p>
+                </div>
+            </div>
+            <button class="reset-btn" id="resetBtn" title="Limpar conversa">🔄</button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Messages Area -->
+        <div class="messages-area" id="messagesArea"></div>
+
+        <!-- Quick Actions (show initially) -->
+        <div class="quick-actions" id="quickActionsContainer">
+            <p class="quick-actions-title">Escolha uma direção:</p>
+            <div class="actions-grid">
+                <button class="action-btn" data-action="discernimento">
+                    <div class="action-icon">🎯</div>
+                    <div class="action-label">Explorar os 4Ds</div>
+                </button>
+                <button class="action-btn" data-action="dilemma">
+                    <div class="action-icon">⚖️</div>
+                    <div class="action-label">Dilema Ético</div>
+                </button>
+                <button class="action-btn" data-action="delegacion">
+                    <div class="action-icon">🔍</div>
+                    <div class="action-label">Meu Desafio</div>
+                </button>
+                <button class="action-btn" data-action="general">
+                    <div class="action-icon">💭</div>
+                    <div class="action-label">Desafiar Suposição</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Conte-me sobre seu desafio com IA... (ou pressione Enter)"
+                    autocomplete="off"
+                >
+                <button class="send-btn" id="sendBtn">
+                    <span>↗</span>
+                    <span class="send-text">Enviar</span>
+                </button>
+            </div>
+            <p class="input-hint">Pensamento estratégico • Pense em voz alta • Sem censura, apenas reflexão</p>
+        </div>
+    </div>
+
+    <!-- Info Banner -->
+    <div class="info-banner">
+        <div class="info-icon">💡</div>
+        <div class="info-text">
+            <p class="info-title">Dica:</p>
+            <p>Quanto mais honesto você for sobre suas dúvidas e dilemas, melhor posso ajudá-lo a desenvolver fluência genuína. Não há respostas "certas" — apenas pensamento estratégico.</p>
+        </div>
+    </div>
+
+    <script>
+        // Bot Response Templates
+        const coachResponses = {
+            discernimiento: `Excelente reflexão! Sobre DISCERNIMENTO (avaliar quando usar IA):
+
+**O que você fez bem:**
+• Reconheceu a necessidade de avaliar o contexto
+• Considerou implicações éticas
+
+**Desafie-se:**
+• Qual seria o impacto em pessoas vulneráveis?
+• Como você verificaria viés nos dados?
+• Quem está sendo priorizado E quem está sendo prejudicado?
+
+**Próximo passo:** Aplique os 3 níveis:
+1. Técnico: A IA é apropriada?
+2. Ético: Há implicações humanas?
+3. Estratégico: Isto alinha com meu propósito?`,
+
+            descripcion: `Ótimo trabalho estruturando! Sobre DESCRIÇÃO (comunicar com IA):
+
+**Forte:** Você foi específico e forneceu contexto
+
+**Oportunidade:** Os 8 elementos essenciais:
+1. Objetivo ✓
+2. Contexto ✓
+3. Passo a passo 
+4. Persona
+5. Exemplo
+6. Background
+7. Limitação
+8. Critério de sucesso
+
+**Desafio:** Reescreva usando TODOS os 8.`,
+
+            delegacion: `Inteligente pensar em delegação!
+
+**Pergunte-se:**
+• Exige julgamento ético? → Não delegue
+• Requer conhecimento único? → Delegue parcial
+• É repetitivo/processual? → Delegue
+• Posso validar/auditar? → OK delegar
+• Risco aceitável? → Delegue com cuidado
+
+**Seu teste:** Você acertou em ___ de 5 critérios.`,
+
+            dilemma: `🎯 **DILEMA PARA REFLEXÃO:**
+
+**Viés Algorítmico vs. Eficiência**
+
+Você usa IA para triagem em clínica sobrecarregada. O algoritmo prioriza sistematicamente certos grupos.
+
+**Questões:**
+• Como você detecta o viés?
+• Qual é o impacto humano?
+• Qual é seu trade-off ético?
+• Como você comunica isto?
+
+_Pense em voz alta. Sem censura, apenas honestidade._`,
+
+            general: `Que interessante! Você está pensando como estrategista.
+
+**Para aprofundar:**
+1. Analisar através dos 4Ds
+2. Explorar dilema ético
+3. Praticar desafio específico
+4. Discutir impacto contextual
+
+**Qual te interessa mais?**`
+        };
+
+        // State
+        let messages = [];
+        let messageId = 1;
+        let selectedMode = null;
+
+        // Initialize
+        function init() {
+            addBotMessage("Olá! Sou o Coach de Fluência em IA. Estou aqui para ajudá-lo a desenvolver pensamento estratégico sobre inteligência artificial.");
+            addBotMessage("Podemos:\n• Explorar os 4Ds (Discernimento, Descrição, Delegação, Diligência)\n• Praticar dilemas éticos reais\n• Analisar seus desafios profissionais\n• Desafiar suas suposições\n\nComo posso ajudar você hoje?");
+            
+            setupEventListeners();
+            hideQuickActions();
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            document.getElementById('sendBtn').addEventListener('click', sendMessage);
+            document.getElementById('messageInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            document.getElementById('resetBtn').addEventListener('click', () => {
+                messages = [];
+                messageId = 1;
+                document.getElementById('messagesArea').innerHTML = '';
+                selectedMode = null;
+                init();
+            });
+
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const action = btn.dataset.action;
+                    handleQuickAction(action);
+                });
+            });
+        }
+
+        // Add Messages
+        function addMessage(type, content, mode = null) {
+            const messagesArea = document.getElementById('messagesArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="message-bubble">
+                    <div>${content}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            messagesArea.appendChild(messageDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+            messages.push({ type, content, mode });
+        }
+
+        function addBotMessage(content) {
+            addMessage('bot', content);
+        }
+
+        function addUserMessage(content) {
+            addMessage('user', content);
+            hideQuickActions();
+        }
+
+        // Hide/Show Quick Actions
+        function hideQuickActions() {
+            const container = document.getElementById('quickActionsContainer');
+            if (messages.length > 2) {
+                container.style.display = 'none';
+            }
+        }
+
+        // Send Message
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const content = input.value.trim();
+
+            if (!content) return;
+
+            addUserMessage(content);
+            input.value = '';
+
+            // Show loading
+            showLoading();
+
+            // Simulate response delay
+            setTimeout(() => {
+                removeLoading();
+                const mode = selectedMode || 'general';
+                const response = coachResponses[mode] || coachResponses.general;
+                addBotMessage(response);
+                selectedMode = null;
+            }, 800);
+        }
+
+        function showLoading() {
+            const messagesArea = document.getElementById('messagesArea');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message bot';
+            loadingDiv.id = 'loadingMessage';
+            loadingDiv.innerHTML = `
+                <div class="message-bubble">
+                    <div class="loading-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            `;
+            messagesArea.appendChild(loadingDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loading = document.getElementById('loadingMessage');
+            if (loading) loading.remove();
+        }
+
+        // Quick Actions
+        function handleQuickAction(action) {
+            selectedMode = action;
+            
+            if (action === 'dilemma') {
+                const dilemas = [
+                    "Você usa IA para triagem clínica. O algoritmo prioriza certos grupos. Como navega isto?",
+                    "Usar histórico de sessões para treinar IA que melhora diagnóstico. Como garantir consentimento e privacidade?",
+                    "Suas habilidades críticas se enfraquecem delegando tudo. Como manter autonomia cognitiva?"
+                ];
+                const dilemma = dilemas[Math.floor(Math.random() * dilemas.length)];
+                addBotMessage(`🎯 DILEMA ÉTICO:\n\n${dilemma}\n\n_Pense em voz alta. Qual é o trade-off? Como você navegaria?_`);
+            } else {
+                const prompts = {
+                    discernimiento: "Quero entender melhor DISCERNIMENTO em IA.",
+                    delegacion: "Tenho dúvida sobre o que delegar e o que manter humano.",
+                    general: "Ajude-me a pensar diferente."
+                };
+                document.getElementById('messageInput').value = prompts[action];
+            }
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>
