@@ -11,7 +11,7 @@ Este curso transforma você de um mero operador de IA em um **estrategista fluen
 
 | Módulo | Tema | Foco | Duração |
 |--------|------|------|---------|
-| 1 | Fundamentos da Fluência | Conceitos + Mindset | 2-3h |
+| 1 | Fundamentos da Fluência | Conceitos | 2-3h |
 | 2 | Os 4Ds (Discernimento, Descrição, Delegação, Diligência) | Framework Core | 3-4h |
 | 3 | Ecologia Cognitiva e Neuroecologia | Integração Mental | 2-3h |
 | 4 | Engenharia de Contexto e Prompting Avançado | Prática Técnica | 4-5h |
@@ -93,20 +93,25 @@ Responda com sinceridade:
 
 ## Lição 1.2: Os 3 Pilares da Fluência Cognitiva
 
-### Pilar 1: Integração Cognitiva Fluida
-**O que é:** Interação com IA se torna transparente, como lápis e papel
+### Pilar 1: Efetividade
+**O que é:** Escolher ferramentas certas com decisões sobre modalidades (Automação para eficiência, Augmentação para criatividade)
 **Como treinar:** Use IA diariamente; deixe ficar natural
 **Métrica:** Você não "pensa em usar IA", apenas usa
 
-### Pilar 2: Desenvolvimento de Intuições Híbridas
-**O que é:** Saber intuitivamente quando delegar, colaborar, ou manter autonomia
-**Como treinar:** Experimente, falhe, reflita
-**Métrica:** Você toma decisões sobre modalidade sem hesitar
+### Pilar 2: Ética
+**O que é:** Integrar considerações éticas como fundamentais, reconhecendo que uso responsável é tão importante quanto design de IA
+**Como treinar:** Refletir sobre vieses em outputs de saúde mental; decidir não usar IA em diagnósticos sensíveis por exemplo
+**Exemplo:** Você é capaz de avaliar se o uso de IA é ou não adequado
 
-### Pilar 3: Metacognição Expandida
-**O que é:** Observar seu próprio pensamento em colaboração com IA
+### Pilar 3: Eficiência
+**O que é:** Otimizar fluxos híbridos, movendo entre modalidades em projetos únicos
 **Como treinar:** Mantenha diário de reflexão; questione-se continuamente
-**Métrica:** Você consegue explicar POR QUÊ usa IA de forma específica
+**Exemplo:** Automatizar com responsabilidade
+
+### Pilar 4: Segurança
+**O que é:** Garantir que sistemas de IA operem de forma confiável e protegida, minimizando riscos para usuários e dados. Segurança envolve tanto proteção contra ataques quanto prevenção de falhas inesperadas.
+**Como treinar:** Testar outputs em cenários críticos; revisar vulnerabilidades de dados; implementar salvaguardas contra manipulação ou mau uso.
+**Exemplo:** Você valida se um chatbot de saúde mental não divulga informações pessoais, evita instruções perigosas e mantém consistência nos conselhos oferecidos.
 
 ---
 
