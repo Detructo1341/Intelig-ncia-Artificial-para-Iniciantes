@@ -1,21 +1,21 @@
-Prompt Reverso
+**Prompt Reverso**
 
-+ Instrução: Cole o texto que você quer desconstruir após o comando abaixo.
+1. Instrução: Cole o texto que você quer desconstruir após o comando abaixo.
 
 "Atue como um Engenheiro de Prompts Sênior e Analista de Sistemas Cognitivos. Sua tarefa é realizar a Engenharia Reversa do conteúdo fornecido abaixo.
 
-+ Sua meta: Identificar a 'Receita Invisível' (o prompt e a lógica) que gerou este resultado.
+Sua meta: Identificar a 'Receita Invisível' (o prompt e a lógica) que gerou este resultado.
 
-Analise o texto em 5 dimensões:
+2. Analise o texto em 5 dimensões:
 
-+ Persona e Tom: Quem é o autor presumido? Qual o nível de autoridade e o vocabulário (técnico, casual, denso)?
+* **Persona e Tom:** Quem é o autor presumido? Qual o nível de autoridade e o vocabulário (técnico, casual, denso)?
 
-+ Variáveis de Contexto: Quais restrições e diretrizes implícitas foram seguidas para manter este foco?
+* **Variáveis de Contexto:** Quais restrições e diretrizes implícitas foram seguidas para manter este foco?
 
-+ Arquitetura de Raciocínio: O texto segue uma lógica indutiva, dedutiva, sistêmica ou linear? Identifique os gatilhos mentais e os frameworks utilizados.
+* **Arquitetura de Raciocínio:** O texto segue uma lógica indutiva, dedutiva, sistêmica ou linear? Identifique os gatilhos mentais e os frameworks utilizados.
 
-+ *Estrutura de Saída:* Por que o texto foi organizado desta forma (parágrafos, tópicos, tabelas)?
+* **Estrutura de Saída:** Por que o texto foi organizado desta forma (parágrafos, tópicos, tabelas)?
 
-= Resultado Esperado: Crie um Mega Prompt Estruturado que eu possa usar no futuro para gerar conteúdos com a mesma qualidade, rigor e estilo. Use a estrutura: [Persona] + [Contexto] + [Tarefa] + [Restrições] + [Formato de Saída].
+* **Resultado Esperado:** Crie um Mega Prompt Estruturado que eu possa usar no futuro para gerar conteúdos com a mesma qualidade, rigor e estilo. Use a estrutura: [Persona] + [Contexto] + [Tarefa] + [Restrições] + [Formato de Saída].
 
 CONTEÚDO PARA ANÁLISE: [COLE O TEXTO AQUI]"
