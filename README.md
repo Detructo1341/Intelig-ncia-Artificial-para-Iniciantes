@@ -1,35 +1,178 @@
-# **Inteligência Artificial para Iniciantes** #
-"A inteligência artificial não substitui o capital humano; ela potencializa o humano que a domina."
+# 🧠 Inteligência Artificial para Iniciantes
 
-Este repositório consolida um ecossistema prático e estratégico projetado para acelerar a transição de usuários comuns para especialistas em IA. O foco reside no domínio de ferramentas de fronteira, como o Google Gemini 3 Flash e o n8n, aplicados à produtividade real e automação de alto nível.
+![Status](https://img.shields.io/badge/status-ativo-brightgreen)
+![Python](https://img.shields.io/badge/python-3.9+-blue)
+![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-blue)
 
-## 📂 Organização do Projeto
+**Aprenda IA Generativa de forma prática, crítica e acessível**
 
-* **`/scripts`**: Motores de execução em Python.
-    * `bot_gemini_inteligente.py`: O núcleo de interação.
-    * `agente_de_bolso.py`: O orquestrador de perfis.
-    * `analista_de_contexto.py`: Ferramenta multimodal.
-* **`/prompts`**: A base de conhecimento do sistema.
-    * `agentes/`: Ficheiros `.md` com instruções de especialistas.
-* **`/docs`**: Material educativo e estratégico.
-    * `4Ds.md`: O guia da metodologia de fluência.
+---
 
-## **🛠️ Pilares Tecnológicos** ##
+## 🎯 Sobre o Projeto
 
-- Framework dos 4Ds: Metodologia exclusiva para Discernimento, Descrição, Delegação e Diligência no uso de IAs Generativas.
+Este repositório oferece:
 
-- Agentes de Bolso: Pack de agentes especializados (Arquiteto de Automação, Revisor Executivo, etc.) que rodam sob o motor do Gemini 3 Flash.
+- 📖 **Cursos completos** de fluência em IA (30-40h)
+- 🛠️ **Ferramentas web** prontas para usar (sem instalação)
+- 🧩 **Framework dos 4Ds** - metodologia única de aprendizado
+- 🔬 **Visão crítica** sobre IA (sem hype, só realidade)
 
-- Análise Multimodal: Ferramentas capazes de interpretar textos, imagens e arquivos complexos para gerar insights acionáveis.
+---
 
-- Automação de Fluxos: Integrações focadas em eliminar o "trabalho de robô" através de Python e n8n.
+## 🚀 Como Usar
 
-## **🚀 Como Implementar** ##
+### **Opção 1: Ferramentas Web** (0 instalação)
 
-- Configuração: Certifique-se de possuir uma GOOGLE_API_KEY ativa para os modelos Gemini 3.
+1. Vá para a pasta `web/`
+2. Abra qualquer arquivo `.html` no navegador
+3. Configure sua API key do Gemini
+4. Comece a usar!
 
-- Instalação: Execute pip install -r requirements.txt para preparar o ambiente de execução.
+### **Opção 2: Scripts Python**
 
-- Exploração: Inicie pelos agentes em /scripts/agente_de_bolso.py para experienciar a especialização da IA em tempo real.
+```bash
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/Inteligencia-Artificial-para-Iniciantes.git
 
-***O futuro pertence aos que automatizam a execução e priorizam a estratégia. 🧠✨***
+# 2. Instale dependências
+pip install -r requirements.txt
+
+# 3. Configure suas chaves API
+cp .env.example .env
+# Edite .env com suas chaves
+
+# 4. Execute
+python scripts/bot_gemini_inteligente.py
+```
+
+---
+
+## 🎓 Framework dos 4Ds
+
+O coração metodológico deste repositório:
+
+### **1. 🔍 Discernimento**
+*Quando usar IA?*
+- Avalie contexto técnico, ético e estratégico
+- Identifique tarefas adequadas vs. inadequadas
+
+### **2. 📝 Descrição**
+*Como comunicar com IA?*
+- Técnicas de prompt engineering
+- Estruturação de contexto eficaz
+
+### **3. 🤝 Delegação**
+*O que delegar?*
+- Matriz de responsabilidades (IA vs. Humano)
+- Processos de validação
+
+### **4. ✅ Diligência**
+*Como validar resultados?*
+- Checklist de qualidade
+- Verificação de vieses
+- Transparência e documentação
+
+📖 **Leia mais**: [Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md)
+
+---
+
+## 🛠️ Ferramentas Disponíveis
+
+### **Ferramentas Web** (navegador)
+
+| Ferramenta | Descrição | Arquivo |
+|------------|-----------|---------|
+| **Descomplicador de IA** | Chat que explica conceitos | `web/Descomplicador de IA com Gemini.html` |
+| **Revisor de Código** | Análise de código com IA | `Revisor de código com IA` |
+| **Gerenciador de Prompts** | Organiza seus prompts | `web/otimizador_de_prompts.md` |
+| **Workflow Simulator** | Simula automações tipo n8n | `web/N8N.html` |
+
+### **Scripts Python** (linha de comando)
+
+| Script | Descrição | Arquivo |
+|--------|-----------|---------|
+| **Bot Inteligente** | Mentor de fluência em IA | `scripts/bot_gemini_inteligente.py` |
+| **Analista de Contexto** | Analisa PDFs, imagens, textos | `scripts/analista_de_contexto.py` |
+| **Agente de Bolso** | Agente customizável | `scripts/agente_de_bolso.py` |
+| **MAPEC Agent** | Agente autônomo avançado | `scripts/MAPECagent.py` |
+
+---
+
+## 📚 Conteúdo Educacional
+
+### **Curso Principal**
+- 📖 [Fluência em IA - Curso Completo](docs/CURSO_FLUENCIA_EM_IA_COMPLETO.md) (30-40h)
+  - 8 módulos progressivos
+  - Exercícios práticos
+  - Projetos aplicados
+
+### **Guias Rápidos**
+- 📝 [Agente Universal](docs/AGENTE_UNIVERSAL_V1.md)
+- 📝 [Bot Quick Start](docs/BOT_V3_QUICK_START.md)
+- 📝 [Documentação IA para Leigos](docs/documentacao_ia_leigos.md)
+
+### **Skills para Claude**
+- 🧩 [Tutor de IA Generativa](docs/SKILL.md)
+- 🧩 [Professor de IA](docs/professor_ia_generativa.md.md)
+
+---
+
+## 📦 Instalação
+
+### **Requisitos**
+- Python 3.9 ou superior
+- Chave API do Google Gemini ([obter aqui](https://makersuite.google.com/app/apikey))
+
+### **Instalação Rápida**
+
+```bash
+# Instalar dependências
+pip install -r requirements.txt
+
+# Configurar variáveis de ambiente
+cp .env.example .env
+nano .env  # Adicione suas API keys
+```
+
+---
+
+## 🤝 Como Contribuir
+
+Contribuições são muito bem-vindas!
+
+1. Fork este repositório
+2. Crie uma branch: `git checkout -b minha-contribuicao`
+3. Commit suas mudanças: `git commit -m 'Adiciona nova feature'`
+4. Push: `git push origin minha-contribuicao`
+5. Abra um Pull Request
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 🌟 Agradecimentos
+
+- **Google Gemini** - API de IA generativa
+- **Anthropic Claude** - Modelo de linguagem avançado
+- **Comunidade Open Source** - Inspiração constante
+
+---
+
+## 📞 Contato
+
+- **Issues**: [GitHub Issues](https://github.com/seu-usuario/repo/issues)
+- **Email**: gabriel@exemplo.com
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto ajudou você, considere dar uma estrela!**
+
+Feito com ❤️ por [Gabriel](https://github.com/seu-usuario)
+
+</div>
