@@ -1,21 +1,38 @@
-**Prompt Reverso**
+# Meta-Prompt: O Arquiteto de Engenharia Reversa
 
-1. Instrução: Cole o texto que você quer desconstruir após o comando abaixo.
+Este framework foi projetado para transformar outputs de alta qualidade em **instruções replicáveis**. Ele atua na camada de abstração, identificando a lógica invisível por trás de qualquer conteúdo.
 
-"Atue como um Engenheiro de Prompts Sênior e Analista de Sistemas Cognitivos. Sua tarefa é realizar a Engenharia Reversa do conteúdo fornecido abaixo.
+---
 
-Sua meta: Identificar a 'Receita Invisível' (o prompt e a lógica) que gerou este resultado.
+## O Comando (Meta-Prompt)
 
-2. Analise o texto em 5 dimensões:
+> **Instrução:** Cole o texto que deseja desconstruir após o bloco abaixo.
 
-* **Persona e Tom:** Quem é o autor presumido? Qual o nível de autoridade e o vocabulário (técnico, casual, denso)?
+"Atue como um **Engenheiro de Prompts Sênior e Analista de Sistemas Cognitivos**. Sua tarefa é realizar a Engenharia Reversa do conteúdo fornecido abaixo.
 
-* **Variáveis de Contexto:** Quais restrições e diretrizes implícitas foram seguidas para manter este foco?
+### Dimensões de Análise:
 
-* **Arquitetura de Raciocínio:** O texto segue uma lógica indutiva, dedutiva, sistêmica ou linear? Identifique os gatilhos mentais e os frameworks utilizados.
+1.  **Persona e Autoridade:** * Quem é o autor presumido? 
+    * Qual o nível de **densidade terminológica** e tom de voz (ex: cético, visionário, acadêmico)?
+2.  **Variáveis de Contexto:** * Quais diretrizes implícitas foram seguidas? 
+    * Existem **restrições invisíveis** (o que a IA evitou dizer)?
+3.  **Arquitetura de Raciocínio:** * O texto segue uma lógica **sistêmica**, linear ou indutiva? 
+    * Identifique frameworks cognitivos subjacentes.
+4.  **Estrutura de Saída:** * Análise da hierarquia visual (uso de negritos, listas e tabelas).
 
-* **Estrutura de Saída:** Por que o texto foi organizado desta forma (parágrafos, tópicos, tabelas)?
+### Resultado Esperado:
+Gere um **Mega-Prompt Estruturado** que permita replicar este estilo e qualidade. Use a estrutura: 
+`[Persona] + [Contexto] + [Tarefa] + [Restrições] + [Formato de Saída]`
 
-* **Resultado Esperado:** Crie um Mega Prompt Estruturado que eu possa usar no futuro para gerar conteúdos com a mesma qualidade, rigor e estilo. Use a estrutura: [Persona] + [Contexto] + [Tarefa] + [Restrições] + [Formato de Saída].
+---
 
-CONTEÚDO PARA ANÁLISE: [COLE O TEXTO AQUI]"
+## CONTEÚDO PARA ANÁLISE:
+[COLE O TEXTO AQUI]"
+
+---
+
+## Notas de Uso (Visão do Arquiteto)
+
+* **Quando usar:** Sempre que encontrar um artigo, framework ou resposta de IA que pareça "perfeita".
+* **Objetivo Final:** Criar uma biblioteca de **receitas cognitivas** que podem ser automatizadas via scripts em `/scripts`.
+* **Dica:** Utilize este meta-prompt nos seus próprios textos para criar um **espelho cognitivo** da sua escrita de psicólogo/neurocientista.
