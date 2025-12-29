@@ -1,0 +1,2 @@
+Prompt Reverso
+Com base nesta saída [Input], identifique quais foram as instruções implícitas, as restrições e o contexto que foram necessários para gerá-la. Formate isso como um System Prompt estruturado
