@@ -7,8 +7,6 @@ Funciona como o **Exocórtex** de um arquiteto cognitivo, focado na automação 
 
 ## 🏗️ Arquitetura do Sistema
 
-A estrutura segue princípios de **Clean Code** e *Separation of Concerns*, garantindo densidade conceitual, manutenibilidade e escalabilidade.
-
 | Diretório | Descrição |
 | :--- | :--- |
 | `📂 /config` | Parametrização e gerenciamento de chaves de API (YAML). |
