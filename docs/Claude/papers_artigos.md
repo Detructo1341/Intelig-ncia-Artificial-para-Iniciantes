@@ -288,6 +288,6 @@ Guia curado de pesquisas fundamentais que moldaram o campo de IA Generativa. Org
 
 ---
 
-**Última atualização**: Dezembro 2024
+**Última atualização**: Dezembro 2025
 
 Este documento está em evolução. Novos papers fundamentais surgem frequentemente!
