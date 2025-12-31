@@ -1,7 +1,7 @@
 # 🧠 Inteligência Artificial para Iniciantes: Ecossistema de IA Generativa
 
 Este repositório não é apenas um guia — é um **ecossistema modular** projetado para integrar **Psicologia, Neurociência e Inteligência Artificial**.  
-Funciona como o **Exocórtex** de um arquiteto cognitivo, focado na automação de processos de aprendizagem, desconstrução de conhecimento e arquitetura de sistemas inteligentes.
+Funciona como o **Exocórtex** de um arquiteto cognitivo, focado na automação de processos de aprendizagem, desconstrução de conhecimento e arquitetura de sistemas inteligentes. Use-o não só para aprender IA Generativa, mas também encare as ferramentas como extensão da cognição humana
 
 ---
 
