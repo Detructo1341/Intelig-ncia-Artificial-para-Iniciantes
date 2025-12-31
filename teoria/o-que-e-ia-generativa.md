@@ -1,8 +1,5 @@
 # O Que É Inteligência Artificial Generativa?
 
-> *"A IA generativa não imita o pensamento — ela externaliza os processos cognitivos que o tornam possível."*  
-> — Gabriel, Arquiteto Cognitivo
-
 ## Definição Técnica (sem jargão vazio)
 
 Inteligência Artificial Generativa (IAG) é um subcampo da IA que usa **modelos estatísticos treinados em grandes volumes de dados** para **criar novos conteúdos** — textos, imagens, áudio, código, ideias — que **não existiam antes**, mas que respeitam padrões aprendidos do mundo real.
