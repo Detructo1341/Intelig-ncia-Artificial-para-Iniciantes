@@ -11,13 +11,13 @@ Guia prático para entender como funcionam sistemas de IA moderna, com explicaç
 
 ## Conceitos Fundamentais
 
-### O Que É IA Generativa?
+### O Que é IA Generativa?
 
 Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Diferente de programas tradicionais (seguem regras fixas), a IA Generativa aprende padrões e os usa para gerar texto, imagens ou código.
 
 **Analogia:** Escritor bem-lido que, após ler milhões de livros, consegue escrever histórias originais combinando padrões aprendidos (não decora, mas entende como histórias funcionam).
 
-### Como Funcionam Modelos de Linguagem (LLMs)
+### Como funcionam Modelos de Linguagem (LLMs)
 
 **Tarefa central:** Predizer a próxima palavra baseado em padrões estatísticos.
 
@@ -35,7 +35,7 @@ Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Dife
 
 ---
 
-## Tokens: Unidade Básica de Processamento
+## Tokens: unidade básica de processamento
 
 **Token** = pequeno pedaço de texto (não necessariamente palavra inteira).
 
@@ -54,7 +54,7 @@ Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Dife
 
 ---
 
-## Transformers: Arquitetura Core
+## Transformers: o núcleo
 
 Base de todos os LLMs modernos (GPT, Claude, Gemini). Proposta em 2017.
 
@@ -72,7 +72,7 @@ Para detalhes técnicos: `references/topicos.md` (seção Transformers)
 
 ---
 
-## Prompt Engineering: Comunicação Eficaz
+## Prompt Engineering: comunicação eficaz
 
 Técnicas para instruções claras:
 
@@ -154,7 +154,7 @@ Detalhes matemáticos: `references/topicos.md`
 
 ## Aplicações e Limitações
 
-### Pontos Fortes
+### Pontos fortes
 - Escrever/editar textos
 - Explicar conceitos
 - Gerar/debugar código
@@ -162,7 +162,7 @@ Detalhes matemáticos: `references/topicos.md`
 - Resumos e traduções
 - Análise de dados
 
-### Limitações Críticas
+### Limitações críticas
 - **Alucinações:** Inventa informações com confiança (sempre verifique!)
 - **Data de corte:** Conhecimento limitado à época de treinamento
 - **Sem compreensão real:** Reconhece padrões, não "entende"
