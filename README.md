@@ -145,5 +145,4 @@ Este é um projeto em evolução contínua. Feedbacks, sugestões e colaboraçõ
 
 ---
 
-**Última atualização**: Dezembro 2024  
-**Licença**: MIT (consulte LICENSE.md para detalhes)
+**Última atualização**: Janeiro 2026 
