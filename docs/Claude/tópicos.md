@@ -4,7 +4,7 @@ Exploração de tópicos mais profundos e conexões com outras áreas de conheci
 
 ---
 
-## 🧠 Conexões com Psicologia e Neurociência
+## Conexões com Psicologia e Neurociência
 
 ### Modelos de Linguagem vs. Cérebro Humano
 
@@ -51,7 +51,7 @@ Exploração de tópicos mais profundos e conexões com outras áreas de conheci
 
 ---
 
-## 📚 Filosofia e Epistemologia
+## Filosofia e Epistemologia
 
 ### O Problema da Compreensão
 
@@ -103,7 +103,7 @@ Ambas as questões apontam para **complexidade emergente**.
 
 ---
 
-## 📖 História e Contexto Social
+## História e Contexto Social
 
 ### Progresso Tecnológico e Desigualdade
 
@@ -125,7 +125,7 @@ Padrão cíclico: Hype → Decepção → Amadurecimento
 
 ---
 
-## 🎮 Aplicações em Jogos e Narrativa
+## Aplicações em Jogos e Narrativa
 
 ### IA Generativa em Game Design
 
@@ -146,7 +146,7 @@ Padrão cíclico: Hype → Decepção → Amadurecimento
 
 ---
 
-## 🎨 Arte e Criatividade
+## Arte e Criatividade
 
 ### IA como Ferramenta Criativa vs. Criador
 
@@ -166,7 +166,7 @@ Você pode usar LLMs para:
 
 ---
 
-## 💼 Economia e Mercado
+## Economia e Mercado
 
 ### Disruption de Profissões
 
@@ -189,7 +189,7 @@ Cada onda: algum desemprego, depois reemprego em novas áreas.
 
 ---
 
-## 🌍 Sustentabilidade e Ambiental
+## Sustentabilidade e Ambiental
 
 ### Custo Computacional
 
@@ -208,7 +208,7 @@ Cada onda: algum desemprego, depois reemprego em novas áreas.
 
 ---
 
-## 🔐 Segurança e Adversarial
+## Segurança e Adversarial
 
 ### Ataques contra LLMs
 
@@ -261,7 +261,7 @@ Treinar em texto, usar conhecimento em imagem/áudio.
 
 ---
 
-## 🧑‍🔬 Pesquisa Aberta (Faça Parte!)
+## Pesquisa Aberta (Faça Parte!)
 
 ### Problemas Não Resolvidos
 
@@ -282,7 +282,7 @@ Treinar em texto, usar conhecimento em imagem/áudio.
 
 ---
 
-## 📊 Tópicos para Aprofundamento
+## Tópicos para Aprofundamento
 
 Se você quer explorar mais:
 
@@ -294,7 +294,7 @@ Se você quer explorar mais:
 
 ---
 
-## 🎓 Recursos Adicionais para Tópicos Avançados
+## Recursos Adicionais para Tópicos Avançados
 
 - **Colah's Blog**: https://colah.github.io (visualizações excepcionais)
 - **Distill.pub**: https://distill.pub (artigos interativos)
@@ -306,4 +306,4 @@ Se você quer explorar mais:
 
 **Nota Final**: O mais fascinante é que IA é um laboratório aberto para testar ideias ancestrais da filosofia, psicologia, e neurociência. Você está num momento único de história intelectual!
 
-Que tópico te interessa mais? 🚀
+Que tópico te interessa mais? 
