@@ -1,0 +1,352 @@
+Aplicação web interativa que explora a revolução da Inteligência Artificial na Psicologia e Psiquiatria
+
+Uma experiência visual e educativa imersiva que demonstra como a IA está transformando diagnóstico, tratamento e pesquisa em saúde mental. Baseado na skill educativa ia-saude-mental.
+
+✨ Características Principais
+🎨 Design Único
+
+Estética Neurociência-Inspirada: Paleta de cores que remete a sinapses neurais (cyan, purple, pink)
+Animações Fluidas: Micro-interações e transições suaves que criam engajamento
+Efeitos Visuais Imersivos: Background com blur gaussiano, gradientes animados e elementos pulsantes
+Responsivo: Interface adaptável para desktop, tablet e mobile
+
+🔬 Funcionalidades Interativas
+1️⃣ Página Inicial - Visão Geral
+
+Aplicações Principais: Cards interativos apresentando as 4 grandes aplicações de IA em saúde mental
+
+Chatbots Terapêuticos (Woebot, Wysa)
+Detecção de Crises (Monitoramento de risco)
+Personalização de Tratamento (Medicina de precisão)
+Análise de Sessões (Transcrição e feedback)
+
+
+Tecnologias Fundamentais: Barras de progresso animadas mostrando maturidade de cada tecnologia
+
+NLP (90%) - Processamento de Linguagem Natural
+Machine Learning (85%) - Aprendizado de Máquina
+Deep Learning (75%) - Redes Neurais Profundas
+Wearables (70%) - Monitoramento Fisiológico
+LLMs (80%) - Modelos de Linguagem
+
+
+Seção de Ética: Alertas críticos sobre viés algorítmico, privacidade e deshumanização do cuidado
+
+2️⃣ Análise de Sentimento - Simulador Real
+🎯 Demonstração prática de NLP aplicado à saúde mental
+Como Funciona:
+
+Digite qualquer texto no campo de entrada
+Clique em "Analisar Texto"
+Veja a análise completa em tempo real
+
+Métricas Detectadas:
+
+Sentimento Geral: Positivo, Negativo ou Neutro
+Intensidade: Escala de 0-100% com visualização gráfica
+Contagem de Palavras: Análise quantitativa do texto
+Distorções Cognitivas: Identificação automática de padrões de pensamento distorcidos
+
+Distorções Cognitivas Detectadas:
+
+✅ Pensamento Dicotômico: Uso de palavras absolutas ("sempre", "nunca", "tudo", "nada")
+✅ Catastrofização: Previsão de cenários catastróficos sem evidências
+✅ Foco Excessivo no Eu: Uso elevado de pronomes em primeira pessoa (indicador de ruminação)
+
+Exemplos Pré-Carregados:
+
+Textos positivos, negativos e neutros para teste imediato
+Demonstrações de diferentes tipos de distorções cognitivas
+
+3️⃣ Quiz Interativo - Teste Seus Conhecimentos
+📚 4 questões educativas sobre IA e Saúde Mental
+Recursos:
+
+Sistema de pontuação em tempo real
+Feedback visual imediato (verde para correto, vermelho para incorreto)
+Explicações contextualizadas
+Opção de refazer o quiz para praticar
+
+Tópicos Cobertos:
+
+Vantagens da IA em saúde mental
+Conceitos de NLP e processamento de linguagem
+Limitações de chatbots terapêuticos
+Aplicações de wearables na detecção de transtornos
+
+
+🛠️ Tecnologias Utilizadas
+Frontend
+
+React 18+: Biblioteca JavaScript para construção de interfaces
+Lucide React: Biblioteca de ícones modernos e elegantes
+Tailwind CSS: Framework CSS utility-first para estilização rápida
+
+Conceitos de IA Implementados
+
+Análise Léxica: Dicionário de palavras positivas/negativas
+Detecção de Padrões: Identificação de palavras absolutas e estruturas linguísticas
+Análise Estatística: Contagem de pronomes e cálculo de métricas
+Classificação Multi-Label: Múltiplas distorções podem ser detectadas simultaneamente
+
+
+🚀 Como Usar
+Opção 1: Artifact do Claude.ai
+Este arquivo já está pronto para ser usado como um React Artifact no Claude.ai:
+
+Abra o arquivo ia-saude-mental-explorer.jsx
+Copie todo o conteúdo
+Crie um novo artifact React no Claude.ai
+Cole o código
+O artifact será renderizado automaticamente!
+
+Opção 2: Projeto React Local
+Pré-requisitos
+
+Node.js 16+ instalado
+npm ou yarn
+
+Instalação
+bash# 1. Crie um novo projeto React
+npx create-react-app ia-saude-mental-explorer
+cd ia-saude-mental-explorer
+
+# 2. Instale as dependências
+npm install lucide-react
+
+# 3. Configure Tailwind CSS
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+Configuração do Tailwind
+Edite tailwind.config.js:
+javascript/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+Edite src/index.css:
+css@tailwind base;
+@tailwind components;
+@tailwind utilities;
+Executando o Projeto
+bash# 1. Substitua o conteúdo de src/App.js pelo código do explorer
+
+# 2. Execute o projeto
+npm start
+
+# 3. Abra http://localhost:3000 no navegador
+
+📖 Base Educativa
+Este projeto é baseado na skill "ia-saude-mental", um guia educativo abrangente sobre:
+Fundamentos Técnicos
+
+NLP (Natural Language Processing): Análise de sentimento, detecção de distorções cognitivas, análise de coerência
+Machine Learning Supervisionado: Classificação binária, regressão, análise de séries temporais
+Deep Learning: Redes convolucionais (CNN), redes recorrentes (LSTM), transformers
+
+Aplicações Clínicas
+
+Chatbots Terapêuticos: Woebot, Wysa, Youper
+Detecção de Crises: Monitoramento de redes sociais, alertas de risco
+Personalização de Tratamento: Farmacogenômica, predição de resposta
+Análise de Sessões: Transcrição automática, feedback terapêutico
+
+Dados Fisiológicos
+
+HRV (Heart Rate Variability): Marcador de estresse e regulação emocional
+Padrões de Sono: Detecção de insônia, fragmentação, alterações
+Acelerômetro: Atividade física, isolamento social, lentidão psicomotora
+
+Considerações Éticas
+
+Viés Algorítmico: Modelos treinados com populações WEIRD
+Privacidade: Proteção de dados sensíveis de saúde mental
+Deshumanização: Importância do "human in the loop"
+Responsabilidade Legal: Questões sobre erros e diagnósticos
+
+
+🎯 Casos de Uso
+Para Psicólogos e Psiquiatras
+
+Educação Continuada: Aprenda sobre tecnologias emergentes
+Apresentações: Use como material visual em palestras
+Demonstração: Mostre aos pacientes como IA pode auxiliar o tratamento
+
+Para Estudantes
+
+Aprendizado Interativo: Explore conceitos de IA aplicada à saúde mental
+Preparação Acadêmica: Material para TCCs, seminários e workshops
+Teste de Conhecimento: Use o quiz para autoavaliação
+
+Para Desenvolvedores
+
+Referência de Código: Exemplo de React + Tailwind bem estruturado
+Inspiração de Design: Estética única e diferenciada
+Base para Projetos: Fork e adapte para suas necessidades
+
+Para Entusiastas de IA
+
+Demonstração Prática: Veja IA em ação de forma visual
+Compreensão de NLP: Entenda como análise de texto funciona
+Exploração de Conceitos: Navegue por diferentes aspectos da IA em saúde
+
+
+🧪 Exemplos de Análise
+Exemplo 1: Texto Negativo com Distorções
+Input:
+Nunca consigo fazer nada direito. Sou um fracasso total.
+Output:
+
+Sentimento: Negativo (95%)
+Distorções Detectadas:
+
+Pensamento Dicotômico (85%)
+Foco Excessivo no Eu (70%)
+
+
+
+Exemplo 2: Texto com Catastrofização
+Input:
+Se eu errar essa apresentação, minha carreira acabou completamente.
+Output:
+
+Sentimento: Negativo (85%)
+Distorções Detectadas:
+
+Catastrofização (85%)
+Pensamento Dicotômico (70%)
+
+
+
+Exemplo 3: Texto Positivo
+Input:
+Estou muito feliz com meu progresso na terapia. Consegui enfrentar meus medos!
+Output:
+
+Sentimento: Positivo (80%)
+Distorções: Nenhuma detectada
+
+
+🔮 Futuras Melhorias
+Fase 2 (Planejado)
+
+ Integração com API de IA real (Claude, GPT) para análises mais sofisticadas
+ Gráficos de evolução temporal de sentimento
+ Exportação de relatórios em PDF
+ Modo escuro/claro customizável
+ Mais questões no quiz (banco de 20+ perguntas)
+
+Fase 3 (Visão)
+
+ Análise de voz (transcrição + análise de tom)
+ Dashboard de monitoramento longitudinal
+ Simulador de chatbot terapêutico com IA real
+ Integração com wearables (dados simulados)
+ Multilíngue (EN, ES, FR)
+
+
+📚 Recursos Adicionais
+Leitura Recomendada
+
+"Artificial Intelligence in Mental Health" - Graham Thornicroft
+"The AI Revolution in Medicine" - Peter Lee
+DSM-5 e CID-11: Taxonomia de transtornos mentais
+
+Ferramentas Relacionadas
+
+Woebot: Chatbot terapêutico baseado em TCC
+Wysa: App de bem-estar mental com IA
+MindStrong: Monitoramento digital de saúde mental
+
+Pesquisa Científica
+
+PubMed: Busque por "AI mental health NLP"
+arXiv: Papers de machine learning aplicado
+Google Scholar: Artigos acadêmicos sobre o tema
+
+
+⚠️ Avisos Importantes
+Limitações
+
+⚠️ Demonstração Educativa: Este não é um sistema clínico validado
+⚠️ Não Substitui Profissionais: IA não substitui psicólogos ou psiquiatras
+⚠️ Análise Simplificada: O algoritmo de sentimento é educativo, não diagnóstico
+⚠️ Sem Armazenamento: Nenhum dado é salvo ou transmitido
+
+Uso Responsável
+
+✅ Use para educação e aprendizado
+✅ Compartilhe com atribuição à skill "ia-saude-mental"
+✅ Respeite a privacidade ao testar com textos reais
+❌ Não use como ferramenta de diagnóstico real
+❌ Não tome decisões clínicas baseadas nesta ferramenta
+
+
+🤝 Contribuições
+Este projeto foi criado como uma demonstração educativa. Se você deseja:
+
+Reportar bugs: Descreva o comportamento observado
+Sugerir melhorias: Compartilhe suas ideias de novas funcionalidades
+Adaptar o código: Sinta-se livre para fazer fork e customizar
+Usar em projetos: Atribua crédito à skill "ia-saude-mental"
+
+
+📜 Licença e Créditos
+Criação
+
+Desenvolvido por: Claude (Anthropic)
+Baseado em: Skill "ia-saude-mental"
+Data: Janeiro de 2026
+
+Bibliotecas de Terceiros
+
+React: MIT License
+Lucide Icons: ISC License
+Tailwind CSS: MIT License
+
+Uso
+Este projeto é fornecido para fins educativos. Você é livre para:
+
+✅ Usar para aprendizado pessoal
+✅ Modificar e adaptar o código
+✅ Usar em apresentações acadêmicas
+✅ Compartilhar com atribuição
+
+
+Consulte a documentação acima
+Revise a skill "ia-saude-mental" original
+Explore os comentários no código-fonte
+
+Para Questões de Saúde Mental
+🆘 Se você está em crise, procure ajuda imediata:
+
+CVV: 188 (24h, gratuito)
+SAMU: 192
+UPA/Emergências: Atendimento presencial
+
+
+🌟 Agradecimentos
+Agradecimentos especiais a:
+
+Comunidade de Psicologia: Por reconhecer o potencial da IA
+Pesquisadores de IA: Pelo trabalho fundamental em NLP e ML
+Desenvolvedores Open Source: Pelas ferramentas incríveis (React, Tailwind, Lucide)
+
+
+🚀 Comece Agora!
+
+Abra o arquivo ia-saude-mental-explorer.jsx
+Cole no Claude.ai como artifact React
+Explore as 3 seções: Início, Análise, Quiz
+Teste a análise de sentimento com diferentes textos
+Faça o quiz e teste seus conhecimentos!
+
+
+<div align="center">
+🧠 Feito com curiosidade, ciência e código
+"IA não substitui empatia humana — ela a amplia"
