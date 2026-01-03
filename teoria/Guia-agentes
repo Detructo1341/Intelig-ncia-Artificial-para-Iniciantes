@@ -1,0 +1,78 @@
+# 📘 Guia Completo de Agentes de IA  
+## *Da Teoria à Prática: Arquitetura de Sistemas Cognitivos Artificiais*  
+**Por Gabriel — Arquiteto Cognitivo | Psicólogo especializado em IA**  
+**Janeiro 2025 | Versão 1.0 Complete Edition**
+
+> *"A diferença entre um prompt e um agente é a diferença entre uma ferramenta e um parceiro cognitivo."*
+
+---
+
+## 📊 Estatísticas do Guia
+- **Total de Capítulos**: 20  
+- **Páginas**: ~95  
+- **Palavras**: ~28.000  
+- **Exemplos Práticos**: 40+  
+- **Templates**: 25+  
+- **Casos de Estudo Completos**: 2  
+- **Tempo de Leitura**: 6–8 horas  
+
+---
+
+## 🎯 Estrutura Completa
+### PARTE I: FUNDAMENTOS (Capítulos 1–4)  
+Definições, anatomia, psicologia e comparações  
+### PARTE II: ARQUITETURA (Capítulos 5–8)  
+Componentes essenciais, padrões, especializações e modularidade  
+### PARTE III: PRÁTICA (Capítulos 9–12)  
+Casos reais, criação passo a passo, testes e refinamento  
+### PARTE IV: TÉCNICAS AVANÇADAS (Capítulos 13–16)  
+Multi-etapas, metacognição, chains e auto-reflexão  
+### PARTE V: APLICAÇÕES (Capítulos 17–20)  
+Educação, pesquisa, criatividade e tomada de decisão  
+
+---
+
+## 📚 Índice Navegável
+- [Capítulo 1: O que são Agentes de IA?](#capítulo-1-o-que-são-agentes-de-ia)
+- [Capítulo 2: Agentes vs. Prompts Simples](#capítulo-2-agentes-vs-prompts-simples)
+- [Capítulo 3: Anatomia de um Agente](#capítulo-3-anatomia-de-um-agente)
+- [Capítulo 4: Psicologia por Trás dos Agentes](#capítulo-4-psicologia-por-trás-dos-agentes)
+- [Capítulo 5: Os 7 Componentes Essenciais](#capítulo-5-os-7-componentes-essenciais)
+- [Capítulo 6: Padrões de Design](#capítulo-6-padrões-de-design)
+- [Capítulo 7: Especializações e Domínios](#capítulo-7-especializações-e-domínios)
+- [Capítulo 8: Modularidade e Reutilização](#capítulo-8-modularidade-e-reutilização)
+- [Capítulo 9: Caso — Tutor de IA Generativa](#capítulo-9-caso-tutor-de-ia-generativa)
+- [Capítulo 10: Caso — Integrador Multidisciplinar](#capítulo-10-caso-integrador-multidisciplinar)
+- [Capítulo 11: Criando Seu Primeiro Agente](#capítulo-11-criando-seu-primeiro-agente)
+- [Capítulo 12: Testando e Refinando](#capítulo-12-testando-e-refinando)
+- [Capítulo 13: Agentes Multi-Etapas](#capítulo-13-agentes-multi-etapas)
+- [Capítulo 14: Agentes Metacognitivos](#capítulo-14-agentes-metacognitivos)
+- [Capítulo 15: Chain of Agents](#capítulo-15-chain-of-agents)
+- [Capítulo 16: Agentes Auto-Reflexivos](#capítulo-16-agentes-auto-reflexivos)
+- [Capítulo 17: Agentes para Educação](#capítulo-17-agentes-para-educação)
+- [Capítulo 18: Agentes para Pesquisa](#capítulo-18-agentes-para-pesquisa)
+- [Capítulo 19: Agentes para Criatividade](#capítulo-19-agentes-para-criatividade)
+- [Capítulo 20: Agentes para Tomada de Decisão](#capítulo-20-agentes-para-tomada-de-decisão)
+
+---
+
+# PARTE I: FUNDAMENTOS
+
+## Capítulo 1: O que são Agentes de IA?
+
+### 🎯 Objetivos do Capítulo
+Ao final deste capítulo, você será capaz de:
+- ✅ Definir precisamente o que é um agente de IA  
+- ✅ Distinguir agentes de prompts simples  
+- ✅ Identificar os componentes essenciais de um agente  
+- ✅ Reconhecer diferentes tipos de agentes  
+
+### 📖 Definição Fundamental
+**Agente de IA** é um sistema de instruções estruturadas que:
+1. **Incorpora expertise especializada** em um domínio específico  
+2. **Mantém consistência comportamental** através de múltiplas interações  
+3. **Adapta-se ao contexto** sem perder identidade central  
+4. **É reutilizável** em diferentes cenários e plataformas  
+5. **Produz resultados previsíveis** e de alta qualidade  
+
+### 🔍 Anatomia Básica de um Agente
