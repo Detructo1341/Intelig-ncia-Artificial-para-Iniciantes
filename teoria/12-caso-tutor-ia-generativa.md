@@ -1,4 +1,4 @@
-# Caso de Estudo 1 — Tutor de IA Generativa
+# Estudo de caso 1 — Tutor de IA Generativa
 
 ## 🎯 Objetivos do Capítulo
 
