@@ -1,4 +1,4 @@
-# 🪟 Context Window Explicado: A Memória Limitada da IA
+# Context Window Explicado: A Memória Limitada da IA
 
 ## 🎯 O que você vai aprender
 
