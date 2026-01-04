@@ -1,4 +1,4 @@
-# Capítulo 5: Os 7 Componentes Essenciais de um Agente
+# Os 7 Componentes Essenciais de um Agente
 
 ## 🎯 Objetivos do Capítulo
 
