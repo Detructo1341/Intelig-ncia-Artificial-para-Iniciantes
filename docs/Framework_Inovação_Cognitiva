@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 Framework de Inovação Cognitiva</title>
+  <meta name="description" content="Plataforma transdisciplinar explorando tecnologias emergentes alinhadas aos ODS."/>
+  <meta name="keywords" content="neurotecnologia, ecotecnologia, neuroinclusão, futurismo decolonial, ODS, ética digital, IA assistiva, síntese"/>
+  <meta name="author" content="Projeto Neuroinovação Decolonial Sustentável"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --primary-blue: #4682b4; /* SteelBlue */
+      --accent-green: #32cd32; /* LimeGreen */
+      --accent-orange: #ff8c00; /* DarkOrange */
+      --accent-purple: #9932cc; /* DarkOrchid */
+      --accent-teal: #008080; /* Teal */
+      --ods-color: #2196f3; /* Material Blue for ODS tab */
+      --sintese-color: #e91e63; /* Material Pink for Synthesis/Authors tab */
+      --sintese-geral-color: #673ab7; /* Deep Purple for General Synthesis tab */
+      --text-dark: #2c3e50; /* Dark Slate Gray */
+      --bg-light: #f9f9f9;
+      --border-color: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background-color: #f0f0f0; /* Light gray background */
+      color: var(--text-dark);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container {
+      width: 90%;
+      max-width: 1400px; /* Increased max-width for wider screens */
+      margin: auto;
+      padding: 20px;
+      display: grid; /* Using grid for layout */
+      gap: 20px; /* Space between grid items */
+    }
+    header {
+      text-align: center;
+      padding: 25px 20px;
+      background: linear-gradient(135deg, var(--primary-blue), #1a1a1a); /* Darker gradient for header */
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 2.2em; /* Slightly larger title */
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    header p {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+
+    nav[aria-label="Navegação por abas"] {
+      margin-top: 10px; /* Reduced margin for tabs */
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+      gap: 4px; /* Small gap between tabs */
+    }
+    .tab {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+      padding: 12px 15px;
+      font-size: 1em;
+      font-weight: bold;
+      flex: 1; /* Tabs take equal space */
+      min-width: 100px; /* Minimum width for tabs, adjusted for more tabs */
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text-dark); /* Default tab text color */
+    }
+    .tab.active,
+    .tab:hover {
+      background-color: #e9e9e9; /* Lighter hover/active background */
+      border-color: #ccc;
+    }
+
+    /* Specific active tab colors */
+    .tab.neurociencia.active { background-color: var(--primary-blue); color: white; }
+    .tab.acessibilidade.active { background-color: var(--accent-green); color: white; }
+    .tab.etica.active { background-color: var(--accent-orange); color: white; }
+    .tab.futurismo.active { background-color: var(--accent-purple); color: white; }
+    .tab.ecotecnologia.active { background-color: var(--accent-teal); color: white; }
+    .tab.ods.active { background-color: var(--ods-color); color: white; }
+    .tab.autores.active { background-color: var(--sintese-color); color: white; } /* Renamed from .sintese to .autores */
+    .tab.sintese-geral.active { background-color: var(--sintese-geral-color); color: white; }
+
+
+    .tabcontent {
+      display: none;
+      padding: 25px;
+      border: 1px solid var(--border-color);
+      border-radius: 0 8px 8px 8px; /* Rounded corners for content, except top-left */
+      background-color: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      animation: fadeEffect 0.4s ease-out;
+    }
+    .tabcontent.active {
+      display: block;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+      border-bottom: 3px solid var(--primary-blue);
+      padding-bottom: 10px;
+    }
+    /* Specific title colors for each tab */
+    #neurociencia .title { border-bottom-color: var(--primary-blue); }
+    #acessibilidade .title { border-bottom-color: var(--accent-green); }
+    #etica .title { border-bottom-color: var(--accent-orange); }
+    #futurismo .title { border-bottom-color: var(--accent-purple); }
+    #ecotecnologia .title { border-bottom-color: var(--accent-teal); }
+    #ods-completas .title { border-bottom-color: var(--ods-color); }
+    #autores-teoricos .title { border-bottom-color: var(--sintese-color); }
+    #sintese-geral .title { border-bottom-color: var(--sintese-geral-color); }
+
+
+    .description {
+      font-size: 1.05em;
+      margin-bottom: 20px;
+    }
+    .description ul {
+        list-style-position: inside;
+        padding-left: 0; /* Remove default padding if using list-style-position: inside */
+    }
+    .description li {
+        margin-bottom: 8px;
+    }
+    .description strong { /* Bolding for emphasis within paragraphs */
+        font-weight: 600;
+    }
+
+    .sintese-ponto {
+        margin-bottom: 1.5em;
+        padding-left: 1.5em;
+        position: relative;
+    }
+    .sintese-ponto::before {
+        content: "🔗"; /* Link icon or other relevant emoji */
+        position: absolute;
+        left: 0;
+        color: var(--sintese-geral-color);
+        font-size: 1.2em;
+    }
+    .sintese-ponto h3 {
+        font-size: 1.2em;
+        color: var(--sintese-geral-color);
+        margin-bottom: 0.3em;
+    }
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95em; /* Slightly smaller table font for more content */
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px; /* Consistent padding */
+      text-align: left;
+      vertical-align: top; /* Align content to the top of cells */
+    }
+
+    thead {
+      background-color: var(--bg-light);
+      font-weight: bold; /* Make table headers bold */
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    tbody tr:hover {
+      background-color: #e6f3fa; /* Light blue hover for rows */
+    }
+
+    .ods-badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 5px;
+    }
+
+    .ods-badge {
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: white;
+      text-transform: uppercase;
+      cursor: default;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: inline-block; /* Ensures badges behave as expected */
+      text-align: center; /* Centers text within the badge if needed */
+      min-width: 60px; /* Ensure badges have a minimum width */
+    }
+
+    /* ODS Badge Colors */
+    .ods-1 { background-color: #E5243B; }
+    .ods-2 { background-color: #DDA63A; }
+    .ods-3 { background-color: #4C9F38; }
+    .ods-4 { background-color: #C5192D; }
+    .ods-5 { background-color: #FF3A21; }
+    .ods-6 { background-color: #26BDE2; }
+    .ods-7 { background-color: #FCC30B; }
+    .ods-8 { background-color: #A21942; }
+    .ods-9 { background-color: #F36D25; }
+    .ods-10 { background-color: #DD1367; }
+    .ods-11 { background-color: #FD9D24; }
+    .ods-12 { background-color: #BF8B2E; }
+    .ods-13 { background-color: #3F7E44; }
+    .ods-14 { background-color: #0A97D9; }
+    .ods-15 { background-color: #56C02B; }
+    .ods-16 { background-color: #00689D; }
+    .ods-17 { background-color: #19486A; }
+
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      background: var(--bg-light);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 10px; /* Added margin below search bar */
+    }
+
+    #searchInput {
+      flex-grow: 1;
+      padding: 10px 12px;
+      font-size: 1em;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+
+    #searchInput:focus {
+      outline: 2px solid var(--primary-blue);
+      border-color: var(--primary-blue);
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      background-color: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .search-button:hover:not(:disabled) {
+      background-color: #1e90ff; /* DodgerBlue for hover */
+    }
+    .search-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin: 15px 0;
+      padding: 12px 15px;
+      background: #f0f0f0;
+      border-left: 4px solid #ccc;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      background-color: #1a1a1a; /* Dark footer background */
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+
+    .example {
+      margin-top: 15px;
+      padding: 15px;
+      background: #fff3cd; /* Light yellow for examples */
+      border-left: 4px solid #ffc107; /* Amber border for examples */
+      border-radius: 5px;
+    }
+    .example strong {
+        color: #856404; /* Darker text for example heading */
+    }
+
+    .resources {
+      margin-top: 20px;
+    }
+
+    .resources h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: var(--primary-blue);
+    }
+
+    .resources ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resources li {
+      margin-bottom: 8px;
+    }
+
+    .resources a {
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+
+    .resources a:hover {
+      text-decoration: underline;
+    }
+
+    .visually-hidden { /* For accessibility */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .no-results {
+      display: none; /* Hidden by default */
+      padding: 15px;
+      margin-top: 15px;
+      background-color: #ffebee; /* Light red background */
+      color: #c62828; /* Dark red text */
+      font-weight: bold;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+      }
+      header h1 {
+        font-size: 1.8em;
+      }
+      .tabs {
+        flex-direction: column; /* Stack tabs vertically on small screens */
+      }
+      .tab {
+        min-width: 0; /* Allow tabs to shrink */
+        border-radius: 8px; /* Full border radius for stacked tabs */
+        margin-bottom: 4px;
+      }
+      .tabcontent {
+        border-radius: 8px; /* Adjust border radius for stacked tabs */
+      }
+      .ods-badge-container {
+        flex-direction: column; /* Stack ODS badges */
+        align-items: flex-start;
+      }
+      .search-bar {
+        flex-direction: column;
+      }
+      .search-button {
+        width: 100%;
+      }
+      table {
+        font-size: 0.85em; /* Smaller font for tables on mobile */
+      }
+      th, td {
+        padding: 8px; /* Reduce padding in table cells */
+      }
+      .ods-badge { /* Ensure badges are still somewhat compact on mobile */
+        padding: 4px 8px;
+        font-size: 0.75em;
+        min-width: 50px;
+      }
+    }
+
+    /* Dark Mode Preferences */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a1a1a; /* Dark background */
+        color: #f0f0f0; /* Light text */
+      }
+      .tabcontent, .search-bar, thead {
+        background-color: #2c2c2c; /* Darker content background */
+        border-color: #444; /* Darker borders */
+      }
+      .tab {
+        background-color: #232323;
+        border-color: #444;
+        color: #f0f0f0;
+      }
+      .tab.active, .tab:hover {
+        background-color: #3a3a3a;
+      }
+      /* Specific active tab colors for dark mode */
+      .tab.neurociencia.active { background-color: var(--primary-blue); color: white; }
+      .tab.acessibilidade.active { background-color: var(--accent-green); color: black; } /* Adjusted for contrast */
+      .tab.etica.active { background-color: var(--accent-orange); color: black; } /* Adjusted for contrast */
+      .tab.futurismo.active { background-color: var(--accent-purple); color: white; }
+      .tab.ecotecnologia.active { background-color: var(--accent-teal); color: white; }
+      .tab.ods.active { background-color: var(--ods-color); color: white; }
+      .tab.autores.active { background-color: var(--sintese-color); color: white; }
+      .tab.sintese-geral.active { background-color: var(--sintese-geral-color); color: white; }
+
+
+      header {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Dark mode header gradient */
+      }
+      footer {
+        background-color: #111; /* Even darker footer */
+      }
+      #searchInput {
+        background-color: #333;
+        color: #f0f0f0;
+        border-color: #555;
+      }
+      #searchInput:focus {
+        outline-color: var(--accent-teal);
+        border-color: var(--accent-teal);
+      }
+      .quote {
+        background: #252525;
+        border-left-color: #555;
+        color: #ccc;
+      }
+      .example {
+        background: #3a321a; /* Darker yellow for examples */
+        border-left-color: #b8860b; /* Darker amber border */
+      }
+      .example strong {
+        color: #f0e68c; /* Lighter text for example heading */
+      }
+      tbody tr:nth-child(even) {
+        background-color: #252525;
+      }
+      tbody tr:hover {
+        background-color: #384a57;
+      }
+      .no-results {
+        background-color: #4a1a1a;
+        color: #ffcdd2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="container">
+
+  <header>
+    <h1>🧠 Framework de Inovação Cognitiva</h1>
+    <p>Explorando a interseção de Neurotecnologia, Acessibilidade, Ética, Futurismo Decolonial e Ecotecnologia para um futuro inclusivo, ético e sustentável.</p>
+  </header>
+
+  <div class="search-bar">
+    <label for="searchInput" class="visually-hidden">Buscar por autor, ODS ou tema</label>
+    <input type="text" id="searchInput" placeholder="Buscar por autor, ODS, tema..." aria-label="Termo de busca" />
+    <button class="search-button" onclick="searchContent()">
+      <i class="fas fa-search"></i> Buscar
+    </button>
+    <button class="search-button" onclick="resetSearch()">
+      <i class="fas fa-times"></i> Limpar
+    </button>
+  </div>
+  <div id="noResultsMessage" class="no-results" aria-live="polite">Nenhum resultado encontrado.</div>
+
+
+  <nav aria-label="Navegação principal">
+    <div class="tabs" role="tablist">
+      <button class="tab neurociencia active" role="tab" aria-selected="true" aria-controls="neurociencia" onclick="openTab(event, 'neurociencia')" id="tab-neurociencia">🧠 <span class="visually-hidden">Neurociência</span></button>
+      <button class="tab acessibilidade" role="tab" aria-selected="false" aria-controls="acessibilidade" onclick="openTab(event, 'acessibilidade')" id="tab-acessibilidade">♿ <span class="visually-hidden">Acessibilidade</span></button>
+      <button class="tab etica" role="tab" aria-selected="false" aria-controls="etica" onclick="openTab(event, 'etica')" id="tab-etica">⚖️ <span class="visually-hidden">Ética</span></button>
+      <button class="tab futurismo" role="tab" aria-selected="false" aria-controls="futurismo" onclick="openTab(event, 'futurismo')" id="tab-futurismo">🔮 <span class="visually-hidden">Futurismo</span></button>
+      <button class="tab ecotecnologia" role="tab" aria-selected="false" aria-controls="ecotecnologia" onclick="openTab(event, 'ecotecnologia')" id="tab-ecotecnologia">🌱 <span class="visually-hidden">Ecotecnologia</span></button>
+      <button class="tab ods" role="tab" aria-selected="false" aria-controls="ods-completas" onclick="openTab(event, 'ods-completas')" id="tab-ods">🌍 <span class="visually-hidden">ODS</span></button>
+      <button class="tab autores" role="tab" aria-selected="false" aria-controls="autores-teoricos" onclick="openTab(event, 'autores-teoricos')" id="tab-autores">📚 <span class="visually-hidden">Autores</span></button>
+      <button class="tab sintese-geral" role="tab" aria-selected="false" aria-controls="sintese-geral" onclick="openTab(event, 'sintese-geral')" id="tab-sintese-geral">🧬 <span class="visually-hidden">Síntese</span></button>
+    </div>
+  </nav>
+
+  <div id="neurociencia" class="tabcontent active" role="tabpanel" aria-labelledby="tab-neurociencia" tabindex="0">
+    <h2 class="title">🧠 Neurociência Aplicada à Educação e Saúde</h2>
+    <div class="description">
+      <p>A neurociência aplicada representa um campo interdisciplinar vital que se dedica a desvendar os complexos mecanismos pelos quais o cérebro humano aprende, processa informações, regula emoções e interage com o ambiente. Ao aprofundar a compreensão sobre as bases neurais da cognição e do comportamento, este campo oferece ferramentas e conhecimentos cruciais para o desenvolvimento de estratégias inovadoras e personalizadas. O objetivo primordial é fomentar a criação de ambientes educacionais e de saúde que não apenas sejam mais inclusivos e adaptativos às diversas necessidades individuais, mas que também promovam ativamente o bem-estar, a autonomia e o pleno desenvolvimento do potencial humano em diferentes contextos e fases da vida. Isso envolve desde a otimização de métodos pedagógicos até o design de intervenções terapêuticas mais eficazes e humanizadas.</p>
+      <p>Exemplos incluem:</p>
+      <ul>
+        <li><strong>Interfaces Cérebro-Computador (BCIs)</strong>: Desenvolvimento de tecnologias para comunicação alternativa e controle de dispositivos para pessoas com deficiência motora severa, como na síndrome de encarceramento.</li>
+        <li><strong>Realidade Aumentada (RA) e Virtual (RV)</strong>: Aplicações em terapia cognitiva, reabilitação neurológica, treinamento de habilidades sociais e personalização pedagógica para diferentes estilos de aprendizagem.</li>
+        <li><strong>Modelos de Inteligência Artificial (IA)</strong>: Utilização de IA para identificar padrões de atividade cerebral, diagnosticar precocemente transtornos neurológicos, personalizar tratamentos e adaptar conteúdos educacionais aos estilos sensoriais e cognitivos únicos de cada indivíduo.</li>
+      </ul>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva</th>
+          <th>Implicações para o Projeto</th>
+          <th>ODS Associadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Grunya Sukhareva</td>
+          <td>URSS, 1925 – Primeira descrição clínica detalhada de características que hoje associamos ao autismo em crianças.</td>
+          <td>Pioneira na descrição não patologizante da diversidade neurológica, focando em observações comportamentais e cognitivas detalhadas sem estigmatização.</td>
+          <td>Abordagem clínica precoce que valoriza a subjetividade, a variação cognitiva e as potencialidades, em vez de focar apenas em déficits.</td>
+          <td>Base histórica e conceitual para modelos não deficitários de cognição humana, inspirando o desenvolvimento de tecnologias e abordagens que respeitam e valorizam a neurodiversidade.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span><span class="ods-badge ods-4" title="ODS 4: Educação de Qualidade">ODS 4</span></div></td>
+        </tr>
+        <tr>
+          <td>Judy Singer</td>
+          <td>Austrália, 1998 – Socióloga e ativista, criadora do termo "neurodiversidade".</td>
+          <td>Introdução da neurodiversidade como uma categoria sociopolítica e identitária, similar à biodiversidade, defendendo que as variações neurológicas são naturais.</td>
+          <td>Defesa da variação neurológica como parte natural e valiosa da diversidade humana, alinhando-se à visão de Sukhareva de não patologizar diferenças.</td>
+          <td>Justificativa teórica para o reconhecimento da neurodivergência como uma diferença legítima, informando o design de tecnologias e políticas inclusivas.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Desenvolvimento de uma plataforma BCI (Interface Cérebro-Computador) que utiliza algoritmos de IA adaptativa para permitir comunicação alternativa e controle ambiental para indivíduos com síndrome de encarceramento, co-desenhada com os usuários para garantir usabilidade e personalização.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6923507/" target="_blank" rel="noopener noreferrer">PubMed – Neurodiversity as a Tool for Inclusive Education (2019)</a></li>
+        <li><a href="https://autisticadvocacy.org/" target="_blank" rel="noopener noreferrer">Autistic Self Advocacy Network (ASAN) – Fundada por Ari Ne'eman</a></li>
+        <li><a href="https://plato.stanford.edu/entries/disability/" target="_blank" rel="noopener noreferrer">Stanford Encyclopedia of Philosophy – Disability: Definitions, Models, Experience</a></li>
+        <li><a href="https://www.dukeupress.edu/brilliant-imperfection" target="_blank" rel="noopener noreferrer">Eli Clare – Brilliant Imperfection: Grappling with Cure</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="acessibilidade" class="tabcontent" role="tabpanel" aria-labelledby="tab-acessibilidade" tabindex="0">
+    <h2 class="title">♿ Acessibilidade Digital e Justiça da Deficiência</h2>
+    <div class="description">
+      <p>A acessibilidade digital, em sua concepção mais ampla e profunda, transcende a mera conformidade com diretrizes técnicas ou a simples implementação de funcionalidades adaptativas. Ela se configura como um pilar fundamental da justiça social e dos direitos humanos na era digital, exigindo uma reflexão crítica sobre as estruturas de poder e as políticas públicas que moldam o acesso à informação e à tecnologia. Este campo busca ativamente combater e desmantelar as múltiplas barreiras – sejam elas digitais, como interfaces mal projetadas; linguísticas, como a ausência de tradução para Libras ou linguagem simples; ou sensoriais, como a falta de alternativas para conteúdo visual ou auditivo. Ao promover o Design Universal como filosofia norteadora e ao garantir a participação ativa e central de pessoas com deficiência em todas as etapas de concepção, desenvolvimento e avaliação de tecnologias, a acessibilidade digital almeja construir um ciberespaço verdadeiramente equitativo e inclusivo para todas as pessoas.</p>
+      <blockquote class="quote">“Nada sobre nós sem nós.” – Princípio fundamental do movimento pelos direitos das pessoas com deficiência, enfatizando a importância da autodefensoria e participação.</blockquote>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva</th>
+          <th>Implicações para o Projeto</th>
+          <th>ODS Associadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Michael Oliver</td>
+          <td>Reino Unido, 1983 – "The Politics of Disablement", introdução do Modelo Social da Deficiência.</td>
+          <td>Crítica fundamental às visões médicas e biológicas da deficiência, argumentando que a deficiência é causada por barreiras sociais e não por limitações individuais.</td>
+          <td>Deslocamento do foco da "falha" individual para a inadequação do ambiente e das estruturas sociais, ecoando a necessidade de compreender e adaptar-se às variações, em vez de normalizar.</td>
+          <td>Suporte teórico para o design inclusivo e a criação de ambientes digitais e físicos neurocompatíveis, que removem barreiras em vez de exigir que o indivíduo se adapte.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+        <tr>
+          <td>Rosemarie Garland-Thomson</td>
+          <td>EUA – Obras como "Extraordinary Bodies" e o conceito de "misfitting".</td>
+          <td>Análise cultural da deficiência, desconstruindo o modelo médico e explorando como a sociedade constrói a "norma" e o "desvio". O conceito de "misfitting" descreve a inadequação entre corpos e ambientes.</td>
+          <td>Rejeita a medicalização da diferença e propõe a necessidade de acesso estrutural e mudança social, alinhando-se com a valorização da diversidade implícita em Sukhareva.</td>
+          <td>Base teórica para o desenvolvimento de sistemas digitais mais equitativos, que consideram a diversidade de corpos e mentes como ponto de partida para o design.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+        <tr>
+          <td>Romeu Kazumi Sassaki</td> 
+          <td>Brasil, anos 1980–2020 – Educador, consultor e um dos pioneiros do movimento de inclusão e acessibilidade no Brasil.</td>
+          <td>Defesa e disseminação dos conceitos de inclusão social, acessibilidade e desenho universal no Brasil, com base em normas internacionais (como WCAG) e adaptados às realidades locais.</td>
+          <td>Promoção da legitimidade das vozes de pessoas com deficiência na construção de tecnologias, políticas e práticas inclusivas, valorizando a experiência vivida.</td>
+          <td>Fundamentação para o desenvolvimento de sistemas digitais e políticas de acessibilidade que sejam contextualmente relevantes e eficazes no cenário brasileiro.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-4" title="ODS 4: Educação de Qualidade">ODS 4</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Criação de plataformas digitais educacionais que oferecem múltiplos modos de navegação e interação (teclado, voz, gestos, varredura ocular), personalização de interface (fontes, cores, contraste) e conteúdo em formatos alternativos (texto, áudio, Libras), garantindo acesso equitativo para estudantes com diversas necessidades sensoriais e motoras.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://disability-studies.leeds.ac.uk/" target="_blank" rel="noopener noreferrer">Centre for Disability Studies, University of Leeds</a></li>
+        <li><a href="https://www.unesco.org/en/education/inclusion/disability" target="_blank" rel="noopener noreferrer">UNESCO – Inclusive Education & Disability</a></li>
+        <li><a href="https://www.cornellpress.cornell.edu/book/9781501766174/contours-of-ableism/" target="_blank" rel="noopener noreferrer">Fiona Kumari Campbell – Contours of Ableism: The Production of Disability and Abledness</a></li>
+        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG)</a></li>
+        <li><a href="https://inclusive.usp.br/" target="_blank" rel="noopener noreferrer">USP Legal - Núcleo de Acessibilidade e Inclusão da USP</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="etica" class="tabcontent" role="tabpanel" aria-labelledby="tab-etica" tabindex="0">
+    <h2 class="title">⚖️ Ética Tecnológica, Autodeterminação e Despatologização</h2>
+    <div class="description">
+      <p>A rápida evolução e crescente penetração das neurotecnologias e da Inteligência Artificial (IA) na sociedade levantam questões éticas complexas e multifacetadas que demandam um exame cuidadoso e contínuo. No cerne dessas discussões, encontram-se preocupações vitais como a garantia da autonomia do usuário, assegurando que indivíduos mantenham o controle sobre suas próprias mentes e decisões, mesmo diante de tecnologias que podem influenciá-las. O consentimento informado, especialmente quando se trata de populações vulneráveis ou com dificuldades de comunicação, torna-se um desafio ético premente, exigindo protocolos robustos e sensíveis. A privacidade dos dados neurais, informações intrinsecamente pessoais e potencialmente reveladoras, necessita de salvaguardas rigorosas contra o uso indevido ou a vigilância. Igualmente crucial é a crítica contundente à tendência histórica de medicalização e patologização compulsória de minorias neurológicas e culturais, onde a tecnologia não deve ser um instrumento de normalização forçada, mas sim de empoderamento e respeito à diversidade. É imperativo, portanto, combater ativamente os vieses algorítmicos que podem perpetuar ou amplificar desigualdades existentes e garantir que o desenvolvimento tecnológico seja guiado pelo princípio de servir à humanidade, expandindo suas capacidades e bem-estar, em vez de impor conformidade ou controle.</p>
+      <blockquote class="quote">“A cura deve ser escolha, não imposição. A tecnologia deve expandir possibilidades, não restringir identidades.” – Inspirado em Eli Clare e no movimento pela neurodiversidade.</blockquote>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva</th>
+          <th>Implicações para o Projeto</th>
+          <th>ODS Associadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Eli Clare</td>
+          <td>EUA, 2017 – "Brilliant Imperfection: Grappling with Cure". Ativista e escritor sobre deficiência, identidades queer e justiça social.</td>
+          <td>Crítica à busca incessante pela "cura" da deficiência e valorização da deficiência como uma experiência vivida rica e complexa, que não necessita ser erradicada.</td>
+          <td>Consonância com a recusa de Sukhareva à patologização excessiva, enfatizando a aceitação da diferença e a importância da perspectiva da pessoa.</td>
+          <td>Referência fundamental para uma ética de cuidado e para o desenvolvimento de tecnologias e políticas centradas na escuta, no respeito à autonomia e na valorização das experiências corporais diversas.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span></div></td>
+        </tr>
+        <tr>
+          <td>Ari Ne’eman</td>
+          <td>EUA, anos 2010 – Fundador do Autistic Self Advocacy Network (ASAN).</td>
+          <td>Defesa da participação ativa e liderança de autistas na formulação de políticas públicas e pesquisas que os afetam, sob o lema "Nada sobre nós sem nós".</td>
+          <td>Afirmação do direito à autodeterminação e crítica à medicalização compulsória e a intervenções que visam normalizar em vez de apoiar.</td>
+          <td>Base para a inclusão genuína de pessoas neurodivergentes no design, desenvolvimento e avaliação de tecnologias e serviços, garantindo que suas vozes e necessidades sejam centrais.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Um sistema de apoio à saúde mental para jovens neurodivergentes, co-desenvolvido com eles, que prioriza a autonomia na escolha de ferramentas e abordagens, respeita suas preferências sensoriais e estilos de comunicação, e oferece opções de anonimato e controle sobre seus dados.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://www.dukeupress.edu/brilliant-imperfection" target="_blank" rel="noopener noreferrer">Eli Clare – Brilliant Imperfection: Grappling with Cure</a></li>
+        <li><a href="https://autisticadvocacy.org/" target="_blank" rel="noopener noreferrer">Autistic Self Advocacy Network (ASAN)</a></li>
+        <li><a href="https://plato.stanford.edu/entries/ethics-it/" target="_blank" rel="noopener noreferrer">Stanford Encyclopedia of Philosophy – Ethics of Information Technology</a></li>
+        <li><a href="https://global.oup.com/academic/product/the-ethics-of-artificial-intelligence-9780190905033" target="_blank" rel="noopener noreferrer">Luciano Floridi (Ed.) – The Ethics of Artificial Intelligence</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="futurismo" class="tabcontent" role="tabpanel" aria-labelledby="tab-futurismo" tabindex="0">
+    <h2 class="title">🔮 Futurismo Decolonial e Epistemologias do Sul</h2>
+    <div class="description">
+      <p>O futurismo decolonial emerge como uma corrente crítica e propositiva que desafia fundamentalmente as narrativas hegemônicas, frequentemente eurocêntricas e tecnocêntricas, sobre o progresso e o desenvolvimento futuro da humanidade. Em vez de aceitar uma visão única e linear do futuro, propõe a construção de futuros plurais, radicalmente diversos e contextualmente enraizados, que sejam informados e moldados por uma vasta gama de saberes tradicionalmente marginalizados, incluindo, mas não se limitando a, conhecimentos indígenas, africanos, latino-americanos, e outras epistemologias do Sul Global. Esta abordagem não apenas reconhece, mas combate ativamente o epistemicídio – a sistemática destruição e desvalorização de formas de conhecimento não-ocidentais – e, em seu lugar, busca ativamente integrar conhecimentos locais e globais de maneira justa, dialógica e equitativa. Ao fazer isso, o futurismo decolonial expõe e confronta a persistente colonialidade do poder e do saber, que continua a moldar as relações globais e a limitar nossa imaginação coletiva sobre o que é possível e desejável para o porvir.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva</th>
+          <th>Implicações para o Projeto</th>
+          <th>ODS Associadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Boaventura de Sousa Santos</td>
+          <td>Portugal/Global, 2014 – "Epistemologias do Sul".</td>
+          <td>Proposta de uma "ecologia de saberes" que valoriza a diversidade epistemológica e a produção de conhecimento pluralista e descentralizada, criticando a hegemonia do conhecimento científico ocidental.</td>
+          <td>Crítica à hegemonia epistêmica e defesa de saberes relacionais e contextuais, o que pode ser visto como um paralelo à necessidade de valorizar diversas formas de cognição e experiência, como implícito na obra de Sukhareva.</td>
+          <td>Suporte teórico para o desenvolvimento de tecnologias e metodologias de pesquisa que sejam inclusivas, participativas, descentralizadas e que valorizem conhecimentos não-hegemônicos.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-4" title="ODS 4: Educação de Qualidade">ODS 4</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+        <tr>
+          <td>Catherine Walsh</td>
+          <td>Equador/América Latina, 2013 – "Pedagogías Decoloniales".</td>
+          <td>Desenvolvimento de pedagogias críticas e anti-coloniais que buscam descolonizar o currículo, a prática educativa e a produção de conhecimento na América Latina.</td>
+          <td>Resgate de saberes e formas de ser/conhecer que foram esmagados ou marginalizados pela colonialidade do saber, promovendo uma educação que reconhece e valoriza a diversidade cultural e epistêmica.</td>
+          <td>Inspiração para métodos de co-design e pesquisa-ação que sejam culturalmente sensíveis, promovam a justiça epistêmica e incluam ativamente comunidades marginalizadas na criação de soluções tecnológicas.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-4" title="ODS 4: Educação de Qualidade">ODS 4</span><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Uma plataforma de IA para monitoramento ambiental e previsão climática local, co-desenvolvida com comunidades indígenas e quilombolas, que integra seus saberes ancestrais sobre ecossistemas e ciclos naturais com dados científicos e modelos computacionais, respeitando a soberania de dados dessas comunidades.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://www.boaventuradesousasantos.pt/media/Epistemologias%20do%20Sul_Boaventura%20de%20Sousa%20Santos_2009.pdf" target="_blank" rel="noopener noreferrer">Boaventura de Sousa Santos – Epistemologias do Sul (PDF)</a></li>
+        <li><a href="https://www.sigloxxieditores.com.ar/libro/pedagogias-decoloniales-practicas-insurgentes-de-resistir-reexistir-y-revivir-tomo-i/" target="_blank" rel="noopener noreferrer">Catherine Walsh (Coord.) – Pedagogías Decoloniales</a></li>
+        <li><a href="https://www.dukeupress.edu/designs-for-the-pluriverse" target="_blank" rel="noopener noreferrer">Arturo Escobar – Designs for the Pluriverse: Radical Interdependence, Autonomy, and the Making of Worlds</a></li>
+        <li><a href="https://www.versobooks.com/books/2740-decolonial-ecology" target="_blank" rel="noopener noreferrer">Malcolm Ferdinand – Decolonial Ecology: Thinking from the Caribbean World</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ecotecnologia" class="tabcontent" role="tabpanel" aria-labelledby="tab-ecotecnologia" tabindex="0">
+    <h2 class="title">🌱 Ecotecnologia, Bioinspiração e Sustentabilidade</h2>
+    <div class="description">
+      <p>As ecotecnologias compreendem um vasto e diversificado conjunto de abordagens, ferramentas e sistemas projetados para encontrar soluções para os desafios humanos de uma maneira que esteja profundamente integrada e em harmonia com os ecossistemas naturais. O seu objetivo central é promover a sustentabilidade a longo prazo, a resiliência socioecológica e a regeneração ambiental, em contraste com modelos tecnológicos que frequentemente resultam em degradação e esgotamento de recursos. Dentro deste campo, a bioinspiração, também conhecida como biomimética, emerge como uma abordagem particularmente poderosa e inovadora. Ela se baseia no princípio de aprender com as estratégias, os processos e os designs engenhosos que a natureza aperfeiçoou ao longo de bilhões de anos de evolução, aplicando esses aprendizados para criar tecnologias, produtos e sistemas que sejam não apenas eficientes e eficazes, mas também intrinsecamente sustentáveis e regenerativos. É importante ressaltar que os modelos bioinspirados possuem um potencial transformador que vai além da sustentabilidade ambiental, podendo também informar crucialmente a criação de ambientes construídos, interfaces digitais e experiências sensoriais que sejam mais inclusivas, adaptadas e acolhedoras para a diversidade de perfis sensoriais e cognitivos humanos, incluindo pessoas neurodivergentes.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva</th>
+          <th>Implicações para o Projeto</th>
+          <th>ODS Associadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Janine Benyus</td>
+          <td>EUA, 1997 – "Biomimicry: Innovation Inspired by Nature".</td>
+          <td>Popularização da biomimética como uma disciplina que estuda os modelos da natureza e os imita para resolver problemas humanos de forma sustentável.</td>
+          <td>O design que valoriza a diversidade de soluções encontradas na natureza e busca adaptar-se a diferentes contextos e necessidades pode ser análogo ao reconhecimento e adaptação às diversas formas de cognição humana.</td>
+          <td>Inspiração para o desenvolvimento de tecnologias ambientais, educacionais e assistivas que sejam eficientes, sustentáveis e potencialmente mais compatíveis com as necessidades sensoriais de pessoas neurodivergentes.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-9" title="ODS 9: Indústria, Inovação e Infraestrutura">ODS 9</span> <span class="ods-badge ods-12" title="ODS 12: Consumo e Produção Responsáveis">ODS 12</span> <span class="ods-badge ods-13" title="ODS 13: Ação Contra a Mudança Global do Clima">ODS 13</span><span class="ods-badge ods-15" title="ODS 15: Vida Terrestre">ODS 15</span></div></td>
+        </tr>
+        <tr>
+          <td>Gunter Pauli</td>
+          <td>Bélgica/Global, 2010 – "The Blue Economy".</td>
+          <td>Proposta de um modelo econômico que utiliza os resíduos de um processo como insumo para outro, inspirado nos ecossistemas naturais, visando produção regenerativa e sem desperdício.</td>
+          <td>Visão holística e interconectada do ambiente, da saúde e da economia, que pode se alinhar com uma compreensão mais integrada das necessidades humanas e da importância da diversidade.</td>
+          <td>Desenvolvimento de projetos de economia circular, tecnologias limpas e iniciativas de regeneração ambiental que podem envolver e beneficiar comunidades neurodivergentes, por exemplo, em projetos de agricultura urbana sensorial ou reflorestamento terapêutico.</td>
+          <td><div class="ods-badge-container"><span class="ods-badge ods-7" title="ODS 7: Energia Limpa e Acessível">ODS 7</span> <span class="ods-badge ods-11" title="ODS 11: Cidades e Comunidades Sustentáveis">ODS 11</span> <span class="ods-badge ods-12" title="ODS 12: Consumo e Produção Responsáveis">ODS 12</span> <span class="ods-badge ods-13" title="ODS 13: Ação Contra a Mudança Global do Clima">ODS 13</span><span class="ods-badge ods-15" title="ODS 15: Vida Terrestre">ODS 15</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Um sistema de agricultura urbana vertical bioinspirado em ecossistemas de florestas tropicais, utilizando iluminação LED adaptativa e hidroponia de ciclo fechado, co-gerenciado por uma cooperativa que inclui pessoas neurodivergentes, promovendo segurança alimentar local e bem-estar através do contato com a natureza.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://biomimicry.org/" target="_blank" rel="noopener noreferrer">Biomimicry Institute (fundado por Janine Benyus)</a></li>
+        <li><a href="https://www.theblueeconomy.org/" target="_blank" rel="noopener noreferrer">The Blue Economy – Gunter Pauli</a></li>
+        <li><a href="https://www.ellenmacarthurfoundation.org/" target="_blank" rel="noopener noreferrer">Ellen MacArthur Foundation (Economia Circular)</a></li>
+        <li><a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2021.733638/full" target="_blank" rel="noopener noreferrer">Nature, Biodiversity and Health: An Overview of Interconnections – Frontiers in Psychology</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ods-completas" class="tabcontent" role="tabpanel" aria-labelledby="tab-ods" tabindex="0">
+    <h2 class="title">🌍 Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+    <div class="description">
+      <p>Os 17 Objetivos de Desenvolvimento Sustentável (ODS), também conhecidos como Agenda 2030, constituem um ambicioso e abrangente plano de ação global, adotado por unanimidade por todos os 193 Estados-Membros das Nações Unidas em setembro de 2015. Esta agenda representa um chamado universal e urgente à ação, convocando governos, sociedade civil, setor privado, academia e cidadãos de todo o mundo a unirem forças para enfrentar os desafios mais prementes da humanidade. Os ODS visam erradicar a pobreza em todas as suas formas e dimensões, proteger o planeta contra a degradação ambiental e as mudanças climáticas, e assegurar que todas as pessoas, sem exceção, possam desfrutar de paz, prosperidade, justiça e oportunidades equitativas até o ano de 2030. Este framework de Inovação Cognitiva reconhece a interconexão intrínseca entre seus pilares temáticos – neurotecnologia, IA, acessibilidade, economia verde e futurismo decolonial – e os ODS, buscando ativamente alinhar suas iniciativas, pesquisas e projetos com os objetivos e metas relevantes, de modo a contribuir significativamente para a construção de um futuro global mais justo, inclusivo, ético e ambientalmente sustentável para as presentes e futuras gerações.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Ícone ODS</th>
+          <th>Título</th>
+          <th>Descrição Resumida</th>
+          <th>Módulos do Framework Associados</th>
+          <th>Teóricos/Conceitos Relevantes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="ods-badge ods-1" title="ODS 1: Erradicação da Pobreza">ODS 1</span></td><td>Erradicação da Pobreza</td><td>Acabar com a pobreza em todas as suas formas, em todos os lugares.</td><td>Ecotecnologia (Economia Verde), Futurismo Decolonial</td><td>Amartya Sen (Desenvolvimento como Liberdade), Boaventura de Sousa Santos</td></tr>
+        <tr><td><span class="ods-badge ods-2" title="ODS 2: Fome Zero e Agricultura Sustentável">ODS 2</span></td><td>Fome Zero e Agricultura Sustentável</td><td>Acabar com a fome, alcançar a segurança alimentar e melhoria da nutrição e promover a agricultura sustentável.</td><td>Ecotecnologia, Futurismo Decolonial</td><td>Vandana Shiva, Agroecologia</td></tr>
+        <tr><td><span class="ods-badge ods-3" title="ODS 3: Saúde e Bem-Estar">ODS 3</span></td><td>Saúde e Bem-Estar</td><td>Assegurar uma vida saudável e promover o bem-estar para todos, em todas as idades.</td><td>Neurociência Aplicada, Acessibilidade Digital, Ética Tecnológica</td><td>Grunya Sukhareva, Michael Oliver, Eli Clare, Saúde Coletiva</td></tr>
+        <tr><td><span class="ods-badge ods-4" title="ODS 4: Educação de Qualidade">ODS 4</span></td><td>Educação de Qualidade</td><td>Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos.</td><td>Neurociência Aplicada, Acessibilidade Digital, Futurismo Decolonial</td><td>Paulo Freire, Catherine Walsh, Judy Singer, Design Universal para Aprendizagem</td></tr>
+        <tr><td><span class="ods-badge ods-5" title="ODS 5: Igualdade de Gênero">ODS 5</span></td><td>Igualdade de Gênero</td><td>Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas.</td><td>Ética Tecnológica, Futurismo Decolonial</td><td>Kimberlé Crenshaw (Interseccionalidade), Lélia Gonzalez, Donna Haraway</td></tr>
+        <tr><td><span class="ods-badge ods-6" title="ODS 6: Água Limpa e Saneamento">ODS 6</span></td><td>Água Limpa e Saneamento</td><td>Assegurar a disponibilidade e gestão sustentável da água e saneamento para todos.</td><td>Ecotecnologia</td><td>Maude Barlow, Ecologia Política da Água</td></tr>
+        <tr><td><span class="ods-badge ods-7" title="ODS 7: Energia Acessível e Limpa">ODS 7</span></td><td>Energia Acessível e Limpa</td><td>Assegurar o acesso confiável, sustentável, moderno e a preço acessível à energia para todos.</td><td>Ecotecnologia</td><td>Gunter Pauli (Economia Azul), Energias Renováveis Comunitárias</td></tr>
+        <tr><td><span class="ods-badge ods-8" title="ODS 8: Trabalho Decente e Crescimento Econômico">ODS 8</span></td><td>Trabalho Decente e Crescimento Econômico</td><td>Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo e trabalho decente para todos.</td><td>Acessibilidade Digital, Ecotecnologia (Economia Verde)</td><td>Economia Solidária, Kate Raworth (Economia Donut)</td></tr>
+        <tr><td><span class="ods-badge ods-9" title="ODS 9: Indústria, Inovação e Infraestrutura">ODS 9</span></td><td>Indústria, Inovação e Infraestrutura</td><td>Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação.</td><td>Neurociência Aplicada, Ecotecnologia, Acessibilidade Digital</td><td>Janine Benyus (Biomimética), Inovação Social</td></tr>
+        <tr><td><span class="ods-badge ods-10" title="ODS 10: Redução das Desigualdades">ODS 10</span></td><td>Redução das Desigualdades</td><td>Reduzir a desigualdade dentro dos países e entre eles.</td><td>Acessibilidade Digital, Ética Tecnológica, Futurismo Decolonial</td><td>Michael Oliver (Modelo Social), Judy Singer (Neurodiversidade), Boaventura de Sousa Santos</td></tr>
+        <tr><td><span class="ods-badge ods-11" title="ODS 11: Cidades e Comunidades Sustentáveis">ODS 11</span></td><td>Cidades e Comunidades Sustentáveis</td><td>Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis.</td><td>Acessibilidade Digital, Ecotecnologia, Futurismo Decolonial</td><td>Arturo Escobar (Pluriverso), Jane Jacobs, Urbanismo Inclusivo</td></tr>
+        <tr><td><span class="ods-badge ods-12" title="ODS 12: Consumo e Produção Responsáveis">ODS 12</span></td><td>Consumo e Produção Responsáveis</td><td>Assegurar padrões de produção e de consumo sustentáveis.</td><td>Ecotecnologia</td><td>Ellen MacArthur (Economia Circular), Walter Stahel</td></tr>
+        <tr><td><span class="ods-badge ods-13" title="ODS 13: Ação Contra a Mudança Global do Clima">ODS 13</span></td><td>Ação Contra a Mudança Global do Clima</td><td>Tomar medidas urgentes para combater a mudança climática e seus impactos.</td><td>Ecotecnologia, Futurismo Decolonial</td><td>Naomi Klein, Justiça Climática, Saberes Indígenas sobre o Clima</td></tr>
+        <tr><td><span class="ods-badge ods-14" title="ODS 14: Vida na Água">ODS 14</span></td><td>Vida na Água</td><td>Conservação e uso sustentável dos oceanos, dos mares e dos recursos marinhos para o desenvolvimento sustentável.</td><td>Ecotecnologia</td><td>Sylvia Earle, Oceanografia Comunitária</td></tr>
+        <tr><td><span class="ods-badge ods-15" title="ODS 15: Vida Terrestre">ODS 15</span></td><td>Vida Terrestre</td><td>Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, deter e reverter a degradação da terra e deter a perda de biodiversidade.</td><td>Ecotecnologia, Futurismo Decolonial</td><td>E.O. Wilson (Biofilia), Restauração Ecológica, Conhecimento Ecológico Tradicional</td></tr>
+        <tr><td><span class="ods-badge ods-16" title="ODS 16: Paz, Justiça e Instituições Eficazes">ODS 16</span></td><td>Paz, Justiça e Instituições Eficazes</td><td>Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas em todos os níveis.</td><td>Acessibilidade Digital, Ética Tecnológica, Futurismo Decolonial</td><td>John Rawls (Justiça como Equidade), Direitos Humanos, Governança Participativa</td></tr>
+        <tr><td><span class="ods-badge ods-17" title="ODS 17: Parcerias e Meios de Implementação">ODS 17</span></td><td>Parcerias e Meios de Implementação</td><td>Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável.</td><td>Todos os módulos (Síntese)</td><td>Cooperação Sul-Sul, Redes Transdisciplinares</td></tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Um projeto colaborativo entre universidades, ONGs e comunidades locais para desenvolver tecnologias assistivas de baixo custo (ODS 3, 4, 9, 10), utilizando energia solar (ODS 7) e materiais reciclados (ODS 12), com foco em regiões rurais e periféricas, fortalecendo parcerias locais e globais (ODS 17).
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer">Nações Unidas – Os 17 Objetivos de Desenvolvimento Sustentável</a></li>
+        <li><a href="https://brasil.un.org/pt-br/sdgs" target="_blank" rel="noopener noreferrer">PNUD Brasil – ODS</a></li>
+        <li><a href="https://www.strategiaods.org.br/" target="_blank" rel="noopener noreferrer">Estratégia ODS Brasil</a></li>
+        <li><a href="https://www.ipea.gov.br/ods/" target="_blank" rel="noopener noreferrer">IPEA – Observatório dos ODS</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="autores-teoricos" class="tabcontent" role="tabpanel" aria-labelledby="tab-autores" tabindex="0"> <h2 class="title">📚 Autores Teóricos da Neurodiversidade e Justiça da Deficiência</h2>
+    <div class="description">
+      <p>Esta seção é dedicada a apresentar e contextualizar as contribuições de autores e autoras cujas obras e ideias são absolutamente fundamentais para uma compreensão aprofundada e crítica da neurodiversidade, não apenas como um conceito biológico ou médico, mas primordialmente como um vibrante movimento sociopolítico e uma importante categoria identitária para muitos indivíduos. Além disso, exploramos pensadores que lançaram as bases para as práticas contemporâneas de justiça da deficiência, um campo que advoga pela remoção de barreiras sistêmicas e pela promoção da plena inclusão e autodeterminação das pessoas com deficiência. As perspectivas teóricas aqui reunidas informam de maneira crucial a crítica aos modelos predominantemente patologizantes da diferença humana e inspiram a busca incessante por tecnologias, políticas e sociedades que sejam genuinamente mais inclusivas, equitativas e que celebrem a vasta gama da diversidade humana em todas as suas manifestações.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Autor(a)</th>
+          <th>Contexto / Obra Principal</th>
+          <th>Contribuição Central</th>
+          <th>Ponto de Convergência com Sukhareva (ou expansão)</th>
+          <th>Implicações para o Projeto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Grunya Sukhareva</td>
+          <td>URSS, 1925 – "Die schizoiden Psychopathien im Kindesalter" (As psicopatias esquizoides na infância).</td>
+          <td>Primeira descrição clínica detalhada de traços autísticos, focando em observações ricas e menos patologizantes que as de seus contemporâneos.</td>
+          <td>Referência original. Sua abordagem observacional e menos estigmatizante é um precursor do paradigma da neurodiversidade.</td>
+          <td>Fundamenta a importância de abordagens não deficitárias e da valorização da variação cognitiva desde as primeiras descrições clínicas.</td>
+        </tr>
+        <tr>
+          <td>Judy Singer</td>
+          <td>Austrália, 1998 – Tese de sociologia; cunhou o termo "neurodiversidade".</td>
+          <td>Introduziu a neurodiversidade como um conceito sociopolítico, análogo à biodiversidade, para defender a variação neurológica como natural e valiosa.</td>
+          <td>Expande a ideia de variação natural, movendo-a para um quadro de direitos civis e identidade social, em linha com a não patologização de Sukhareva.</td>
+          <td>Base conceitual para o projeto, justificando o reconhecimento da neurodivergência como uma diferença legítima e não um transtorno a ser curado.</td>
+        </tr>
+        <tr>
+          <td>Nick Walker</td>
+          <td>EUA, 2021 – "Neuroqueer Heresies: Notes on the Neurodiversity Paradigm, Autistic Empowerment, and Postnormal Possibilities".</td>
+          <td>Desenvolve o paradigma da neurodiversidade como um quadro ético e epistemológico, introduzindo conceitos como "neuroqueer" para explorar interseções entre neurodivergência e identidades queer.</td>
+          <td>Radicaliza a aceitação da diferença, propondo uma desestabilização das normas cognitivas e comportamentais, indo além da simples aceitação para uma celebração e exploração ativa da variação.</td>
+          <td>Inspira a criação de tecnologias e espaços que não apenas acomodam, mas celebram e são informados por diferentes formas de ser e pensar, desafiando o capacitismo.</td>
+        </tr>
+         <tr>
+          <td>Michael Oliver</td>
+          <td>Reino Unido, 1983 – "The Politics of Disablement".</td>
+          <td>Principal proponente do Modelo Social da Deficiência, que distingue "lesão" (impairment) de "deficiência" (disability), sendo esta última uma construção social de barreiras.</td>
+          <td>Embora não diretamente sobre neurodiversidade, seu modelo é crucial para entender como as dificuldades enfrentadas por neurodivergentes são frequentemente resultado de ambientes e sistemas sociais excludentes, e não de suas condições intrínsecas.</td>
+          <td>Orienta o projeto a focar na remoção de barreiras e na criação de ambientes acessíveis e inclusivos, em vez de tentar "consertar" o indivíduo.</td>
+        </tr>
+        <tr>
+          <td>Eli Clare</td>
+          <td>EUA, 2017 – "Brilliant Imperfection: Grappling with Cure".</td>
+          <td>Crítica interseccional (deficiência, queer, classe, raça) à medicalização e à busca por "cura", defendendo a dignidade e o valor da vida com deficiência/doença crônica.</td>
+          <td>Reforça a ética da aceitação e do cuidado, questionando a premissa de que a diferença neurológica é inerentemente algo a ser eliminado, alinhando-se com a valorização da subjetividade.</td>
+          <td>Informa o design ético de tecnologias, priorizando o bem-estar, a autonomia e a escolha do usuário, e questionando tecnologias que visam a normalização forçada.</td>
+        </tr>
+        <tr>
+          <td>Rosemarie Garland-Thomson</td>
+          <td>EUA – "Extraordinary Bodies", "Staring: How We Look".</td>
+          <td>Análise da deficiência como uma construção cultural e visual, e o conceito de "misfitting" (desajuste entre corpos e ambientes).</td>
+          <td>Ajuda a entender como as normas sociais e os ambientes físicos/digitais são construídos para corpos e mentes "típicos", criando o "desajuste" para os demais.</td>
+          <td>Impulsiona o design universal e a criação de tecnologias flexíveis que se adaptem a uma ampla gama de usuários, em vez de exigir que os usuários se adaptem.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <strong>Exemplo prático:</strong> Um workshop de co-design para uma nova ferramenta de comunicação assistiva, onde os princípios da neurodiversidade e da justiça da deficiência são explicitamente discutidos e aplicados, garantindo que as perspectivas dos usuários neurodivergentes e com deficiência sejam centrais em todas as decisões de design.
+    </div>
+
+    <div class="resources">
+      <h3>Recursos Adicionais</h3>
+      <ul>
+        <li><a href="https://neuroqueer.com/neuroqueer-heresies-contents-introduction/" target="_blank" rel="noopener noreferrer">Nick Walker – Neuroqueer Heresies (Introdução)</a></li>
+        <li><a href="https://www.routledge.com/The-Politics-of-Disablement-A-Sociological-Approach/Oliver/p/book/9780333432938" target="_blank" rel="noopener noreferrer">Michael Oliver – The Politics of Disablement</a></li>
+        <li><a href="https://www.goodreads.com/book/show/89438.Extraordinary_Bodies" target="_blank" rel="noopener noreferrer">Rosemarie Garland-Thomson – Extraordinary Bodies</a></li>
+        <li><a href="https://www.autistichoya.com/" target="_blank" rel="noopener noreferrer">Lydia X. Z. Brown (Autistic Hoya) – Blog sobre autismo, raça, e justiça da deficiência</a></li>
+      </ul>
+    </div>
+  </div> 
+
+  <div id="sintese-geral" class="tabcontent" role="tabpanel" aria-labelledby="tab-sintese-geral" tabindex="0">
+    <h2 class="title">🧬 Síntese Transdisciplinar e Inovação Cognitiva Holística</h2>
+    <div class="description">
+      <p>Esta seção de síntese visa tecer as conexões intrínsecas entre os diversos pilares explorados neste framework – Neurociência Aplicada, Acessibilidade Digital e Justiça da Deficiência, Ética Tecnológica e Despatologização, Futurismo Decolonial e Epistemologias do Sul, e Ecotecnologia e Bioinspiração. A verdadeira inovação cognitiva, aquela que aspira a ser profundamente transformadora, inclusiva e sustentável, não emerge do isolamento disciplinar, mas da confluência e do diálogo transdisciplinar. Ao integrar estas perspectivas aparentemente distintas, buscamos cultivar uma abordagem holística que reconheça a complexidade das experiências humanas e dos sistemas socioecológicos. Esta síntese não é um ponto final, mas um convite à contínua reflexão sobre como podemos, coletivamente, cocriar futuros onde a tecnologia e o conhecimento sirvam ao florescimento humano e planetário, em consonância com os Objetivos de Desenvolvimento Sustentável (ODS) e com um profundo respeito pela diversidade em todas as suas formas.</p>
+
+      <div class="sintese-ponto">
+        <h3>Neurociência, Acessibilidade e Ética: Fundamentos para Tecnologias Humanizadas</h3>
+        <p>A <strong>Neurociência Aplicada</strong>, ao desvendar os mistérios da cognição, fornece a base para o desenvolvimento de tecnologias que respeitem e se adaptem à diversidade neurológica. Quando integrada à <strong>Acessibilidade Digital</strong>, que se pauta pelo Modelo Social da Deficiência e pelo princípio "Nada sobre nós sem nós", resulta em soluções tecnológicas – como Interfaces Cérebro-Computador (BCIs) personalizadas ou plataformas de aprendizagem adaptativas – que são verdadeiramente inclusivas. A <strong>Ética Tecnológica</strong> permeia essa união, questionando a patologização, garantindo a autodeterminação dos usuários, a privacidade dos dados neurais e o consentimento informado, especialmente crucial ao lidar com variações cognitivas e comunicacionais. A convergência desses campos impulsiona a criação de ferramentas que não apenas funcionam, mas que empoderam e respeitam a dignidade de cada indivíduo.</p>
+      </div>
+
+      <div class="sintese-ponto">
+        <h3>Futurismo Decolonial e Epistemologias do Sul: Ampliando Horizontes e Desafiando Vieses</h3>
+        <p>O <strong>Futurismo Decolonial</strong> e as <strong>Epistemologias do Sul</strong> oferecem uma lente crítica essencial para todas as áreas deste framework. Eles nos compelem a questionar as narrativas dominantes de progresso tecnológico, frequentemente eurocêntricas e excludentes, e a reconhecer a colonialidade do saber que pode se infiltrar no design de IA e outras tecnologias. Ao integrar saberes ancestrais, locais e marginalizados, podemos desenvolver soluções mais contextualmente relevantes e justas. Na neurociência, isso significa considerar como diferentes culturas entendem a mente e o bem-estar; na acessibilidade, implica em cocriar soluções com comunidades específicas, respeitando suas necessidades e perspectivas únicas; na ética, reforça a luta contra vieses algorítmicos e a promoção da justiça epistêmica.</p>
+      </div>
+
+      <div class="sintese-ponto">
+        <h3>Ecotecnologia e Bioinspiração: Sustentabilidade, Bem-Estar e Inclusão Sensorial</h3>
+        <p>A <strong>Ecotecnologia</strong> e a <strong>Bioinspiração</strong> conectam a inovação tecnológica com a sabedoria intrínseca dos sistemas naturais. Esta abordagem não apenas promove a sustentabilidade ambiental – crucial para todos os ODS – mas também oferece insights valiosos para a criação de ambientes e tecnologias que sejam sensorialmente mais harmoniosos e inclusivos. Ambientes de aprendizagem ou terapêuticos bioinspirados, por exemplo, podem ser projetados para reduzir a sobrecarga sensorial e promover o bem-estar de pessoas neurodivergentes. A integração com a neurociência pode levar a designs que otimizam a interação humano-ambiente, enquanto a ética garante que tais abordagens não se tornem formas sutis de controle ou homogeneização, mas sim de cuidado e respeito pela interdependência entre seres humanos e o planeta.</p>
+      </div>
+
+      <div class="sintese-ponto">
+        <h3>Rumo a uma Inovação Cognitiva Holística e Alinhada aos ODS</h3>
+        <p>A síntese transdisciplinar destes campos – Neurociência, Acessibilidade, Ética, Futurismo Decolonial e Ecotecnologia – é o caminho para uma <strong>Inovação Cognitiva Holística</strong>. Não se trata de aplicar cada campo isoladamente, mas de entender suas interdependências e potencializar suas sinergias. Uma tecnologia assistiva pode ser neurocientificamente informada, eticamente desenhada, decolonialmente consciente em seus dados e algoritmos, e ecologicamente sustentável em seu ciclo de vida. Este enfoque integrado é essencial para abordar a complexidade dos desafios delineados pelos <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong>, desde a promoção da saúde e bem-estar (ODS 3) e educação de qualidade (ODS 4), até a redução das desigualdades (ODS 10) e a construção de cidades e comunidades sustentáveis (ODS 11). O futuro da inovação reside na nossa capacidade de tecer esses fios diversos em um tecido coeso, resiliente e promotor de vida.</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <strong>Exemplo prático de síntese:</strong> Um projeto de desenvolvimento de uma plataforma educacional digital (ODS 4) que utiliza <strong>neurociência</strong> para personalizar trilhas de aprendizagem, é co-desenhada com estudantes neurodivergentes e com deficiência seguindo princípios de <strong>acessibilidade</strong> e justiça da deficiência ("Nada sobre nós sem nós"), incorpora uma <strong>ética</strong> de privacidade de dados e autonomia do estudante, utiliza algoritmos de IA auditados para evitar vieses culturais (influência do <strong>futurismo decolonial</strong>), e é hospedada em servidores alimentados por energia renovável, com um design que minimiza o consumo de energia (princípios de <strong>ecotecnologia</strong>).
+    </div>
+
+    <div class="resources">
+      <h3>Recursos para Aprofundamento na Transdisciplinaridade</h3>
+      <ul>
+        <li><a href="https://unesdoc.unesco.org/ark:/48223/pf0000136788_por" target="_blank" rel="noopener noreferrer">Edgar Morin – Os Sete Saberes Necessários à Educação do Futuro</a></li>
+        <li><a href="https://www.nasonline.org/programs/issues-in-science-and-technology/ist-spring-2019/the-new-convergence/" target="_blank" rel="noopener noreferrer">National Academies – The New Convergence (sobre convergência de conhecimentos)</a></li>
+        <li><a href="https://www.tandfonline.com/doi/full/10.1080/13504622.2017.1364732" target="_blank" rel="noopener noreferrer">Journal of Interdisciplinary Studies in S&T – Artigos sobre transdisciplinaridade</a></li>
+         <li><a href="https://www.pluriversaldesign.org/" target="_blank" rel="noopener noreferrer">Pluriversal Design Special Interest Group (SIG) – Design Council</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</main> <footer>
+  <p>&copy; <span id="currentYear"></span> Projeto Neuroinovação Decolonial Sustentável. Todos os direitos reservados.</p>
+  <p>Construindo um futuro mais inclusivo, ético e sustentável através da inovação cognitiva.</p>
+</footer>
+
+<script>
+  // Função para abrir abas
+  function openTab(evt, tabName) {
+    let i, tabcontent, tablinks;
+    // Esconde todo o conteúdo das abas
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      tabcontent[i].classList.remove("active");
+      tabcontent[i].setAttribute("tabindex", "-1"); // Make inactive tabs not focusable
+      tabcontent[i].setAttribute("aria-hidden", "true");
+    }
+    // Remove a classe "active" de todos os botões de aba
+    tablinks = document.getElementsByClassName("tab");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+      tablinks[i].setAttribute("aria-selected", "false");
+      tablinks[i].setAttribute("tabindex", "-1");
+    }
+    // Mostra a aba atual e adiciona a classe "active" ao botão que abriu a aba
+    const currentTabContent = document.getElementById(tabName);
+    if (currentTabContent) {
+        currentTabContent.style.display = "block";
+        currentTabContent.classList.add("active");
+        currentTabContent.setAttribute("tabindex", "0"); // Make active tab focusable
+        currentTabContent.setAttribute("aria-hidden", "false");
+        // Apenas focar se não for um clique programático inicial
+        if (evt && evt.type === 'click') {
+            currentTabContent.focus(); // Set focus to the new tab content
+        }
+    }
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
+        evt.currentTarget.setAttribute("aria-selected", "true");
+        evt.currentTarget.setAttribute("tabindex", "0");
+    } else if (tabName === 'neurociencia' && !evt) { // Handling initial load for the first tab
+        const initialButton = document.getElementById('tab-neurociencia');
+        if(initialButton) {
+            initialButton.classList.add("active");
+            initialButton.setAttribute("aria-selected", "true");
+            initialButton.setAttribute("tabindex", "0");
+        }
+    }
+  }
+
+  // Define a aba inicial como ativa (Neurociência)
+  document.addEventListener('DOMContentLoaded', function() {
+    openTab(null, 'neurociencia'); // Open the first tab by default without event object
+
+    // Ensure other tab buttons are not in tab order initially
+    const otherTabButtons = document.querySelectorAll('.tab:not(.neurociencia)');
+    otherTabButtons.forEach(button => {
+        button.setAttribute("tabindex", "-1");
+    });
+
+    // Set current year in footer
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  });
+
+  // Função de busca (simples, apenas para demonstração)
+  function searchContent() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const tabContents = document.querySelectorAll('.tabcontent');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+    let resultsFound = false;
+    let firstMatchTab = null;
+
+    if (filter.trim() === "") {
+        noResultsMessage.style.display = 'none';
+        resetTableHighlights();
+        return;
+    }
+
+    resetTableHighlights(); 
+
+    tabContents.forEach(content => {
+        const tables = content.querySelectorAll('table tbody tr');
+        const paragraphs = content.querySelectorAll('.description p, .description li, .sintese-ponto p, .sintese-ponto h3, h2, .example'); 
+        let tabHasMatch = false;
+
+        tables.forEach(row => {
+            const cells = row.getElementsByTagName('td');
+            let rowMatch = false;
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i]) {
+                    if (cells[i].textContent.toLowerCase().includes(filter)) {
+                        rowMatch = true;
+                        resultsFound = true;
+                        tabHasMatch = true;
+                        break;
+                    }
+                }
+            }
+            if (rowMatch) {
+                row.style.backgroundColor = 'var(--accent-orange)'; 
+                row.style.color = 'black'; 
+            }
+        });
+
+        paragraphs.forEach(el => {
+            // Create a temporary element to strip HTML for accurate text search
+            const tempEl = document.createElement('div');
+            tempEl.innerHTML = el.innerHTML;
+            const textContent = tempEl.textContent || tempEl.innerText || "";
+            
+            if (textContent.toLowerCase().includes(filter)) {
+                resultsFound = true;
+                tabHasMatch = true;
+                // Highlight by wrapping matched text, careful not to break HTML structure
+                // Simple highlight:
+                el.style.backgroundColor = 'var(--accent-orange)'; 
+                el.style.color = 'black';
+            }
+        });
+        
+        if (tabHasMatch && !firstMatchTab) {
+            firstMatchTab = content.id;
+        }
+    });
+
+    if (resultsFound) {
+        noResultsMessage.style.display = 'none';
+        if (firstMatchTab) {
+            const tabButtonId = document.querySelector(`.tab[aria-controls="${firstMatchTab}"]`).id;
+            const tabButton = document.getElementById(tabButtonId);
+            if(tabButton && !tabButton.classList.contains('active')) {
+                 // Simulate a click event for openTab
+                tabButton.click();
+            }
+        }
+    } else {
+        noResultsMessage.style.display = 'block';
+    }
+  }
+
+  function resetTableHighlights() {
+    const rows = document.querySelectorAll('table tbody tr');
+    rows.forEach(row => {
+        row.style.backgroundColor = ''; 
+        row.style.color = ''; 
+    });
+    const highlightedText = document.querySelectorAll('.description p, .description li, .sintese-ponto p, .sintese-ponto h3, h2, .example');
+    highlightedText.forEach(el => {
+        el.style.backgroundColor = '';
+        el.style.color = '';
+    });
+  }
+
+  // Função para limpar a busca
+  function resetSearch() {
+    const input = document.getElementById('searchInput');
+    input.value = '';
+    document.getElementById('noResultsMessage').style.display = 'none';
+    resetTableHighlights();
+  }
+
+  // Permitir busca com Enter
+  document.getElementById('searchInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); 
+      searchContent();
+    }
+  });
+
+</script>
+
+</body>
+</html>
