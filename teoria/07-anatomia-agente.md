@@ -1,4 +1,4 @@
-# Capítulo 3: Anatomia de um Agente Eficaz
+# Anatomia de um Agente Eficaz
 
 ## 🏗️ Estrutura Universal
 
