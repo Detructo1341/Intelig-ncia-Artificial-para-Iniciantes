@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluência em IA: O Guia Essencial</title>
+    <!-- Carregamento do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuração da fonte Inter e fallback */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Fundo suave */
+            color: #1f2937;
+        }
+        /* Estilo para o ícone de seta do FAQ */
+        .faq-arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-button[aria-expanded="true"] .faq-arrow {
+            transform: rotate(180deg);
+        }
+        /* Estilo para os botões Gemini */
+        .gemini-btn {
+            background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .gemini-btn:hover {
+            box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.5), 0 4px 6px -4px rgba(124, 58, 237, 0.2);
+            transform: translateY(-1px);
+        }
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+
+    <!-- Cabeçalho (Header) -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-indigo-600">
+                <span class="hidden sm:inline">Fluência em IA</span>
+                <span class="sm:hidden">IA Fluente</span>
+            </h1>
+            <!-- Navegação Atualizada -->
+            <nav class="text-xs sm:text-sm md:text-base">
+                <a href="#pilares" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">Pilares</a>
+                <a href="#ferramentas-gemini" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">Ferramentas ✨</a>
+                <a href="#frameworks" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">Frameworks</a>
+                <a href="#agrupamentos-4ds" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">Agrupamentos</a>
+                <a href="#faq" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">FAQ</a>
+                <a href="#dominio-avancado" class="text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out font-medium mx-1 sm:mx-2">Domínio</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="pt-8 pb-16">
+        
+        <!-- Seção Hero/Introdução -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+            <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-indigo-100">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    Domine a Linguagem do Futuro: <span class="text-indigo-600">Fluência em Inteligência Artificial</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Fluência em IA é mais do que saber usar ferramentas; é compreender **como** a IA pensa, seus **limites** e **implicações éticas**. É a habilidade essencial para atuar em qualquer área do mercado moderno, especialmente em campos sensíveis como a Psicologia e a Ética.
+                </p>
+                <div class="space-x-4">
+                    <a href="#ferramentas-gemini" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                        Testar Ferramentas IA ✨
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Pilares da Fluência em IA -->
+        <section id="pilares" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Os Três Pilares da Fluência em IA</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pilar 1: Conhecimento Técnico Fundamental -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 8l-4 4 4 4"></path></svg>
+                        <h4 class="text-xl font-semibold text-gray-900">1. Conceitual e Técnico</h4>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Entender o vocabulário e o funcionamento básico. Não é preciso codificar, mas sim saber **como** os sistemas aprendem e o que é o **Processamento de Linguagem Natural (NLP)** e o **Machine Learning**.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-500">
+                        <li>O que é um modelo de aprendizado?</li>
+                        <li>Diferença entre IA, ML e Deep Learning.</li>
+                        <li>Entender o que são 'dados de treinamento'.</li>
+                    </ul>
+                </div>
+
+                <!-- Pilar 2: Pensamento Crítico e Ético -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500 hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-teal-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.103A.808.808 0 0012 4.103h-.001a.808.808 0 00-7.236 0L2 9h20L12 4.103z"></path></svg>
+                        <h4 class="text-xl font-semibold text-gray-900">2. Crítico e Ético</h4>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        A capacidade de identificar e mitigar **vieses algorítmicos** e garantir a **transparência (XAI)**. É o pilar mais importante para atuar em áreas de saúde e direitos humanos.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-500">
+                        <li>Como a IA pode discriminar?</li>
+                        <li>Requisitos da LGPD para dados sensíveis.</li>
+                        <li>O que é a "Caixa-Preta" e por que evitá-la.</li>
+                    </ul>
+                </div>
+
+                <!-- Pilar 3: Aplicação Estratégica -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-500 hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h4 class="text-xl font-semibold text-gray-900">3. Aplicação Estratégica</h4>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Saber utilizar a IA como ferramenta de produtividade e inovação. Vai além de prompts, é integrar a tecnologia de forma inteligente na sua rotina profissional e de pesquisa.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-500">
+                        <li>Identificar o melhor caso de uso para um problema.</li>
+                        <li>Validar e auditar os resultados da IA.</li>
+                        <li>Desenvolver uma metodologia de trabalho híbrida.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Adicional: Desafios Éticos no Brasil -->
+        <section id="desafios" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Desafios Éticos da IA na Psicologia no Brasil</h3>
+            
+            <div class="space-y-6">
+                <!-- Desafio 1: Viés Algorítmico e Contexto Cultural -->
+                <div class="bg-red-50 p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <h4 class="text-xl font-semibold text-red-800 mb-2">Viés Algorítmico e a Diversidade Brasileira</h4>
+                    <p class="text-gray-700">
+                        A IA é treinada com dados globais que, muitas vezes, não refletem a diversidade cultural, socioeconômica e racial do Brasil. Um algoritmo de triagem que funciona bem nos EUA pode falhar drasticamente aqui, subdiagnósticando ou superdiagnósticando grupos marginalizados. O especialista ético deve auditar a representatividade dos dados.
+                    </p>
+                </div>
+
+                <!-- Desafio 2: A Necessidade de Transparência (XAI) -->
+                <div class="bg-yellow-50 p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                    <h4 class="text-xl font-semibold text-yellow-800 mb-2">O Problema da Caixa-Preta no Tratamento Clínico</h4>
+                    <p class="text-gray-700">
+                        Se um sistema de IA sugere um diagnóstico ou plano de tratamento, o psicólogo precisa saber **o porquê**. A falta de **Transparência (XAI - eXplainable AI)** impede a validação humana e compromete a responsabilidade profissional. É fundamental exigir sistemas de IA que sejam explicáveis.
+                    </p>
+                </div>
+
+                <!-- Desafio 3: O Vínculo Terapêutico e a Desumanização -->
+                <div class="bg-blue-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <h4 class="text-xl font-semibold text-blue-800 mb-2">Proteção do Vínculo Terapêutico</h4>
+                    <p class="text-gray-700">
+                        A IA deve ser uma ferramenta de apoio, e nunca substituir o **vínculo terapêutico**. O psicólogo ético avalia os riscos de dependência do paciente em relação a chatbots e garante que a tecnologia não leve à desumanização ou banalização do sofrimento psíquico.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="max-w-4xl mx-auto my-12 border-gray-300">
+
+        <!-- Frameworks Essenciais -->
+        <section id="frameworks" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Frameworks Essenciais para a Governança da IA</h3>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- COLUNA 1: 4Ds e Quatro Abordagens -->
+                <div>
+                    <!-- Quadro 1: Framework dos 4Ds (Ciclo de Governança) -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-xl border border-gray-200 mb-8">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Framework dos 4Ds (Delegação, Descrição, Discernimento e Diligência)</h4>
+                        <p class="text-gray-600 mb-4">Quatro pilares para garantir que a responsabilidade humana permaneça no centro do ciclo de vida da IA.</p>
+
+                        <div class="space-y-4">
+                            <div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-indigo-400">
+                                <span class="font-semibold text-indigo-700">1. Delegação:</span> Definir claramente quais tarefas **podem** ser delegadas à IA (ex: análise de dados brutos) e quais **devem** permanecer sob responsabilidade humana (ex: o vínculo terapêutico).
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-teal-400">
+                                <span class="font-semibold text-teal-700">2. Descrição:</span> Documentar o funcionamento interno da IA. Descrever seus dados de treinamento, vieses conhecidos e a lógica que leva a resultados críticos, garantindo a transparência (XAI).
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-purple-400">
+                                <span class="font-semibold text-purple-700">3. Discernimento:</span> Capacidade humana de **julgar** a validade e a pertinência ética do *output* da IA, especialmente em dilemas clínicos ou sociais. A decisão final é sempre humana.
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-red-400">
+                                <span class="font-semibold text-red-700">4. Diligência:</span> Manutenção contínua e responsável. Garantir que a IA permaneça em conformidade regulatória (LGPD) e que seu desempenho seja monitorado ativamente contra vieses ao longo do tempo.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quadro 2: As Quatro Abordagens de Atuação -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-xl border border-gray-200">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">As Quatro Abordagens (Eixos de Atuação)</h4>
+                        <p class="text-gray-600 mb-4">Eixos nos quais o Especialista em Ética em IA deve atuar para garantir a responsabilidade total do produto.</p>
+
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li><span class="font-semibold text-indigo-800">Técnica:</span> Foco na segurança e no desempenho algorítmico (mitigação de vieses, robustez do modelo).</li>
+                            <li><span class="font-semibold text-teal-800">Regulatória:</span> Foco no *compliance* legal (LGPD) e normativo (CFP, ANPD).</li>
+                            <li><span class="font-semibold text-purple-800">Organizacional:</span> Foco na criação de políticas internas, governança de dados e cultura ética na empresa.</li>
+                            <li><span class="font-semibold text-red-800">Psicológica/Humana:</span> Foco no impacto social, no bem-estar do usuário e na preservação do vínculo clínico.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- COLUNA 2: Framework SIFT -->
+                <div class="lg:col-span-1">
+                    <div class="bg-green-50 p-6 rounded-xl shadow-xl border-t-4 border-green-600 h-full">
+                        <h4 class="text-2xl font-bold text-green-800 mb-4">Framework SIFT (Specify, Identify, Focus e Trust)</h4>
+                        <p class="text-gray-700 mb-6">
+                            Um método essencial para desenvolver o pensamento crítico ao interagir com saídas de IA, garantindo que as informações sejam usadas com responsabilidade e precisão.
+                        </p>
+
+                        <div class="space-y-5">
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 text-xl font-bold text-green-600 mr-3">S</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Specify (Especificar)</p>
+                                    <p class="text-sm text-gray-600">Definir exatamente o que se espera da IA (o prompt). Em contextos clínicos, isso significa delimitar o problema e a sensibilidade dos dados de entrada para evitar respostas irrelevantes ou perigosas.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 text-xl font-bold text-green-600 mr-3">I</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Identify (Identificar)</p>
+                                    <p class="text-sm text-gray-600">Identificar os fatos, argumentos, vieses e as fontes (se houver) na resposta da IA. Reconhecer imediatamente o que é *fato* verificável e o que é *inferência* ou *opinião* do modelo.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 text-xl font-bold text-green-600 mr-3">F</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Focus (Focar)</p>
+                                    <p class="text-sm text-gray-600">Concentrar-se na relevância da informação. O output da IA resolve o problema original? Focar nos dados críticos e ignorar o "enchimento" irrelevante ou tangencial que não agrega valor clínico.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 text-xl font-bold text-green-600 mr-3">T</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Trust (Confiança)</p>
+                                    <p class="text-sm text-gray-600">Avaliar a confiabilidade do sistema e das suas alegações. A **confiança** é baseada na evidência (verificação humana, testes e conformidade com a LGPD) e não na mera automação.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="max-w-4xl mx-auto my-12 border-gray-300">
+
+        <!-- Agrupamentos dos 4Ds -->
+        <section id="agrupamentos-4ds" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Os 4 Agrupamentos Estratégicos dos 4Ds</h3>
+            <p class="text-lg text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+                Os 4Ds (Delegação, Descrição, Discernimento e Diligência) articulam-se em diferentes duplas ou ciclos para focar em objetivos práticos específicos.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Agrupamento 1: Macro/Microprocessos -->
+                <div class="bg-indigo-50 p-5 rounded-xl shadow-lg border-t-4 border-indigo-600 hover:shadow-xl transition duration-300">
+                    <h4 class="text-xl font-bold text-indigo-800 mb-2">1. Macro & Microprocessos</h4>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">Delegação + Diligência | Discernimento + Descrição</p>
+                    <p class="text-sm text-gray-600">Foco em Estratégia/Ética (loop externo) versus Cognição/Comunicação (loop interno).</p>
+                    <p class="text-xs mt-3 text-indigo-500 font-medium">Uso Ideal: Governança complexa e institucional (Saúde, Justiça).</p>
+                </div>
+
+                <!-- Agrupamento 2: Escolher e Avaliar -->
+                <div class="bg-teal-50 p-5 rounded-xl shadow-lg border-t-4 border-teal-600 hover:shadow-xl transition duration-300">
+                    <h4 class="text-xl font-bold text-teal-800 mb-2">2. Escolher & Avaliar</h4>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">Delegação + Discernimento | Descrição + Diligência</p>
+                    <p class="text-sm text-gray-600">Foca em decidir a ferramenta e julgar o *output* versus comunicar o trabalho e responsabilizar-se eticamente.</p>
+                    <p class="text-xs mt-3 text-teal-500 font-medium">Uso Ideal: Projetos iterativos e desenvolvimento ágil de IA.</p>
+                </div>
+
+                <!-- Agrupamento 3: Eficiência & Segurança -->
+                <div class="bg-purple-50 p-5 rounded-xl shadow-lg border-t-4 border-purple-600 hover:shadow-xl transition duration-300">
+                    <h4 class="text-xl font-bold text-purple-800 mb-2">3. Eficiência & Segurança</h4>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">Delegação + Descrição | Discernimento + Diligência</p>
+                    <p class="text-sm text-gray-600">Equilibra a prática imediata (dar tarefas e especificar) com a garantia crítica (avaliar o resultado e responsabilizar-se).</p>
+                    <p class="text-xs mt-3 text-purple-500 font-medium">Uso Ideal: Ambientes educacionais que mesclam prática e reflexão ética.</p>
+                </div>
+
+                <!-- Agrupamento 4: Ciclo Único Integrado -->
+                <div class="bg-red-50 p-5 rounded-xl shadow-lg border-t-4 border-red-600 hover:shadow-xl transition duration-300">
+                    <h4 class="text-xl font-bold text-red-800 mb-2">4. Ciclo Único Integrado</h4>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">Delegação + Descrição + Discernimento + Diligência</p>
+                    <p class="text-sm text-gray-600">Todos os Ds giram como um loop sistêmico único, ideal para o desenvolvimento de sistemas complexos.</p>
+                    <p class="text-xs mt-3 text-red-500 font-medium">Uso Ideal: Contextos interdisciplinares e inovação aberta.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="max-w-4xl mx-auto my-12 border-gray-300">
+
+        <!-- SEÇÃO: Ferramentas Gemini (Implementação Prática dos 4Ds) -->
+        <section id="ferramentas-gemini" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Ferramentas de Fluência em IA (Powered by Gemini) ✨</h3>
+            <p class="text-lg text-center text-gray-600 mb-10 max-w-4xl mx-auto">
+                Use estas ferramentas para aplicar os 4Ds na prática. Elas simulam o processo de tomada de decisão ética e crítica ao interagir com sistemas de IA.
+            </p>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- FERRAMENTA 1: Gerador de Prompt Ético (Delegação/Descrição) -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-indigo-200">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl text-indigo-600 mr-3">📝</span>
+                        <h4 class="text-2xl font-bold text-gray-900">Gerador de Prompt Ético</h4>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        **Delegação + Descrição:** Transforme uma tarefa simples em um *prompt* detalhado que incorpora contexto, limites éticos e requisitos de transparência.
+                    </p>
+
+                    <label for="taskInput" class="block text-sm font-medium text-gray-700 mb-2">Tarefa Genérica para a IA (ex: "escrever um artigo sobre crise de ansiedade"):</label>
+                    <textarea id="taskInput" rows="2" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 mb-4" placeholder="Ex: Analisar dados de triagem de 500 pacientes de baixa renda."></textarea>
+                    
+                    <button id="generatePromptBtn" class="gemini-btn w-full text-white font-semibold py-3 px-4 rounded-full flex items-center justify-center disabled:opacity-50" onclick="generateEthicalPrompt()">
+                        <span id="promptBtnText">Gerar Prompt Responsável ✨</span>
+                        <div id="promptSpinner" class="loading-spinner ml-2 hidden"></div>
+                    </button>
+
+                    <div id="promptOutputContainer" class="mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-300 hidden">
+                        <p class="font-semibold text-indigo-800 mb-2">Prompt Sugerido (Diligência Inclusa):</p>
+                        <pre id="promptOutput" class="whitespace-pre-wrap text-sm text-indigo-900 bg-indigo-100 p-3 rounded-md"></pre>
+                    </div>
+                </div>
+
+                <!-- FERRAMENTA 2: Analisador de Viés e Risco (Discernimento) -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-red-200">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl text-red-600 mr-3">🚨</span>
+                        <h4 class="text-2xl font-bold text-gray-900">Analisador de Viés & Risco</h4>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        **Discernimento:** Cole um texto gerado por IA para uma análise crítica imediata de vieses, generalizações e falhas de transparência.
+                    </p>
+
+                    <label for="biasInput" class="block text-sm font-medium text-gray-700 mb-2">Output de IA para Auditoria Ética (simulação de resultado):</label>
+                    <textarea id="biasInput" rows="2" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 mb-4" placeholder="Ex: Todos os pacientes que apresentam sintomas A e B devem ser tratados com o medicamento X."></textarea>
+                    
+                    <button id="analyzeBiasBtn" class="gemini-btn w-full text-white font-semibold py-3 px-4 rounded-full flex items-center justify-center disabled:opacity-50" onclick="analyzeBias()">
+                        <span id="biasBtnText">Auditar Risco Ético ✨</span>
+                        <div id="biasSpinner" class="loading-spinner ml-2 hidden"></div>
+                    </button>
+
+                    <div id="biasOutputContainer" class="mt-6 p-4 bg-red-50 rounded-lg border border-red-300 hidden">
+                        <p class="font-semibold text-red-800 mb-2">Análise de Risco (Resultado do Discernimento):</p>
+                        <pre id="biasOutput" class="whitespace-pre-wrap text-sm text-red-900 bg-red-100 p-3 rounded-md"></pre>
+                        <p id="biasScore" class="mt-3 text-lg font-bold"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIM NOVA SEÇÃO: Ferramentas Gemini -->
+
+        <hr class="max-w-4xl mx-auto my-12 border-gray-300">
+
+        <!-- Seção Interativa: Perguntas Frequentes (FAQ) -->
+        <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">Perguntas Frequentes (FAQ)</h3>
+            
+            <div id="faq-container" class="space-y-4">
+                
+                <!-- Item FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button id="q1" aria-expanded="false" class="faq-button w-full flex justify-between items-center p-5 font-semibold text-left text-lg text-indigo-600 hover:bg-indigo-50 transition duration-150 ease-in-out">
+                        O que significa 'mitigar vieses algorítmicos'?
+                        <svg class="w-6 h-6 ml-2 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="a1" aria-labelledby="q1" class="faq-answer p-5 pt-0 text-gray-700 hidden">
+                        <p>Significa identificar e reduzir as tendências injustas ou discriminatórias em um sistema de IA. Se um algoritmo de triagem for treinado primariamente com dados de homens brancos de classe alta, ele pode não ser preciso ou justo ao avaliar mulheres negras de baixa renda. Mitigar o viés é corrigir esses desequilíbrios nos dados ou no modelo.</p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button id="q2" aria-expanded="false" class="faq-button w-full flex justify-between items-center p-5 font-semibold text-left text-lg text-indigo-600 hover:bg-indigo-50 transition duration-150 ease-in-out">
+                        Preciso saber programar para ter fluência em IA?
+                        <svg class="w-6 h-6 ml-2 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="a2" aria-labelledby="q2" class="faq-answer p-5 pt-0 text-gray-700 hidden">
+                        <p>Não. A fluência é conceitual e crítica, não operacional. Você precisa entender o vocabulário (ex: *Machine Learning*, *Deep Learning*) e as limitações dos modelos para poder dialogar com engenheiros e avaliar os riscos éticos e psicológicos. Seu papel é fazer as perguntas certas, e não escrever o código.</p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button id="q3" aria-expanded="false" class="faq-button w-full flex justify-between items-center p-5 font-semibold text-left text-lg text-indigo-600 hover:bg-indigo-50 transition duration-150 ease-in-out">
+                        Como a LGPD se relaciona com a Psicologia e a IA?
+                        <svg class="w-6 h-6 ml-2 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="a3" aria-labelledby="q3" class="faq-answer p-5 pt-0 text-gray-700 hidden">
+                        <p>A LGPD exige proteção máxima para "dados sensíveis", categoria na qual se enquadram todas as informações de saúde, incluindo registros de sessões e diagnósticos. Qualquer IA que utilize esses dados deve ter mecanismos robustos de anonimização e segurança, e o psicólogo especialista é fundamental para garantir esse *compliance* ético-legal.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="max-w-4xl mx-auto my-12 border-gray-300">
+
+        <!-- NOVA SEÇÃO: Jornada de Domínio e Conclusão (Conteúdo do Documento) -->
+        <section id="dominio-avancado" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center text-gray-900 mb-10">A Jornada do Domínio Avançado em Fluência de IA</h3>
+
+            <!-- A Fluência Avançada: Jornada Contínua -->
+            <div class="bg-gray-100 p-8 rounded-2xl shadow-inner mb-10">
+                <h4 class="text-2xl font-semibold text-indigo-700 mb-4">A Fluência Avançada: Uma Jornada Contínua</h4>
+                <p class="text-gray-700 mb-4">A fluência não é um destino, mas uma jornada contínua de desenvolvimento que combina:</p>
+                <div class="grid md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 bg-white rounded-lg shadow-md border-b-2 border-indigo-400">
+                        <p class="font-bold text-sm">Competência Técnica</p>
+                        <p class="text-xs text-gray-500">Domínio dos 4 Ds e modalidades de interação</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md border-b-2 border-teal-400">
+                        <p class="font-bold text-sm">Sabedoria Ética</p>
+                        <p class="text-xs text-gray-500">Aplicação responsável e consciente</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md border-b-2 border-purple-400">
+                        <p class="font-bold text-sm">Criatividade Autêntica</p>
+                        <p class="text-xs text-gray-500">Amplificar, não substituir, originalidade humana</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md border-b-2 border-red-400">
+                        <p class="font-bold text-sm">Impacto Social</p>
+                        <p class="text-xs text-gray-500">Servir ao bem-estar humano</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A Transformação Pessoal e Profissional -->
+            <div class="mb-10">
+                <h4 class="text-2xl font-semibold text-gray-900 mb-4 border-b pb-2">A Transformação Pessoal e Profissional</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start bg-white p-5 rounded-xl shadow-lg border-l-4 border-teal-500">
+                        <span class="text-2xl mr-3">🧠</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Pensador Expandido</p>
+                            <p class="text-sm text-gray-600">A IA como extensão da sua cognição, potencializando a análise e a tomada de decisão.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-white p-5 rounded-xl shadow-lg border-l-4 border-purple-500">
+                        <span class="text-2xl mr-3">🚀</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Criador Potencializado</p>
+                            <p class="text-sm text-gray-600">Capacidade multiplicada de gerar valor e inovar em sua área de atuação.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-white p-5 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                        <span class="text-2xl mr-3">⚖️</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Líder Ético</p>
+                            <p class="text-sm text-gray-600">Pioneiro em práticas responsáveis, estabelecendo o padrão para o uso da IA.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-white p-5 rounded-xl shadow-lg border-l-4 border-red-500">
+                        <span class="text-2xl mr-3">🧑‍🏫</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Educador Natural</p>
+                            <p class="text-sm text-gray-600">Multiplicador de conhecimento e boas práticas dentro de equipas e comunidades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- O Diferencial Competitivo Definitivo -->
+            <div class="text-center bg-indigo-50 p-6 rounded-xl shadow-xl border border-indigo-300 mb-10">
+                <h4 class="text-2xl font-extrabold text-indigo-900 mb-4">O Diferencial Competitivo Definitivo</h4>
+                <p class="text-lg text-gray-700 font-medium">Em um mundo onde IA se torna ubíqua, o diferencial está em ir além do uso básico:</p>
+                <ul class="list-none space-y-2 mt-4 text-gray-800">
+                    <li><span class="font-extrabold text-indigo-600">1. Mestria Técnica:</span> Usá-la com maestria (competência técnica)</li>
+                    <li><span class="font-extrabold text-teal-600">2. Sabedoria Integrada:</span> Integrá-la com sabedoria (discernimento ético)</li>
+                    <li><span class="font-extrabold text-purple-600">3. Inovação Autêntica:</span> Aplicá-la com criatividade (inovação autêntica)</li>
+                    <li><span class="font-extrabold text-red-600">4. Responsabilidade:</span> Compartilhá-la com responsabilidade (impacto social positivo)</li>
+                </ul>
+            </div>
+
+            <!-- Convite à Ação -->
+            <div class="text-center p-6 border-2 border-gray-400 border-dashed rounded-xl">
+                <h4 class="text-2xl font-bold text-gray-900 mb-3">Convite à Ação</h4>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Este guia oferece o mapa, mas a jornada é sua. Comece onde você está, use o que tem, faça o que pode. **O futuro não é sobre humanos *versus* IA, mas sobre humanos e IA trabalhando juntos de forma inteligente, criativa e responsável.**
+                </p>
+                <p class="text-lg font-semibold text-indigo-600 mt-4">Seja o profissional que lidera essa transformação em sua área. O mundo precisa de pessoas que dominem tanto a tecnologia quanto a humanidade que a guia.</p>
+            </div>
+        </section>
+        <!-- FIM NOVA SEÇÃO: Jornada de Domínio e Conclusão -->
+
+    </main>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm">
+            <p>&copy; 2025 Fluência em IA: Construindo a Próxima Geração de Profissionais Responsáveis. | Foco em Ética e Psicologia.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para a interatividade do FAQ e chamadas Gemini -->
+    <script>
+        // Função para alternar o FAQ (mantida da versão anterior)
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqButtons = document.querySelectorAll('.faq-button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const answerId = button.id.replace('q', 'a');
+                    const answer = document.getElementById(answerId);
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                    faqButtons.forEach(otherButton => {
+                        if (otherButton !== button) {
+                            otherButton.setAttribute('aria-expanded', 'false');
+                            document.getElementById(otherButton.id.replace('q', 'a')).classList.add('hidden');
+                        }
+                    });
+
+                    if (isExpanded) {
+                        button.setAttribute('aria-expanded', 'false');
+                        answer.classList.add('hidden');
+                    } else {
+                        button.setAttribute('aria-expanded', 'true');
+                        answer.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        const apiKey = ""; // Chave da API (será fornecida em tempo de execução)
+        const model = 'gemini-2.5-flash-preview-05-20';
+        const apiUrlBase = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+        /**
+         * Executa a chamada à API Gemini com backoff exponencial.
+         * @param {string} userQuery - O prompt do usuário.
+         * @param {string} systemPrompt - A instrução do sistema para guiar o LLM.
+         * @param {number} retries - Contador de tentativas.
+         */
+        async function callGeminiApi(userQuery, systemPrompt, retries = 0) {
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const response = await fetch(apiUrlBase, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    if (response.status === 429 && retries < 5) {
+                        const delay = Math.pow(2, retries) * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        return callGeminiApi(userQuery, systemPrompt, retries + 1);
+                    }
+                    throw new Error(`Erro na API: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (!text) throw new Error("Resposta da API incompleta ou vazia.");
+                return text;
+
+            } catch (error) {
+                console.error("Falha na chamada ao Gemini API:", error);
+                return `Erro ao processar a solicitação: ${error.message}.`;
+            }
+        }
+
+        // --- Funcionalidade 1: Gerador de Prompt Ético (Delegação/Descrição) ---
+        async function generateEthicalPrompt() {
+            const inputElement = document.getElementById('taskInput');
+            const outputElement = document.getElementById('promptOutput');
+            const outputContainer = document.getElementById('promptOutputContainer');
+            const button = document.getElementById('generatePromptBtn');
+            const buttonText = document.getElementById('promptBtnText');
+            const spinner = document.getElementById('promptSpinner');
+
+            const userQuery = inputElement.value.trim();
+            if (!userQuery) {
+                outputElement.textContent = "Por favor, insira uma tarefa genérica para a IA.";
+                outputContainer.classList.remove('hidden');
+                return;
+            }
+
+            button.disabled = true;
+            buttonText.textContent = "Gerando...";
+            spinner.classList.remove('hidden');
+            outputContainer.classList.add('hidden');
+
+            const systemPrompt = "Aja como um especialista em ética e fluência em IA. Dada uma tarefa genérica de IA, reformule-a num prompt detalhado e responsável. O prompt deve incluir: 1) o papel e contexto (Psicólogo/Auditor), 2) uma restrição ética/de viés, 3) o formato de output desejado (lista, tabela, resumo), e 4) uma etapa de Discernimento/validação. Responda apenas com o prompt reformulado em Português.";
+
+            const result = await callGeminiApi(userQuery, systemPrompt);
+
+            outputElement.textContent = result;
+            outputContainer.classList.remove('hidden');
+            button.disabled = false;
+            buttonText.textContent = "Gerar Prompt Responsável ✨";
+            spinner.classList.add('hidden');
+        }
+
+        // --- Funcionalidade 2: Analisador de Viés e Risco (Discernimento) ---
+        async function analyzeBias() {
+            const inputElement = document.getElementById('biasInput');
+            const outputElement = document.getElementById('biasOutput');
+            const scoreElement = document.getElementById('biasScore');
+            const outputContainer = document.getElementById('biasOutputContainer');
+            const button = document.getElementById('analyzeBiasBtn');
+            const buttonText = document.getElementById('biasBtnText');
+            const spinner = document.getElementById('biasSpinner');
+
+            const userQuery = inputElement.value.trim();
+            if (!userQuery) {
+                outputElement.textContent = "Por favor, cole um texto de IA para auditoria de viés.";
+                outputContainer.classList.remove('hidden');
+                scoreElement.textContent = "";
+                return;
+            }
+
+            button.disabled = true;
+            buttonText.textContent = "Avaliando Risco...";
+            spinner.classList.remove('hidden');
+            outputContainer.classList.add('hidden');
+            scoreElement.textContent = "";
+
+            const systemPrompt = "Aja como um auditor de viés linguístico em textos gerados por IA, focado em ética na saúde e psicologia. Analise o texto e identifique: 1) Linguagem generalista/vaga (falta de especificidade), 2) Potenciais vieses de exclusão (ex: cultural, socioeconómico) e 3) Falta de atribuição de fonte/transparência. Forneça uma resposta estruturada em Português com a Análise Crítica e Recomendações. No final, adicione numa nova linha a pontuação de Risco Ético de 1 a 10 (onde 10 é risco máximo) usando o formato: Risco: [Número]/10.";
+
+            const rawResult = await callGeminiApi(userQuery, systemPrompt);
+            
+            const scoreMatch = rawResult.match(/Risco: (\d+)\/10/);
+            const score = scoreMatch ? scoreMatch[1] : null;
+            const cleanResult = rawResult.replace(/Risco: \d+\/10\s*$/, '').trim();
+
+            let scoreColor = 'text-gray-900';
+            if (score) {
+                const numScore = parseInt(score, 10);
+                if (numScore >= 7) scoreColor = 'text-red-600';
+                else if (numScore >= 4) scoreColor = 'text-yellow-600';
+                else scoreColor = 'text-green-600';
+                scoreElement.innerHTML = `Nível de Risco Ético: <span class="${scoreColor} text-2xl">${score}/10</span>`;
+            } else {
+                 scoreElement.innerHTML = `Nível de Risco Ético: <span class="text-gray-500">N/A</span>`;
+            }
+
+
+            outputElement.textContent = cleanResult;
+            outputContainer.classList.remove('hidden');
+            button.disabled = false;
+            buttonText.textContent = "Auditar Risco Ético ✨";
+            spinner.classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
