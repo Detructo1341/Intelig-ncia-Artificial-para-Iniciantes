@@ -1,4 +1,4 @@
-# Capítulo 9: Caso de Estudo 1 — Tutor de IA Generativa
+# Caso de Estudo 1 — Tutor de IA Generativa
 
 ## 🎯 Objetivos do Capítulo
 
