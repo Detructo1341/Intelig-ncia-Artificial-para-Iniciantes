@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Metacognitivo de IA - Laboratório de Fluência</title>
+    <style>
+        /* Estilos básicos para demonstrar a estrutura e a hierarquia */
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #1a237e;
+            padding-bottom: 15px;
+        }
+        h1 {
+            color: #1a237e; /* Azul Escuro */
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #0d47a1;
+            font-size: 1.5em;
+            border-bottom: 1px solid #c5cae9;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        .interaction-area {
+            border: 1px solid #a9a9a9;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background-color: #e8eaf6; /* Azul Claro Suave */
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #7986cb;
+            border-radius: 6px;
+            resize: vertical;
+            box-sizing: border-box; /* Garante que padding não estoure a largura */
+            font-size: 1em;
+        }
+        button {
+            background-color: #4caf50; /* Verde */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-1px);
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+        .reflection-log {
+            margin-top: 25px;
+        }
+        .log-entry {
+            border-left: 6px solid #ff9800; /* Laranja Metacognitivo */
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            background-color: #fff3e0;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .log-entry strong {
+            color: #e65100;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .log-entry p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        #ai-output-1 {
+            white-space: pre-wrap; 
+            background-color: #fff; 
+            padding: 15px; 
+            border: 2px dashed #7986cb;
+            border-radius: 4px;
+            min-height: 80px;
+            margin-top: 10px;
+        }
+        .reflection-prompt {
+            color: #d84315; /* Vermelho Alaranjado */
+            font-style: italic;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1> Mentor Metacognitivo de IA 🧠</h1>
+            <p>Laboratório de Prática: Planejamento, Refinamento e Julgamento Crítico.</p>
+        </header>
+
+        <!-- Seção 1: Planejamento Estratégico e Entrada do Usuário -->
+        <div id="planning-section" class="interaction-area">
+            <h2>1. Planejamento Estratégico (Entrada)</h2>
+            <label for="user-goal">Qual é seu Objetivo Final com a IA? (Ex: "Criar um resumo de 500 palavras sobre IA generativa para leigos")</label>
+            <textarea id="user-goal" rows="2">Criar um artigo de 500 palavras sobre o impacto da IA no futuro do trabalho para um público de líderes empresariais.</textarea>
+            
+            <label for="initial-prompt">Escreva seu **Prompt Inicial** (Bruto):</label>
+            <textarea id="initial-prompt" rows="5" placeholder="Ex: 'Faça um resumo sobre IA generativa'">Escreva um artigo sobre o futuro do trabalho e IA.</textarea>
+            
+            <button onclick="simulateAIAssessment()">Enviar e Receber Avaliação Estratégica</button>
+        </div>
+
+        <!-- Seção 2: Saída da IA e Análise de Refinamento -->
+        <div id="refinement-section" class="interaction-area" style="display:none;">
+            <h2>2. Iteração e Refinamento</h2>
+            
+            <h3>Resposta Bruta da IA (Saída 1 - Geração)</h3>
+            <p id="ai-output-1">[Resposta genérica da IA será inserida aqui]</p>
+            
+            <p class="reflection-prompt">🤔 **Reflexão Metacognitiva do Mentor:** "Por que a IA respondeu assim? Que pressupostos ela fez ao processar o seu pedido? Onde o prompt falhou em especificar a **audiência** ou o **tom**?"</p>
+            
+            <label for="refined-prompt">Escreva seu **Prompt Refinado** (Após a análise crítica):</label>
+            <textarea id="refined-prompt" rows="5" placeholder="Ex: 'Assuma o papel de um professor de ensino médio... O resumo deve ter 500 palavras, em tom inspirador e com exemplos cotidianos.'">Assuma o papel de um consultor de estratégia. O artigo deve ter 500 palavras. Use um tom formal e persuasivo. Foco em tendências de requalificação (upskilling) e tomada de decisão estratégica para C-Levels.</textarea>
+            
+            <button onclick="simulateRefinedOutput()">Testar Prompt Refinado</button>
+        </div>
+
+        <!-- Seção 3: Log de Aprendizado Crítico e Agência Humana -->
+        <div id="critical-log-section" class="reflection-log">
+            <h2>3. Log de Aprendizado Metacognitivo</h2>
+            
+            <!-- Entrada de Log 1: Análise Estratégica -->
+            <div class="log-entry" id="log-entry-1" style="display:none;">
+                <strong>▶️ Análise Estratégica Inicial (Módulo 1)</strong>
+                <p id="log-analysis-1"></p>
+                <p class="reflection-prompt">💡 **Questão de Agência Humana (Módulo 4):** Qual **Julgamento Humano** único (empatia, ética, contexto da sua empresa) você deve aplicar antes de usar esta saída da IA? O que a máquina não consegue avaliar?</p>
+            </div>
+
+            <!-- Entrada de Log 2: Análise de Refinamento -->
+            <div class="log-entry" id="log-entry-2" style="display:none;">
+                <strong>▶️ Resultado do Refinamento e Insight (Módulos 2 & 3)</strong>
+                <p id="log-analysis-2"></p>
+                <p class="reflection-prompt">✅ **Síntese e Ação (Módulo 3):** Qual é o **conhecimento acionável** (insight) que você extraiu da Resposta Refinada? Como isso se traduz em uma **decisão real**?</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Use a global variable to store the simulated API base URL
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        // Utility function for Base64 to ArrayBuffer (for TTS)
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // Utility function to convert PCM data to WAV Blob (for TTS)
+        function pcmToWav(pcm16, sampleRate) {
+            const numChannels = 1;
+            const bitsPerSample = 16;
+            const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+            const blockAlign = numChannels * (bitsPerSample / 8);
+            const dataSize = pcm16.byteLength;
+            const buffer = new ArrayBuffer(44 + dataSize);
+            const view = new DataView(buffer);
+            
+            // Function to write a string to the data view
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            // RIFF chunk descriptor
+            writeString(view, 0, 'RIFF'); // ChunkID
+            view.setUint32(4, 36 + dataSize, true); // ChunkSize
+            writeString(view, 8, 'WAVE'); // Format
+
+            // FMT sub-chunk
+            writeString(view, 12, 'fmt '); // Subchunk1ID
+            view.setUint32(16, 16, true); // Subchunk1Size (16 for PCM)
+            view.setUint16(20, 1, true); // AudioFormat (1 for PCM)
+            view.setUint16(22, numChannels, true); // NumChannels
+            view.setUint32(24, sampleRate, true); // SampleRate
+            view.setUint32(28, byteRate, true); // ByteRate
+            view.setUint16(32, blockAlign, true); // BlockAlign
+            view.setUint16(34, bitsPerSample, true); // BitsPerSample
+
+            // Data sub-chunk
+            writeString(view, 36, 'data'); // Subchunk2ID
+            view.setUint32(40, dataSize, true); // Subchunk2Size
+
+            // Write PCM data
+            const pcm16Bytes = new Uint8Array(pcm16.buffer);
+            for (let i = 0; i < dataSize; i++) {
+                view.setUint8(44 + i, pcm16Bytes[i]);
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+
+        // Função de backoff exponencial para lidar com limites de taxa
+        async function fetchWithExponentialBackoff(url, options, maxRetries = 5, delay = 1000) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status !== 429) { // 429 is Too Many Requests
+                        return response;
+                    }
+                    console.log(`Rate limit exceeded (429). Retrying in ${delay / 1000}s...`);
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                    // Decide if the error is worth retrying (e.g., network error)
+                }
+                await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+            }
+            throw new Error('Failed to fetch after multiple retries.');
+        }
+
+        // --- Lógica Principal do Agente ---
+
+        // Função para obter a resposta da IA (simulando a chamada real ao LLM)
+        async function getGeminiResponse(systemPrompt, userQuery) {
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                // Usando o Google Search para garantir informações atualizadas
+                tools: [{ "google_search": {} }],
+            };
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            };
+
+            try {
+                const response = await fetchWithExponentialBackoff(apiUrl, options);
+                const result = await response.json();
+                
+                // Extração segura do texto gerado
+                return result.candidates?.[0]?.content?.parts?.[0]?.text || "Erro: A IA não conseguiu gerar uma resposta. Tente refinar a pergunta.";
+            } catch (error) {
+                console.error("Erro na chamada à API Gemini:", error);
+                return "Erro de Conexão: Falha ao comunicar com o Mentor de IA. Verifique sua conexão.";
+            }
+        }
+
+        // Módulo 1: Planejamento Estratégico e Entrada
+        async function simulateAIAssessment() {
+            const goal = document.getElementById('user-goal').value;
+            const initialPrompt = document.getElementById('initial-prompt').value;
+            const aiOutputElement = document.getElementById('ai-output-1');
+
+            if (!goal || !initialPrompt) {
+                alert("Por favor, preencha o Objetivo Final e o Prompt Inicial.");
+                return;
+            }
+
+            // Exibir carregamento
+            aiOutputElement.textContent = "⚙️ Processando a Avaliação Estratégica e Gerando Saída 1...";
+            
+            // 1. System Prompt para o Agente (Estrategista e Gerador de Conteúdo)
+            const systemPromptInitial = `Você é o Mentor Metacognitivo de IA. Seu papel é duplo:
+            1. AGIR como um Estrategista: Avalie o objetivo do usuário ("${goal}") e seu prompt inicial ("${initialPrompt}"). Identifique claramente o que está faltando (Papel da IA, Público, Formato, Tom).
+            2. AGIR como um LLM: Gere a primeira "Resposta Bruta" (Saída 1) com base no prompt do usuário. A Saída 1 deve ser propositalmente genérica, pois o prompt do usuário é fraco.
+
+            FORMATO DE SAÍDA OBRIGATÓRIO:
+            ---ANÁLISE ESTRATÉGICA---
+            [Sua avaliação sobre as lacunas no prompt inicial]
+            ---SAÍDA 1 (BRUTA)---
+            [A resposta da IA para o prompt, sendo genérica]`;
+
+            const queryInitial = `Meu objetivo é: "${goal}". Meu prompt inicial é: "${initialPrompt}". Por favor, gere a análise estratégica e a Resposta Bruta.`;
+
+            const fullResponse = await getGeminiResponse(systemPromptInitial, queryInitial);
+
+            // Analisar a resposta para separar Análise e Saída
+            const [analysisBlock, outputBlock] = fullResponse.split('---SAÍDA 1 (BRUTA)---').map(s => s.trim());
+            const analysisText = analysisBlock.replace('---ANÁLISE ESTRATÉGICA---', '').trim();
+            const outputText = (outputBlock || "Não foi possível extrair a Resposta Bruta.").trim();
+
+            // Atualizar UI
+            aiOutputElement.textContent = outputText;
+            document.getElementById('log-analysis-1').innerHTML = analysisText.replace(/\n/g, '<br>');
+
+            // Exibir as seções de Refinamento e Log
+            document.getElementById('refinement-section').style.display = 'block';
+            document.getElementById('log-entry-1').style.display = 'block';
+
+            // Mensagem de Feedback
+            if (!outputText.includes("Erro")) {
+                // Não usamos alert, mas um feedback visual
+                const feedbackMsg = document.createElement('div');
+                feedbackMsg.textContent = "✅ Avaliação Estratégica Concluída. Analise a Saída 1 e o Log de Aprendizado abaixo para refinar seu prompt.";
+                feedbackMsg.style.cssText = "color: #1b5e20; background-color: #e8f5e9; padding: 10px; border-radius: 4px; margin-top: 10px; font-weight: bold;";
+                document.getElementById('planning-section').appendChild(feedbackMsg);
+            }
+        }
+
+        // Módulo 2 e 3: Iteração, Refinamento e Síntese
+        async function simulateRefinedOutput() {
+            const goal = document.getElementById('user-goal').value;
+            const refinedPrompt = document.getElementById('refined-prompt').value;
+            const aiOutputElement = document.getElementById('ai-output-1');
+
+            if (!refinedPrompt) {
+                alert("Por favor, escreva o Prompt Refinado.");
+                return;
+            }
+
+            // Exibir carregamento
+            aiOutputElement.textContent = "⚙️ Processando o Prompt Refinado e Gerando Análise Crítica...";
+
+            // 1. System Prompt para o Agente (Refinador e Sintetizador Crítico)
+            const systemPromptRefined = `Você é o Mentor Metacognitivo de IA. Seu papel é duplo:
+            1. AGIR como um LLM: Gere a "Resposta Refinada" (Saída 2) usando o novo prompt do usuário. Esta resposta deve ser de alta qualidade, pois o prompt agora é detalhado.
+            2. AGIR como um Sintetizador Crítico: Compare a qualidade da Saída 2 com a Saída 1 (que era genérica). Foque em como a mudança no prompt (causa) levou à melhora do resultado (efeito). Depois, gere um "Insight Acionável" para o usuário.
+
+            FORMATO DE SAÍDA OBRIGATÓRIO:
+            ---ANÁLISE CRÍTICA---
+            [Sua comparação e análise de causa/efeito do refinamento do prompt.]
+            ---SAÍDA 2 (REFINADA)---
+            [A resposta da IA para o prompt refinado, sendo de alta qualidade e focada.]`;
+            
+            const queryRefined = `Meu objetivo é: "${goal}". O meu novo Prompt Refinado é: "${refinedPrompt}". Por favor, gere a análise crítica e a Resposta Refinada.`;
+
+            const fullResponse = await getGeminiResponse(systemPromptRefined, queryRefined);
+
+            // Analisar a resposta para separar Análise e Saída
+            const [analysisBlock, outputBlock] = fullResponse.split('---SAÍDA 2 (REFINADA)---').map(s => s.trim());
+            const analysisText = analysisBlock.replace('---ANÁLISE CRÍTICA---', '').trim();
+            const outputText = (outputBlock || "Não foi possível extrair a Resposta Refinada.").trim();
+
+            // Atualizar UI
+            aiOutputElement.textContent = outputText;
+            document.getElementById('log-analysis-2').innerHTML = analysisText.replace(/\n/g, '<br>');
+            document.getElementById('log-entry-2').style.display = 'block';
+
+            // Mensagem de Feedback
+            if (!outputText.includes("Erro")) {
+                const feedbackMsg = document.createElement('div');
+                feedbackMsg.textContent = "✅ Iteração Completa. Analise o Log de Aprendizado abaixo para os Insights Finais e Conclusão Crítica.";
+                feedbackMsg.style.cssText = "color: #1b5e20; background-color: #e8f5e9; padding: 10px; border-radius: 4px; margin-top: 10px; font-weight: bold;";
+                document.getElementById('refinement-section').appendChild(feedbackMsg);
+            }
+        }
+    </script>
+
+</body>
+</html>
