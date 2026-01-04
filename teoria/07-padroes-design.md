@@ -1,4 +1,4 @@
-# Capítulo 6: Padrões de Design de Agentes
+# Padrões de Design de Agentes
 
 ## 🎨 Arquiteturas Comprovadas
 
