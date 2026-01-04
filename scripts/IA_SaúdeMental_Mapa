@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidades em IA na Psicologia no Brasil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Tech -->
+    <!-- Application Structure Plan: The application abandons a linear report structure in favor of a thematic, dashboard-driven design to enhance user engagement and comprehension. The flow is structured as: Panorama (Context) -> Oportunidades (Interactive Solutions) -> Desafios Operacionais (Compliance & Human Factors) -> PRINCÍPIOS ÉTICOS (Deep Dive on Foundation) -> O Futuro (Vision). A new dedicated section, #principios_eticos, was added to ensure the foundational ethical discussion, which is extensive, receives adequate space and prominence, featuring a grid for the 4 core principles and a structured list for implementation challenges (Caixa Preta, Autonomia). This separation prevents the ethical complexity from overwhelming the operational challenges, improving clarity. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: High prevalence of mental health issues in Brazil -> Goal: Inform & establish urgency -> Presentation: Large statistic cards -> Interaction: Static -> Justification: Immediate, high-impact communication of core data points.
+        - Report Info: Uneven distribution of psychologists -> Goal: Show access disparity -> Viz: Donut Chart -> Interaction: Hover to see region data -> Justification: Excellent for showing proportions of a whole, visually highlighting the concentration in one region. Library: Chart.js/Canvas.
+        - Report Info: Key areas for AI application (Diagnosis, Treatment, etc.) -> Goal: Organize & allow deep-dive -> Presentation: Interactive Tabbed Section -> Interaction: Click to reveal detailed text and impact summary -> Justification: Breaks down dense information into user-selected, manageable chunks, promoting active exploration over passive reading. Method: JS content switching.
+        - Report Info: Ethical Pillars (New) -> Goal: Organize foundational rules -> Presentation: Grid of detailed cards -> Interaction: Hover for visual emphasis -> Justification: Clearly defines abstract concepts in a scannable format. Method: HTML/Tailwind.
+        - Report Info: Operational and Regulatory challenges -> Goal: Inform on risks/compliance -> Presentation: Grid of info cards -> Interaction: Static with hover effect -> Justification: Presents distinct concepts clearly and concisely in a visually organized manner, allowing easy comparison. Method: HTML/Tailwind.
+        - Report Info: The future collaborative model -> Goal: Conclude with a vision -> Presentation: Simple HTML/CSS diagram -> Interaction: Static -> Justification: A strong, clear visual metaphor to summarize the report's main thesis. Method: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .opportunity-card.active {
+            background-color: #0284c7;
+            color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        #opportunity-content > div {
+            display: none;
+        }
+        #opportunity-content > div.active {
+            display: block;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky-nav w-full border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-sky-600">IA & Psicologia</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#panorama" class="text-slate-600 hover:bg-slate-200 hover:text-slate-800 px-3 py-2 rounded-md text-sm font-medium">Panorama</a>
+                        <a href="#oportunidades" class="text-slate-600 hover:bg-slate-200 hover:text-slate-800 px-3 py-2 rounded-md text-sm font-medium">Oportunidades</a>
+                        <a href="#desafios" class="text-slate-600 hover:bg-slate-200 hover:text-slate-800 px-3 py-2 rounded-md text-sm font-medium">Desafios</a>
+                        <a href="#principios_eticos" class="text-slate-600 hover:bg-slate-200 hover:text-slate-800 px-3 py-2 rounded-md text-sm font-medium">Ética</a>
+                        <a href="#futuro" class="text-slate-600 hover:bg-slate-200 hover:text-slate-800 px-3 py-2 rounded-md text-sm font-medium">O Futuro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="text-center py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-800">
+                    A Revolução Silenciosa da Saúde Mental
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    Como a Inteligência Artificial está moldando o futuro da Psicologia no Brasil, ampliando o acesso e personalizando o cuidado.
+                </p>
+            </div>
+        </header>
+
+        <section id="panorama" class="py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Panorama Brasileiro</h2>
+                    <p class="mt-4 text-lg text-slate-600">A demanda por saúde mental no país revela um cenário de grandes desafios e a necessidade urgente de soluções inovadoras.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-center text-center">
+                        <span class="text-5xl font-bold text-sky-600">18,6M</span>
+                        <p class="mt-2 text-slate-700 font-medium">Brasileiros com transtorno de ansiedade.</p>
+                        <p class="text-sm text-slate-500">(Fonte: OMS)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-center text-center">
+                        <span class="text-5xl font-bold text-sky-600">#1</span>
+                        <p class="mt-2 text-slate-700 font-medium">País mais ansioso do mundo.</p>
+                        <p class="text-sm text-slate-500">(Fonte: OMS)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-center text-center">
+                        <span class="text-5xl font-bold text-sky-600">~450 mil</span>
+                        <p class="mt-2 text-slate-700 font-medium">Psicólogos ativos no Brasil.</p>
+                        <p class="text-sm text-slate-500">(Fonte: CFP)</p>
+                    </div>
+                </div>
+                <div class="mt-12 bg-white p-6 md:p-8 rounded-xl shadow-md border border-slate-100">
+                    <h3 class="text-xl font-bold text-center text-slate-800">Acesso Desigual: Distribuição de Psicólogos por Região</h3>
+                    <p class="text-center text-slate-500 mt-2 mb-6">A grande concentração de profissionais no Sudeste evidencia a dificuldade de acesso em outras partes do país, um desafio que a tecnologia pode ajudar a superar.</p>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="oportunidades" class="py-16 md:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Explorando as Oportunidades</h2>
+                    <p class="mt-4 text-lg text-slate-600">A IA pode atuar como uma poderosa ferramenta de apoio para psicólogos em diversas frentes. Selecione uma área para saber mais.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <button data-target="diagnostico" class="opportunity-card active text-left p-4 rounded-lg shadow-sm border border-slate-200 bg-slate-50 hover:bg-sky-100 transition-all duration-300">
+                        <h3 class="font-bold text-lg">Triagem e Diagnóstico</h3>
+                        <p class="text-sm mt-1">Análise de dados para identificação precoce de transtornos.</p>
+                    </button>
+                    <button data-target="tratamento" class="opportunity-card text-left p-4 rounded-lg shadow-sm border border-slate-200 bg-slate-50 hover:bg-sky-100 transition-all duration-300">
+                        <h3 class="font-bold text-lg">Tratamento e Intervenção</h3>
+                        <p class="text-sm mt-1">Personalização de terapias e suporte contínuo.</p>
+                    </button>
+                    <button data-target="gestao" class="opportunity-card text-left p-4 rounded-lg shadow-sm border border-slate-200 bg-slate-50 hover:bg-sky-100 transition-all duration-300">
+                        <h3 class="font-bold text-lg">Gestão e Otimização</h3>
+                        <p class="text-sm mt-1">Automação de tarefas administrativas e operacionais.</p>
+                    </button>
+                    <button data-target="pesquisa" class="opportunity-card text-left p-4 rounded-lg shadow-sm border border-slate-200 bg-slate-50 hover:bg-sky-100 transition-all duration-300">
+                        <h3 class="font-bold text-lg">Pesquisa e Desenvolvimento</h3>
+                        <p class="text-sm mt-1">Processamento de grandes volumes de dados para novas descobertas.</p>
+                    </button>
+                </div>
+
+                <div id="opportunity-content" class="bg-slate-100 p-6 md:p-8 rounded-xl min-h-[300px]">
+                </div>
+            </div>
+        </section>
+        
+        <section id="desafios" class="py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Desafios Operacionais e de Vínculo</h2>
+                    <p class="mt-4 text-lg text-slate-600">Além da ética fundamental, a IA enfrenta barreiras práticas relacionadas à regulamentação brasileira e à preservação do aspecto humano do cuidado.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold text-xl text-slate-800">Regulamentação Profissional (CFP)</h3>
+                        <p class="mt-2 text-slate-600">O Conselho Federal de Psicologia precisa estabelecer diretrizes claras sobre o uso ético e responsável de ferramentas de IA, definindo os limites e as responsabilidades do profissional em relação às novas tecnologias.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold text-xl text-slate-800">Preservação da Relação Terapêutica</h3>
+                        <p class="mt-2 text-slate-600">A tecnologia deve ser uma ferramenta de apoio, sem substituir o vínculo humano e a empatia que são fundamentais no processo terapêutico. O desafio é integrar a IA sem desumanizar o cuidado.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold text-xl text-slate-800">Segurança de Dados e LGPD</h3>
+                        <p class="mt-2 text-slate-600">Dados de saúde mental são extremamente sensíveis. Garantir a conformidade com a Lei Geral de Proteção de Dados (LGPD) e proteger as informações contra vazamentos é uma prioridade absoluta para qualquer sistema de IA.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold text-xl text-slate-800">Viés Algorítmico na Prática</h3>
+                        <p class="mt-2 text-slate-600">Na prática clínica, o uso de modelos enviesados pode levar a diagnósticos errados ou a recomendações inadequadas, especialmente para grupos não representados nos dados, exigindo validação rigorosa no contexto brasileiro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="principios_eticos" class="py-16 md:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">A Espinha Dorsal: Ética e Governança em IA</h2>
+                    <p class="mt-4 text-lg text-slate-600">A aplicação da IA na saúde mental deve ser guiada por princípios éticos rigorosos. Estes quatro pilares sustentam o desenvolvimento responsável e confiável da tecnologia.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="p-6 rounded-xl shadow-md border border-slate-200 bg-slate-50 hover:shadow-lg transition duration-300">
+                        <span class="text-3xl text-sky-600 font-bold block mb-2">1.</span>
+                        <h3 class="font-bold text-xl text-slate-800">Justiça e Equidade</h3>
+                        <p class="mt-2 text-sm text-slate-600">Os sistemas de IA devem tratar todos os indivíduos de forma justa, sem reproduzir ou ampliar preconceitos de dados. Garante que o acesso e a qualidade do cuidado não sejam afetados por vieses raciais, de gênero ou socioeconômicos.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-md border border-slate-200 bg-slate-50 hover:shadow-lg transition duration-300">
+                        <span class="text-3xl text-sky-600 font-bold block mb-2">2.</span>
+                        <h3 class="font-bold text-xl text-slate-800">Transparência e Explicabilidade</h3>
+                        <p class="mt-2 text-sm text-slate-600">Os usuários e profissionais precisam entender como o sistema de IA funciona e por que ele chegou a uma determinada recomendação. Isso é crucial para a auditoria, correção de erros e construção de confiança ("XAI").</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-md border border-slate-200 bg-slate-50 hover:shadow-lg transition duration-300">
+                        <span class="text-3xl text-sky-600 font-bold block mb-2">3.</span>
+                        <h3 class="font-bold text-xl text-slate-800">Responsabilidade</h3>
+                        <p class="mt-2 text-sm text-slate-600">Deve haver uma entidade humana ou jurídica claramente responsável pelos resultados e danos causados por uma IA. Isso estabelece a prestação de contas e garante que o profissional tenha o controle final (Human-in-the-Loop).</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-md border border-slate-200 bg-slate-50 hover:shadow-lg transition duration-300">
+                        <span class="text-3xl text-sky-600 font-bold block mb-2">4.</span>
+                        <h3 class="font-bold text-xl text-slate-800">Privacidade de Dados</h3>
+                        <p class="mt-2 text-sm text-slate-600">Exige a proteção rigorosa de dados confidenciais (conforme a LGPD), minimizando a coleta e garantindo que o processamento seja feito com consentimento explícito e técnicas de anonimização adequadas.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">Desafios Críticos de Implementação</h3>
+                    <p class="text-lg text-slate-600 mb-6">Apesar dos princípios, a tecnologia apresenta barreiras que exigem atenção contínua no design e operação dos sistemas:</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="bg-slate-100 p-5 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-bold text-lg text-slate-800">O Problema da Caixa Preta</h4>
+                            <p class="text-sm mt-1 text-slate-600">Modelos complexos (Deep Learning) são difíceis de interpretar. Não é possível saber *exatamente* por que uma decisão foi tomada, dificultando a auditoria e a confiança.</p>
+                        </div>
+                        <div class="bg-slate-100 p-5 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-bold text-lg text-slate-800">Dilema da Autonomia</h4>
+                            <p class="text-sm mt-1 text-slate-600">Aumentar a autonomia da IA em decisões clínicas levanta a questão do controle humano. É fundamental que o psicólogo mantenha a supervisão e o poder de veto final.</p>
+                        </div>
+                        <div class="bg-slate-100 p-5 rounded-lg border-l-4 border-red-500">
+                            <h4 class="font-bold text-lg text-slate-800">Viés na Prática</h4>
+                            <p class="text-sm mt-1 text-slate-600">O desafio de campo é evitar que os dados regionais e socioculturais desiguais do Brasil induzam a IA a oferecer cuidados piores ou inadequados para grupos minoritários ou regiões mais pobres.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="futuro" class="py-16 md:py-20 bg-sky-700 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold">O Futuro é Híbrido</h2>
+                    <p class="mt-4 text-lg text-sky-200 max-w-3xl mx-auto">A visão mais promissora não é a da IA substituindo psicólogos, mas sim a de uma colaboração inteligente, onde a tecnologia potencializa a capacidade humana de cuidar.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-center">
+                    <div class="bg-sky-600 p-6 rounded-xl w-64">
+                        <div class="text-4xl">👤</div>
+                        <h3 class="font-bold mt-4">Psicólogo</h3>
+                        <p class="text-sm text-sky-200 mt-2">Empatia, escuta qualificada, planejamento terapêutico, ética.</p>
+                    </div>
+                    <div class="text-5xl font-bold text-white">+</div>
+                     <div class="bg-sky-600 p-6 rounded-xl w-64">
+                        <div class="text-4xl">🤖</div>
+                        <h3 class="font-bold mt-4">Inteligência Artificial</h3>
+                        <p class="text-sm text-sky-200 mt-2">Análise de dados, automação de tarefas, identificação de padrões, personalização.</p>
+                    </div>
+                </div>
+                 <div class="mt-10 text-center">
+                    <div class="text-5xl font-bold text-white mb-4">↓</div>
+                    <div class="bg-white text-sky-800 p-8 rounded-xl max-w-2xl mx-auto shadow-2xl">
+                        <h3 class="text-2xl font-bold">Cuidado Ampliado e Eficaz</h3>
+                        <p class="mt-2">Um modelo onde o profissional, com o apoio da IA, pode oferecer um serviço mais ágil, personalizado e acessível, dedicando mais tempo ao que realmente importa: a conexão humana.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-400">
+            <p>Este é um painel interativo de análise. As informações e dados são compilados para fins de ilustração das oportunidades da IA na Psicologia.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const opportunityContentData = {
+                diagnostico: {
+                    title: 'Apoiando a Triagem e o Diagnóstico',
+                    description: 'Ferramentas de IA podem analisar padrões na fala, escrita ou comportamento para identificar sinais precoces de transtornos como depressão, ansiedade ou risco de suicídio. Isso não substitui o diagnóstico clínico, mas funciona como um sistema de alerta, permitindo que os profissionais intervenham mais cedo e com mais informações.',
+                    points: [
+                        '<strong>Triagem em Larga Escala:</strong> Aplicação de questionários inteligentes em populações para identificar indivíduos que necessitam de avaliação.',
+                        '<strong>Análise de Linguagem Natural (PLN):</strong> Detecção de marcadores de saúde mental em textos de pacientes (com consentimento).',
+                        '<strong>Redução de Tempo:</strong> Otimização do tempo do psicólogo, que recebe relatórios pré-analisados.'
+                    ]
+                },
+                tratamento: {
+                    title: 'Personalizando o Tratamento e a Intervenção',
+                    description: 'A IA permite a criação de planos terapêuticos mais adaptativos e oferece suporte contínuo ao paciente entre as sessões. Ferramentas como chatbots podem guiar usuários em exercícios de Terapia Cognitivo-Comportamental (TCC) ou técnicas de mindfulness, aumentando o engajamento e a continuidade do tratamento.',
+                    points: [
+                        '<strong>Chatbots Terapêuticos:</strong> Fornecem suporte 24/7 para crises de ansiedade ou insônia com protocolos pré-definidos.',
+                        '<strong>Recomendação de Atividades:</strong> Sugestão de exercícios e conteúdos personalizados com base no progresso do paciente.',
+                        '<strong>Monitoramento Contínuo:</strong> Análise de dados de humor (diários digitais) para ajustar a estratégia terapêutica.'
+                    ]
+                },
+                gestao: {
+                    title: 'Otimizando a Gestão da Clínica e do Cuidado',
+                    description: 'A rotina de um psicólogo envolve muitas tarefas administrativas que consomem um tempo precioso. A IA pode automatizar grande parte desse trabalho, liberando o profissional para se concentrar no atendimento ao paciente e no seu desenvolvimento profissional.',
+                    points: [
+                        '<strong>Agendamento Inteligente:</strong> Sistemas que otimizam a agenda e gerenciam remarcações e lembretes automaticamente.',
+                        '<strong>Transcrição de Sessões:</strong> Ferramentas que transcrevem o áudio das sessões (com consentimento) para facilitar a criação de prontuários.',
+                        '<strong>Análise de Gestão:</strong> Dashboards que ajudam o psicólogo a entender melhor as finanças e a operação da sua clínica.'
+                    ]
+                },
+                pesquisa: {
+                    title: 'Acelerando a Pesquisa e o Desenvolvimento',
+                    description: 'A IA tem a capacidade de processar e encontrar padrões em enormes conjuntos de dados clínicos e de pesquisa, algo impossível para um ser humano. Isso pode acelerar a descoberta de novos insights sobre transtornos mentais, a eficácia de tratamentos e a validação de novas abordagens terapêuticas.',
+                    points: [
+                        '<strong>Análise Preditiva:</strong> Identificação de fatores de risco para o desenvolvimento de transtornos em grandes populações.',
+                        '<strong>Processamento de Estudos:</strong> Análise rápida de milhares de artigos científicos para encontrar conexões e evidências.',
+                        '<strong>Validação de Terapias:</strong> Análise de dados anônimos de prontuários para medir a eficácia de diferentes intervenções em larga escala.'
+                    ]
+                }
+            };
+
+            const opportunityCards = document.querySelectorAll('.opportunity-card');
+            const opportunityContentContainer = document.getElementById('opportunity-content');
+
+            function updateContent(target) {
+                const data = opportunityContentData[target];
+                if (!data) return;
+
+                let pointsHTML = data.points.map(point => `<li class="flex items-start mt-3"><span class="text-sky-500 mr-2 mt-1">✓</span><span>${point}</span></li>`).join('');
+
+                opportunityContentContainer.innerHTML = `
+                    <div class="active">
+                        <h3 class="font-bold text-2xl text-slate-800">${data.title}</h3>
+                        <p class="mt-3 text-slate-600">${data.description}</p>
+                        <ul class="mt-4 text-slate-700">${pointsHTML}</ul>
+                    </div>
+                `;
+            }
+            
+            opportunityCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    opportunityCards.forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    const target = card.getAttribute('data-target');
+                    updateContent(target);
+                });
+            });
+
+            updateContent('diagnostico');
+            
+            const ctx = document.getElementById('distributionChart').getContext('2d');
+            const distributionChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sudeste', 'Sul', 'Nordeste', 'Centro-Oeste', 'Norte'],
+                    datasets: [{
+                        label: 'Distribuição de Psicólogos',
+                        data: [57, 18, 15, 7, 3],
+                        backgroundColor: [
+                            '#0284c7', 
+                            '#38bdf8',
+                            '#7dd3fc',
+                            '#bae6fd',
+                            '#e0f2fe'
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                color: '#475569'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', e => {
+                    const href = link.getAttribute('href');
+                    if(href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 64;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
