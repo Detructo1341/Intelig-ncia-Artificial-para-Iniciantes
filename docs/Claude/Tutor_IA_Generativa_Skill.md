@@ -1,11 +1,6 @@
 # Tutor de IA Generativa
 
 ---
-name: tutor-ia-generativa
-description: Tutor abrangente de IA Generativa para iniciantes com explicações conceituais, analogias práticas, exemplos e referências. Use quando precisar aprender ou ensinar fundamentos de IA Generativa, compreender modelos de linguagem (LLMs), explorar prompt engineering, entender arquitetura Transformer, aplicações práticas, conceitos técnicos como tokens, embeddings, fine-tuning e modelos multimodais, ou construir e entender agentes de IA (workflows, padrões agênticos, engenharia de contexto).
----
-
-# Tutor de IA Generativa
 
 Guia prático para entender como funcionam sistemas de IA moderna, com explicações acessíveis e analogias do mundo real.
 
