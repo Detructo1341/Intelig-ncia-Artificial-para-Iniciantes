@@ -1,23 +1,31 @@
 # Tutor de IA Generativa
 
+---
+name: tutor-ia-generativa
+description: Tutor abrangente de IA Generativa para iniciantes com explicações conceituais, analogias práticas, exemplos e referências. Use quando precisar aprender ou ensinar fundamentos de IA Generativa, compreender modelos de linguagem (LLMs), explorar prompt engineering, entender arquitetura Transformer, aplicações práticas, conceitos técnicos como tokens, embeddings, fine-tuning e modelos multimodais, ou construir e entender agentes de IA (workflows, padrões agênticos, engenharia de contexto).
+---
+
+# Tutor de IA Generativa
+
 Guia prático para entender como funcionam sistemas de IA moderna, com explicações acessíveis e analogias do mundo real.
 
 **Recursos disponíveis:**
 - **Glossário técnico completo**: `references/glossario.md` (50+ termos)
 - **Papers e artigos fundamentais**: `references/papers_artigos.md`
 - **Tópicos avançados**: `references/topicos.md`
+- **Agentes de IA - Guia prático**: `references/agentes_ia.md` (baseado em guias oficiais Anthropic)
 
 ---
 
 ## Conceitos Fundamentais
 
-### O Que é IA Generativa?
+### O Que É IA Generativa?
 
 Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Diferente de programas tradicionais (seguem regras fixas), a IA Generativa aprende padrões e os usa para gerar texto, imagens ou código.
 
 **Analogia:** Escritor bem-lido que, após ler milhões de livros, consegue escrever histórias originais combinando padrões aprendidos (não decora, mas entende como histórias funcionam).
 
-### Como funcionam Modelos de Linguagem (LLMs)
+### Como Funcionam Modelos de Linguagem (LLMs)
 
 **Tarefa central:** Predizer a próxima palavra baseado em padrões estatísticos.
 
@@ -35,7 +43,7 @@ Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Dife
 
 ---
 
-## Tokens: unidade básica de processamento
+## Tokens: Unidade Básica de Processamento
 
 **Token** = pequeno pedaço de texto (não necessariamente palavra inteira).
 
@@ -54,7 +62,7 @@ Sistema computacional que cria novo conteúdo aprendendo padrões de dados. Dife
 
 ---
 
-## Transformers: o núcleo
+## Transformers: Arquitetura Core
 
 Base de todos os LLMs modernos (GPT, Claude, Gemini). Proposta em 2017.
 
@@ -72,7 +80,7 @@ Para detalhes técnicos: `references/topicos.md` (seção Transformers)
 
 ---
 
-## Prompt Engineering: comunicação eficaz
+## Prompt Engineering: Comunicação Eficaz
 
 Técnicas para instruções claras:
 
@@ -152,9 +160,62 @@ Detalhes matemáticos: `references/topicos.md`
 
 ---
 
+## Agentes de IA: Além de Chamadas Únicas
+
+**Agente:** Sistema onde LLMs direcionam dinamicamente seus próprios processos e uso de ferramentas em loop.
+
+### Diferença: Workflows vs. Agentes
+
+**Workflows:** LLMs e ferramentas orquestrados através de código pré-definido
+- Previsíveis e consistentes
+- Ideais para tarefas bem-definidas
+
+**Agentes:** LLMs que decidem dinamicamente próximos passos
+- Flexíveis e adaptáveis
+- Ideais quando não é possível prever etapas necessárias
+
+### Padrões Comuns de Workflows
+
+**Prompt Chaining:** Sequência de passos onde cada LLM processa saída do anterior
+
+**Routing:** Classifica input e direciona para tarefa especializada
+
+**Parallelization:** Múltiplos LLMs trabalham simultaneamente
+
+**Orchestrator-Workers:** LLM central delega subtarefas a workers
+
+**Evaluator-Optimizer:** Um LLM gera, outro avalia em loop iterativo
+
+### Quando Usar Agentes
+
+✅ **Use quando:**
+- Problema aberto (difícil prever número de passos)
+- Não pode codificar caminho fixo
+- Precisa escalar tarefas em ambiente confiável
+
+❌ **Não use quando:**
+- Uma chamada de LLM com retrieval é suficiente
+- Previsibilidade total é crítica
+- Tarefa simples e bem-definida
+
+### Engenharia de Contexto
+
+**Desafio:** Context rot - conforme tokens aumentam, capacidade de recall diminui.
+
+**Solução:** Tratar contexto como recurso finito precioso. Curar menor conjunto possível de tokens de alto sinal.
+
+**Técnicas para tarefas longas:**
+- **Compaction:** Resumir e comprimir conversação próxima ao limite
+- **Note-taking:** Agente escreve notas persistidas fora do contexto
+- **Sub-agents:** Agentes especializados com janelas limpas
+
+Para guia completo: `references/agentes_ia.md`
+
+---
+
 ## Aplicações e Limitações
 
-### Pontos fortes
+### Pontos Fortes
 - Escrever/editar textos
 - Explicar conceitos
 - Gerar/debugar código
@@ -162,7 +223,7 @@ Detalhes matemáticos: `references/topicos.md`
 - Resumos e traduções
 - Análise de dados
 
-### Limitações críticas
+### Limitações Críticas
 - **Alucinações:** Inventa informações com confiança (sempre verifique!)
 - **Data de corte:** Conhecimento limitado à época de treinamento
 - **Sem compreensão real:** Reconhece padrões, não "entende"
@@ -181,5 +242,7 @@ Detalhes matemáticos: `references/topicos.md`
 **Para estudos acadêmicos:** Veja papers fundamentais em `references/papers_artigos.md`
 
 **Para tópicos avançados:** Explore RAG, RLHF, quantização, e mais em `references/topicos.md`
+
+**Para agentes de IA:** Guia prático completo sobre construção de agentes, workflows e engenharia de contexto em `references/agentes_ia.md`
 
 **Prática:** A melhor forma de aprender é experimentando. Teste as técnicas de prompt engineering!
