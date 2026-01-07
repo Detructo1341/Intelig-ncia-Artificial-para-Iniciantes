@@ -1,0 +1,136 @@
+Claro, Gabriel! Aqui está o seu conteúdo formatado em **Markdown (`.md`)** — limpo, hierárquico, pronto para colar no Notion, Obsidian, GitHub ou qualquer editor que você usar. Mantive toda a sua estrutura original, com as camadas cognitivas, exemplos práticos e o protocolo personalizado.
+
+---
+
+```markdown
+# 🎨 Tipos de Prompting: O Guia Definitivo do Arquiteto Cognitivo  
+*Por Gabriel | Última atualização: Janeiro de 2026*
+
+---
+
+## 📖 As 16 Técnicas com Exemplos Práticos
+
+### 🧱 Camada 1: Fundamentos
+
+- **Zero-Shot Prompting**: Direto ao ponto.  
+  *Exemplo:*  
+  `"Resuma a teoria do reforço de Skinner em três frases."`
+
+- **Few-Shot Prompting**: Ensinar pelo padrão.  
+  *Exemplo:*  
+  ```
+  Conceito: Ego -> Instância mediadora da psique.  
+  Conceito: Homeostase -> Equilíbrio de um sistema.  
+  Conceito: Neuroplasticidade ->
+  ```
+
+- **Role-Prompting**: Definir a lente analítica.  
+  *Exemplo:*  
+  `"Você é um especialista em neurociência da aprendizagem. Analise o impacto do sono na consolidação da memória de longo prazo."`
+
+---
+
+### ⛓️ Camada 2: Raciocínio Estruturado
+
+- **Chain-of-Thought (CoT)**: O raciocínio explícito.  
+  *Exemplo:*  
+  `"Explique por que o estresse crônico prejudica o hipocampo. Pense passo a passo, partindo do cortisol até a atrofia dendrítica."`
+
+- **Skeleton-of-Thought (SoT)**: Macro antes do micro.  
+  *Exemplo:*  
+  `"Crie primeiro o sumário de um artigo sobre 'IA como prótese cognitiva' e, após minha aprovação, escreva cada seção."`
+
+- **Directional Stimulus Prompting (DSP)**: Guia de atenção.  
+  *Exemplo:*  
+  `"Explique a psicologia socio-histórica, mas <<foque exclusivamente>> na relação entre linguagem e pensamento em Vygotsky."`
+
+---
+
+### 🌿 Camada 3: Exploração e Divergência
+
+- **Self-Consistency**: Verificação por maioria.  
+  *Exemplo (interno ao sistema):*  
+  `"Calcule a probabilidade de um falso positivo neste teste diagnóstico 5 vezes e me dê a resposta mais frequente."`
+
+- **Tree-of-Thought (ToT)**: Múltiplos caminhos.  
+  *Exemplo:*  
+  `"Problema: Baixa adesão à psicoterapia online. Explore 3 rotas: Técnica, Relacional e Cultural. Avalie viabilidade e eficácia de cada uma."`
+
+- **Contrastive Prompting**: Definição por oposição.  
+  *Exemplo:*  
+  `"Explique a diferença entre 'Tristeza' e 'Depressão Clínica', contrastando sintomas biológicos, duração e impacto funcional."`
+
+---
+
+### 🔄 Camada 4: Processamento Iterativo
+
+- **Prompt Chaining**: Linha de montagem.  
+  *Exemplo:*  
+  `"Passo 1: Transcreva este áudio de sessão. Passo 2: Extraia os principais núcleos temáticos. Passo 3: Sugira uma intervenção baseada em TCC."`
+
+- **Recursive Prompting**: Ciclo de melhoria.  
+  *Exemplo:*  
+  `"Escreva um post sobre saúde mental. Agora, reescreva-o para ser mais provocativo. Agora, adicione uma base neurocientífica ao texto."`
+
+- **ReAct (Reasoning + Acting)**: Pensar e buscar.  
+  *Exemplo:*  
+  `"Thought: Preciso saber o faturamento da OpenAI em 2025 para comparar com o mercado de saúde mental. Action: Search(OpenAI revenue 2025)."`
+
+---
+
+### 👁️ Camada 5: Metacognição e Alinhamento
+
+- **Meta-Prompting**: IA criando para IA.  
+  *Exemplo:*  
+  `"Crie um prompt otimizado para que uma IA consiga me ensinar Cálculo I usando apenas analogias de música clássica."`
+
+- **Reverse Prompting**: Engenharia reversa.  
+  *Exemplo:*  
+  `"Aqui está um ensaio sobre Marilena Chauí. Que prompt eu deveria ter usado para gerar um texto com esse nível de profundidade e tom?"`
+
+- **Constitutional Prompting**: Filtro de valores.  
+  *Exemplo:*  
+  `"Explique o neoliberalismo. Regra: Não use clichês ideológicos e mantenha o rigor da crítica de Frankfurt."`
+
+- **Active Prompting**: Diálogo socrático.  
+  *Exemplo:*  
+  `"Quero estruturar meu plano de carreira. IA: 'Para te ajudar, preciso saber: 1. Qual sua prioridade financeira? 2. Você prefere clínica ou pesquisa?'"`
+
+---
+
+## 🔬 Matriz de Comparação Técnica
+
+| Técnica                | Complexidade   | Custo (Tokens) | Principal Aplicação      | Objetivo Cognitivo        |
+|------------------------|----------------|----------------|--------------------------|---------------------------|
+| Active Prompting       | Média-Alta     | Médio          | Estudo crítico / Consultoria | Redução de Incerteza      |
+| Constitutional Prompting | Alta          | Alto           | Rigor teórico / Ética    | Alinhamento de Valores    |
+| Tree-of-Thought        | Alta           | Muito Alto     | Problemas multidimensionais | Exploração de Ramos       |
+| Directional Stimulus (DSP) | Baixa        | Baixo          | Foco em textos densos    | Atenção Seletiva          |
+
+*(Demais técnicas podem ser mapeadas conforme sua necessidade.)*
+
+---
+
+## 🛠️ O Protocolo de Trabalho "Gabriel 2026"
+
+Para integrar sua persona de psicólogo e arquiteto cognitivo, use este **Master Prompt**:
+
+> **"Atue como meu Parceiro Analítico (Meta-Cognição).  
+> Use Active Prompting para me questionar sobre o objetivo final antes de responder.  
+> Aplique Constitutional Prompting seguindo o rigor científico da neurociência social.  
+> Estruture a saída via Chain-of-Thought.  
+>   
+> [TAREFA]: Analise a integração de modelos de linguagem no processo terapêutico."**
+
+Este protocolo combina:
+- **Curiosidade socrática** (Active)  
+- **Fidelidade teórica** (Constitutional)  
+- **Clareza lógica** (CoT)  
+- **Identidade profissional** (Role implícito)
+
+Pronto para gerar respostas que são ao mesmo tempo *humanas, rigorosas e visionárias*.
+
+---
+
+*Feito para quem não só usa IA — mas a arquiteta.*
+```
