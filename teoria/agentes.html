@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escada Evolutiva da Agência Artificial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #1f2937;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .flow-node {
+            transition: all 0.3s ease;
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 3px;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gemini Pulse effect */
+        .gemini-sparkle {
+            background: linear-gradient(90deg, #4f46e5, #9333ea, #4f46e5);
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+    </style>
+
+    <!-- Placeholder Comments -->
+    <!-- Chosen Palette: Warm Neutrals with Gemini-inspired Indigo/Purple gradients for AI features. -->
+    <!-- Application Structure Plan: Integrated the Gemini API to provide dynamic insights. Added a "Brain" icon for LLM-powered features. -->
+    <!-- Visualization & Content Choices: Added a Chatbot interface and an "AI Insights" panel that uses Gemini-2.5-flash-preview-09-2025. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 shadow-sm z-10 flex-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-brain text-indigo-600 text-2xl"></i>
+                <h1 class="text-xl font-bold text-gray-800 tracking-tight">Arquitetura Cognitiva <span class="text-gray-400 font-light">| Taxonomia</span></h1>
+            </div>
+            <nav class="flex gap-4">
+                <button onclick="switchTab('explorer')" id="btn-explorer" class="px-3 py-2 text-sm font-medium rounded-md bg-indigo-50 text-indigo-700 transition-colors">
+                    <i class="fa-solid fa-layer-group mr-2"></i>Explorador
+                </button>
+                <button onclick="switchTab('advisor')" id="btn-advisor" class="px-3 py-2 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 transition-colors">
+                    <i class="fa-solid fa-compass mr-2"></i>Consultor
+                </button>
+                <button onclick="switchTab('mentor')" id="btn-mentor" class="px-3 py-2 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 transition-colors">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-2 text-purple-600"></i>Mentoria ✨
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden relative">
+        
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="w-72 bg-white border-r border-gray-200 flex flex-col hidden md:flex z-20">
+            <div class="p-4 border-b border-gray-100 bg-gray-50">
+                <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">A Escada Evolutiva</h2>
+            </div>
+            <nav class="flex-1 overflow-y-auto custom-scroll p-2 space-y-1" id="level-nav"></nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 overflow-y-auto bg-[#fdfbf7] p-4 sm:p-8 relative" id="main-content">
+            
+            <!-- VIEW: EXPLORER -->
+            <div id="view-explorer" class="max-w-5xl mx-auto fade-in">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800" id="detail-title">Carregando...</h2>
+                            <p class="text-gray-600 mt-2 leading-relaxed" id="detail-desc"></p>
+                        </div>
+                        <button onclick="generateUseCase()" id="btn-generate-usecase" class="gemini-sparkle text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg hover:scale-105 transition-transform flex items-center gap-2">
+                            <i class="fa-solid fa-sparkles"></i> Gerar Caso de Uso ✨
+                        </button>
+                    </div>
+
+                    <div id="usecase-box" class="hidden mb-6 p-4 bg-purple-50 border border-purple-100 rounded-lg text-sm text-purple-900 fade-in">
+                        <div class="font-bold flex items-center gap-2 mb-1">
+                            <i class="fa-solid fa-microchip"></i> Aplicação Sugerida pelo Gemini:
+                        </div>
+                        <div id="usecase-content" class="italic"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                        <div class="space-y-6">
+                            <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-100">
+                                <h3 class="text-sm font-bold text-indigo-800 uppercase mb-2">Paralelo Cognitivo</h3>
+                                <p class="text-gray-700" id="detail-parallel"></p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-gray-500 uppercase mb-3 tracking-wider">Características Chave</h3>
+                                <ul class="space-y-3" id="detail-features"></ul>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-gray-500 uppercase mb-3 tracking-wider">Arquitetura de Fluxo</h3>
+                                <div id="architecture-viz" class="bg-gray-50 rounded-lg border border-gray-200 p-4 min-h-[100px] flex items-center justify-center"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-4 border border-gray-100 shadow-sm flex flex-col items-center">
+                            <div class="chart-container">
+                                <canvas id="agencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: ADVISOR -->
+            <div id="view-advisor" class="max-w-3xl mx-auto hidden fade-in">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div class="bg-indigo-600 p-6 text-white">
+                        <h2 class="text-2xl font-bold mb-2">Matriz de Seleção</h2>
+                    </div>
+                    
+                    <div class="p-8 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Complexidade</label>
+                                <select id="input-complexity" class="w-full rounded-md border-gray-300 p-3 border">
+                                    <option value="low">Baixa</option>
+                                    <option value="med_proc">Média Procedural</option>
+                                    <option value="med_dyn">Média Dinâmica</option>
+                                    <option value="high">Alta</option>
+                                    <option value="strat">Estratégica</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Incerteza</label>
+                                <select id="input-uncertainty" class="w-full rounded-md border-gray-300 p-3 border">
+                                    <option value="low">Baixa</option>
+                                    <option value="high">Alta</option>
+                                    <option value="extreme">Extrema</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button onclick="calculateRecommendation()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
+                            Analisar Requisito
+                        </button>
+
+                        <div id="advisor-result" class="hidden mt-8 border-t border-gray-200 pt-8">
+                            <div class="bg-gray-50 border rounded-xl p-6 flex gap-6 items-center">
+                                <div id="rec-badge" class="bg-indigo-100 rounded-full h-16 w-16 flex items-center justify-center text-indigo-700 font-bold text-2xl"></div>
+                                <div class="flex-1">
+                                    <h4 id="rec-title" class="text-xl font-bold"></h4>
+                                    <p id="rec-reason" class="text-gray-600 text-sm mt-1"></p>
+                                </div>
+                            </div>
+                            
+                            <!-- Gemini Enhanced Advice -->
+                            <button onclick="getEnhancedAdvice()" id="btn-enhanced-advice" class="mt-4 w-full border-2 border-purple-200 text-purple-700 py-2 rounded-lg font-medium hover:bg-purple-50 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Otimizar com IA ✨
+                            </button>
+                            <div id="enhanced-advice-box" class="hidden mt-4 p-4 bg-white border border-purple-200 rounded-lg text-sm shadow-inner fade-in">
+                                <div id="enhanced-content" class="text-gray-700 leading-relaxed italic"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: MENTOR -->
+            <div id="view-mentor" class="max-w-4xl mx-auto hidden h-full flex flex-col fade-in">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 flex-1 flex flex-col overflow-hidden">
+                    <div class="bg-purple-600 p-4 text-white flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-robot"></i>
+                            <span class="font-bold">Mentor de Arquitetura ✨</span>
+                        </div>
+                        <span class="text-xs opacity-75">Powered by Gemini 2.5 Flash</span>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scroll bg-gray-50">
+                        <div class="flex justify-start">
+                            <div class="bg-white border p-3 rounded-lg rounded-tl-none max-w-[80%] text-sm shadow-sm">
+                                Olá! Sou o seu Mentor de Agência. Pode perguntar-me sobre as diferenças entre os níveis, como implementar o Nível 5 ou pedir paralelos com a neurociência. Como posso ajudar?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="p-4 border-t bg-white">
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" placeholder="Escreva a sua dúvida..." class="flex-1 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none">
+                            <button onclick="sendChatMessage()" class="bg-purple-600 text-white p-2 rounded-lg hover:bg-purple-700 transition">
+                                <i class="fa-solid fa-paper-plane px-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="error-toast" class="fixed bottom-4 right-4 bg-red-600 text-white px-6 py-3 rounded-lg shadow-2xl hidden z-50 animate-bounce">
+        <i class="fa-solid fa-circle-exclamation mr-2"></i> <span id="error-msg">Erro.</span>
+    </div>
+
+    <script>
+        // --- GEMINI API CONFIG ---
+        const apiKey = ""; // Runtime provides the key
+
+        async function callGemini(prompt, systemPrompt = "És um especialista em arquitetura de IA.") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API Error');
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (e) {
+                    if (i === 4) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        // --- DATA ---
+        const levelsData = [
+            { id: 0, name: "NÍVEL 0", role: "O Oráculo Estático", desc: "LLM Puro sem memória ou ferramentas.", parallel: "Processamento semântico isolado.", features: ["Stateless", "Função pura", "Zero ferramentas"], chartData: [1,1,1,9,1], architecture: [{type:'box', label:'Prompt'}, {type:'arrow'}, {type:'box', label:'LLM', color:'bg-indigo-500 text-white'}, {type:'arrow'}, {type:'box', label:'Resp'}] },
+            { id: 1, name: "NÍVEL 1", role: "O Bibliotecário", desc: "LLM com RAG e acesso a ferramentas externas.", parallel: "Acesso à memória (Hipocampo).", features: ["RAG", "Tool Use", "Fluxo Linear"], chartData: [2,3,2,8,2], architecture: [{type:'box', label:'Prompt'}, {type:'arrow'}, {type:'box', label:'RAG/Tools', color:'bg-yellow-100'}, {type:'arrow'}, {type:'box', label:'LLM'}] },
+            { id: 2, name: "NÍVEL 2", role: "O Operário Industrial", desc: "Workflows rígidos com grafos predefinidos.", parallel: "Rotinas procedurais.", features: ["Chaining", "Routing", "Loop Fixo"], chartData: [3,4,3,9,2], architecture: [{type:'group', label:'Workflow', items:['A','B','C']}] },
+            { id: 3, name: "NÍVEL 3", role: "O Estagiário Supervisionado", desc: "Semi-autônomo com loops de verificação humana.", parallel: "Introdução da Metacognição.", features: ["Loop Cognitivo", "Human-in-the-loop"], chartData: [5,6,5,7,5], architecture: [{type:'loop', label:'Ciclo', items:['Agir','Verificar']}, {type:'arrow'}, {type:'box', label:'Humano', color:'bg-red-50'}] },
+            { id: 4, name: "NÍVEL 4", role: "O Especialista Júnior", desc: "Agente autônomo com auto-correção em sandbox.", parallel: "Função executiva madura.", features: ["Self-healing", "Closed-loop"], chartData: [8,7,7,6,7], architecture: [{type:'loop', label:'Autonomia', items:['Plano','Exec','Erro','Corrigir']}] },
+            { id: 5, name: "NÍVEL 5", role: "A Orquestra", desc: "Sistemas multi-agentes colaborativos.", parallel: "Sociedade da Mente (Minsky).", features: ["Especialização", "Swarm intelligence"], chartData: [9,9,8,8,8], architecture: [{type:'group', label:'Multi-Agent', items:['Agt 1','Agt 2','Agt 3']}] },
+            { id: 6, name: "NÍVEL 6", role: "O Organismo Adaptativo", desc: "Meta-aprendizado e evolução de comportamento.", parallel: "Neuroplasticidade extrema.", features: ["Self-rewriting", "Memória L.P."], chartData: [10,10,10,5,10], architecture: [{type:'loop', label:'Evolução', items:['Reflexão','Upgrade']}] }
+        ];
+
+        let currentLevelId = 0;
+        let chartInstance = null;
+
+        // --- CORE UI LOGIC ---
+        function switchTab(tabId) {
+            const views = ['explorer', 'advisor', 'mentor'];
+            views.forEach(v => {
+                document.getElementById(`view-${v}`).classList.add('hidden');
+                document.getElementById(`btn-${v}`).classList.remove('bg-indigo-50', 'text-indigo-700', 'bg-purple-50', 'text-purple-700');
+                document.getElementById(`btn-${v}`).classList.add('text-gray-500');
+            });
+
+            document.getElementById(`view-${tabId}`).classList.remove('hidden');
+            const colorClass = tabId === 'mentor' ? 'bg-purple-50' : 'bg-indigo-50';
+            const textClass = tabId === 'mentor' ? 'text-purple-700' : 'text-indigo-700';
+            document.getElementById(`btn-${tabId}`).classList.add(colorClass, textClass);
+            document.getElementById(`btn-${tabId}`).classList.remove('text-gray-500');
+        }
+
+        function renderSidebar() {
+            const nav = document.getElementById('level-nav');
+            nav.innerHTML = levelsData.map(l => `
+                <button onclick="renderLevel(${l.id})" class="w-full text-left px-4 py-3 border-l-4 transition-all ${l.id === currentLevelId ? 'border-indigo-600 bg-indigo-50' : 'border-transparent hover:bg-gray-50'}">
+                    <span class="block text-xs font-bold ${l.id === currentLevelId ? 'text-indigo-600' : 'text-gray-400'}">${l.name}</span>
+                    <span class="block text-sm font-medium">${l.role}</span>
+                </button>
+            `).join('');
+        }
+
+        function renderLevel(id) {
+            currentLevelId = id;
+            renderSidebar();
+            const l = levelsData[id];
+            document.getElementById('detail-title').innerText = l.role;
+            document.getElementById('detail-desc').innerText = l.desc;
+            document.getElementById('detail-parallel').innerText = l.parallel;
+            document.getElementById('detail-features').innerHTML = l.features.map(f => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i><span class="text-sm">${f}</span></li>`).join('');
+            
+            // Architecture & Chart
+            renderArchitecture(l.architecture);
+            updateChart(l);
+
+            // Hide previous use case
+            document.getElementById('usecase-box').classList.add('hidden');
+        }
+
+        function renderArchitecture(arch) {
+            const container = document.getElementById('architecture-viz');
+            container.innerHTML = arch.map(item => {
+                if (item.type === 'box') return `<div class="px-3 py-1 bg-white border rounded shadow-sm text-xs font-bold ${item.color || ''}">${item.label}</div>`;
+                if (item.type === 'arrow') return `<i class="fa-solid fa-arrow-right text-gray-300"></i>`;
+                if (item.type === 'group' || item.type === 'loop') return `<div class="p-2 border border-dashed rounded text-xs flex flex-col items-center gap-1 ${item.color || 'bg-gray-100'}"><span class="opacity-50 font-bold">${item.label}</span><div class="flex gap-1">${item.items.map(i => `<span class="px-1 bg-white rounded border text-[10px]">${i}</span>`).join('')}</div></div>`;
+                return '';
+            }).join('');
+        }
+
+        function updateChart(l) {
+            const ctx = document.getElementById('agencyChart').getContext('2d');
+            if (chartInstance) {
+                chartInstance.data.datasets[0].data = l.chartData;
+                chartInstance.data.datasets[0].label = l.role;
+                chartInstance.update();
+            } else {
+                chartInstance = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Autonomia', 'Complexidade', 'Custo', 'Confiabilidade', 'Adaptabilidade'],
+                        datasets: [{ label: l.role, data: l.chartData, backgroundColor: 'rgba(79, 70, 229, 0.2)', borderColor: 'rgba(79, 70, 229, 1)' }]
+                    },
+                    options: { maintainAspectRatio: false, scales: { r: { ticks: { display: false }, min: 0, max: 10 } } }
+                });
+            }
+        }
+
+        // --- GEMINI ACTIONS ---
+
+        async function generateUseCase() {
+            const btn = document.getElementById('btn-generate-usecase');
+            const box = document.getElementById('usecase-box');
+            const content = document.getElementById('usecase-content');
+            const level = levelsData[currentLevelId];
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Pensando...`;
+
+            try {
+                const prompt = `Gera um caso de uso prático e inovador para uma IA de "${level.name}: ${level.role}". Explica como a arquitetura descrita (${level.desc}) resolve um problema real em 2 frases.`;
+                const result = await callGemini(prompt, "És um consultor de arquitetura de IA. Responde em Português de Portugal.");
+                content.innerText = result;
+                box.classList.remove('hidden');
+            } catch (e) {
+                showError("Não foi possível gerar o caso de uso.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-sparkles"></i> Gerar Caso de Uso ✨`;
+            }
+        }
+
+        async function getEnhancedAdvice() {
+            const btn = document.getElementById('btn-enhanced-advice');
+            const box = document.getElementById('enhanced-advice-box');
+            const content = document.getElementById('enhanced-content');
+            
+            const level = document.getElementById('rec-badge').innerText;
+            const complexity = document.getElementById('input-complexity').value;
+            const uncertainty = document.getElementById('input-uncertainty').value;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Otimizando...`;
+
+            try {
+                const prompt = `O utilizador selecionou um cenário de complexidade "${complexity}" e incerteza "${uncertainty}". O sistema recomendou o Nível "${level}". Sugere uma ferramenta tecnológica específica (ex: LangChain, CrewAI, LangGraph) ou uma técnica (ex: Self-Consistency, Chain-of-Thought) para implementar isto com sucesso. Responde em 3 frases curtas.`;
+                const result = await callGemini(prompt, "És um CTO especialista em IA. Responde em Português de Portugal.");
+                content.innerText = result;
+                box.classList.remove('hidden');
+            } catch (e) {
+                showError("Erro na otimização.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Otimizar com IA ✨`;
+            }
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const container = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // Add user message
+            container.innerHTML += `<div class="flex justify-end"><div class="bg-purple-600 text-white p-3 rounded-lg rounded-tr-none max-w-[80%] text-sm shadow-md">${text}</div></div>`;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            // Placeholder for thinking
+            const thinkingId = 'thinking-' + Date.now();
+            container.innerHTML += `<div id="${thinkingId}" class="flex justify-start"><div class="bg-gray-200 p-3 rounded-lg rounded-tl-none text-xs italic">O Mentor está a escrever...</div></div>`;
+            container.scrollTop = container.scrollHeight;
+
+            try {
+                const systemPrompt = `És o Mentor de Agência IA. Tens acesso a estes dados: ${JSON.stringify(levelsData)}. Responde a dúvidas sobre a taxonomia de forma técnica mas didática. Se o utilizador perguntar algo fora do tema, foca-te novamente na agência artificial. Responde sempre em Português de Portugal.`;
+                const result = await callGemini(text, systemPrompt);
+                
+                document.getElementById(thinkingId).remove();
+                container.innerHTML += `<div class="flex justify-start"><div class="bg-white border p-3 rounded-lg rounded-tl-none max-w-[80%] text-sm shadow-sm">${result}</div></div>`;
+            } catch (e) {
+                document.getElementById(thinkingId).remove();
+                showError("Erro no chat.");
+            }
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // --- ADVISOR LOGIC ---
+        function calculateRecommendation() {
+            const comp = document.getElementById('input-complexity').value;
+            const unc = document.getElementById('input-uncertainty').value;
+            let lvl = 2;
+            let reason = "Equilíbrio padrão para automação procedural.";
+            
+            if (comp === 'low' && unc === 'low') { lvl = 1; reason = "Tarefa simples, basta RAG linear."; }
+            else if (unc === 'extreme') { lvl = 6; reason = "Alta volatilidade exige adaptação evolutiva."; }
+            else if (comp === 'high' || comp === 'strat') { lvl = 5; reason = "Complexidade requer equipa de especialistas."; }
+            else if (unc === 'high') { lvl = 4; reason = "Incerteza exige autonomia de correção."; }
+
+            document.getElementById('rec-badge').innerText = `N${lvl}`;
+            document.getElementById('rec-title').innerText = levelsData[lvl].role;
+            document.getElementById('rec-reason').innerText = reason;
+            document.getElementById('advisor-result').classList.remove('hidden');
+            document.getElementById('enhanced-advice-box').classList.add('hidden');
+        }
+
+        function showError(msg) {
+            const t = document.getElementById('error-toast');
+            document.getElementById('error-msg').innerText = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 3000);
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLevel(0);
+            document.getElementById('chat-input').addEventListener('keypress', e => e.key === 'Enter' && sendChatMessage());
+        });
+    </script>
+</body>
+</html>
