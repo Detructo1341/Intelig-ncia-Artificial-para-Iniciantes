@@ -245,9 +245,9 @@ Usuário pensa: "Ótima ferramenta de organização de pensamento.
 
 ## ➡️ Próximos Passos
 
-- **Conecte**: Veja [Vieses Cognitivos em LLMs](vieses-cognitivos-em-llms.md)
-- **Reflita**: Leia [Metacognição Assistida por IA](metacognicao-assistida-por-ia.md)
-- **Aprofunde**: Explore [Ética no Uso de IA](etica-no-uso-de-ia.md)
+- **Conecte**: Veja [Vieses Cognitivos em LLMs](13-vieses-cognitivos-em-llms.md)
+- **Reflita**: Leia [Metacognição Assistida por IA](10-metacognicao-assistida-por-ia.md)
+- **Aprofunde**: Explore [Ética no Uso de IA](11-etica-no-uso-de-ia.md)
 - **Prático**: Observe seus próprios padrões de antropomorfização esta semana
 
 ---
