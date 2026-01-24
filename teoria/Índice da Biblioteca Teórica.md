@@ -12,7 +12,7 @@
 ### Para Iniciantes (Zero → Funcional)
 ```
 Leia nesta ordem:
-1. Módulo 01 (Fundamentos)
+1. Módulo 01 (teoria/01-o-que-e-ia-generativa.md)
 2. Módulo 02 (Funcionamento)
 3. Módulo 03 (Prática Básica)
 4. Módulo 07 (Ética)
