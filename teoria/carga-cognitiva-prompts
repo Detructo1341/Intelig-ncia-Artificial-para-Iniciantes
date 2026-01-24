@@ -1,0 +1,44 @@
+# 🧠 Carga Cognitiva e a Engenharia de Prompts
+**A Teoria da Instrução aplicada ao Design de Sistemas de IA**
+
+## 1. O Conceito: Por que a Carga Cognitiva importa?
+Baseado na teoria de John Sweller, a carga cognitiva refere-se ao esforço total utilizado na memória de trabalho. No contexto de LLMs, o excesso de ruído ou instruções mal estruturadas gera "poluição atencional", levando a alucinações e perda de foco conceitual.
+
+### Os Três Tipos de Carga no Prompting:
+* **Carga Intrínseca:** A complexidade inerente da tarefa (ex: "Resuma este paper de neurociência"). Não pode ser alterada, mas pode ser segmentada.
+* **Carga Extrínseca (Ruído):** Instruções vagas, formatação pobre ou comandos contraditórios. Isso deve ser **eliminado**.
+* **Carga Germânica (Construção):** O esforço dedicado a criar esquemas mentais. É aqui que o prompt deve focar, ajudando a IA a "conectar os pontos".
+
+---
+
+## 2. O Prompt como Andaime (Scaffolding)
+Para reduzir a carga extrínseca da IA e maximizar a eficiência, o prompt deve atuar como uma estrutura externa de suporte.
+
+### Estratégias de Design:
+1. **Sinalização (Cueing):** Use cabeçalhos claros (`# CONTEXTO`, `# TAREFA`) para que o mecanismo de atenção do Transformer identifique os pesos semânticos.
+2. **Segmentação (Chunking):** Divida prompts complexos em etapas sequenciais (Chain-of-Thought), evitando que a IA processe variáveis demais simultaneamente.
+3. **Restrição de Busca:** Forneça o "território" (dados/referências) para que a IA não gaste recursos computacionais (e probabilísticos) "adivinhando" informações.
+
+---
+
+## 3. Matriz de Complexidade vs. Estrutura
+
+| Nível de Carga | Tipo de Tarefa | Estratégia de Prompt |
+| :--- | :--- | :--- |
+| **Baixa** | Recuperação de fatos simples | Prompt Direto (Zero-shot) |
+| **Média** | Síntese de múltiplos conceitos | Prompt de Exemplo (Few-shot) |
+| **Alta** | Arquitetura de novos sistemas | Raciocínio em Cadeia (CoT) + Metacognição |
+
+---
+
+## 4. O "Espelho Cognitivo": Metacognição no Prompting
+Como Arquiteto Cognitivo, seu objetivo é que o prompt peça à IA para monitorar seu próprio processo de pensamento.
+
+**Exemplo de instrução para densidade:**
+> "Antes de fornecer a resposta final, descreva as lacunas lógicas que você encontrou nesta solicitação e como você planeja resolvê-las para evitar superficialidade."
+
+---
+
+## 5. Referências para Aprofundamento
+* Sweller, J. (1988). *Cognitive Load Theory*.
+* Vaswani et al. (2017). *Attention Is All You Need* (Mecânica da Atenção).
