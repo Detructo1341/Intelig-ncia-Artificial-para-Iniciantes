@@ -365,9 +365,8 @@ a decisão original.
 ## ➡️ Próximos Passos
 
 - **Pratique**: Reescreva seus prompts recentes usando princípios psicológicos
-- **Aprofunde**: Leia sobre [Tipos de Prompting](tipos-de-prompting.md)
-- **Conecte**: Veja [Metacognição Assistida por IA](metacognicao-assistida-por-ia.md)
-- **Experimente**: Use [Temperatura e Parâmetros](temperatura-e-parametros.md) junto com estrutura
+- **Conecte**: Veja [Metacognição Assistida por IA](10-metacognicao-assistida-por-ia.md)
+- **Experimente**: Use [Temperatura e Parâmetros](05-temperatura-e-parametros.md) junto com estrutura
 
 ---
 
