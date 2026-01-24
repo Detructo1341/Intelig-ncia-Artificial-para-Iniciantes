@@ -9,13 +9,14 @@
 
 ## 🎯 Como Usar Este Índice
 
-### Para Iniciantes (Zero → Funcional)
-```
-Leia nesta ordem:
-1. Módulo 01 [Ir para o Módulo 01](#módulo-01-o-que-e-ia-generativa.md)
-2. Módulo 02 (teoria/02-como-funcionam-os-llms.md)
-3. Módulo 03 (teoria/03-o-que-sao-embeddings.md)
-4. Módulo 07 (teoria/07-os-7-componentes-essenciais.md)
+# Cronograma de Estudos: Arquitetura Cognitiva e IA
+
+Abaixo está a ordem sugerida para o consumo dos materiais. Clique nos links para acessar cada módulo:
+
+1. [Módulo 01: O que é IA Generativa](#módulo-01-o-que-e-ia-generativa)
+2. [Módulo 02: Como funcionam os LLMs](teoria/02-como-funcionam-os-llms.md)
+3. [Módulo 03: O que são Embeddings](teoria/03-o-que-sao-embeddings.md)
+4. [Módulo 07: Os 7 Componentes Essenciais](teoria/07-os-7-componentes-essenciais.md)
 
 Tempo estimado: 8-12 horas
 Resultado: Compreensão sólida dos fundamentos
