@@ -142,10 +142,10 @@ SAÍDA (Texto gerado)
 
 ## ➡️ Próximos Passos
 
-- **Aprofunde**: Leia sobre [Embeddings](o-que-sao-embeddings.md) para entender como texto vira números
-- **Pratique**: Experimente [Temperatura e Parâmetros](temperatura-e-parametros.md) para controlar comportamento do modelo
-- **Expanda**: Explore [Context Window](context-window-explicado.md) para entender limitações de memória
-- **Reflita**: Veja [Vieses Cognitivos em LLMs](vieses-cognitivos-em-llms.md) para entender limitações humanas replicadas
+- **Aprofunde**: Leia sobre [Embeddings](03-o-que-sao-embeddings.md) para entender como texto vira números
+- **Pratique**: Experimente [Temperatura e Parâmetros](05-temperatura-e-parametros.md) para controlar comportamento do modelo
+- **Expanda**: Explore [Context Window](04-context-window-explicado.md) para entender limitações de memória
+- **Reflita**: Veja [Vieses Cognitivos em LLMs](13-vieses-cognitivos-em-llms.md) para entender limitações humanas replicadas
 
 ---
 
