@@ -434,7 +434,7 @@ Veja como temperatura alta gera resultados mais "poéticos" mas potencialmente e
 
 ## ➡️ Próximo Capítulo
 
-**[Capítulo 10: Caso de Estudo 2 — Integrador Multidisciplinar](10-integrador-multidisciplinar.md)**
+**[Capítulo 15: Caso de Estudo 2 — Integrador Multidisciplinar](15-ia-na-saude-mental.md)**
 
 Exploraremos um agente analítico que conecta campos diferentes do conhecimento.
 
