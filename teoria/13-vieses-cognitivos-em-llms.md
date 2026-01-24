@@ -275,10 +275,9 @@ Modelo completa diferente?
 
 ## ➡️ Próximos Passos
 
-- **Aprofunde**: Leia sobre [Ética no Uso de IA](etica-no-uso-de-ia.md)
-- **Conecte**: Veja [Antropomorfização de IAs](antropomorfizacao-de-ias.md) - outro viés psicológico
+- **Aprofunde**: Leia sobre [Ética no Uso de IA](11-ética-no-uso-de-ia)
+- **Conecte**: Veja [Antropomorfização de IAs](09-antropomorfizacao-de-ias.md) - outro viés psicológico
 - **Pratique**: Teste vieses usando prompts contrafactuais
-- **Expanda**: Explore [Impacto no Mercado de Trabalho](impacto-no-mercado-de-trabalho.md) - vieses em contratação
 
 ---
 
