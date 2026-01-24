@@ -292,15 +292,15 @@ Resultado: Base para pesquisa original
 
     [07 Ética] ← TRANSVERSAL (leia cedo!)
 
-## 🎯 OBJETIVOS DE APRENDIZAGEM POR MÓDULO
+## 🎯 Objetivos de Aprendizagem por Módulo
 
-| Módulo | Ao Final Você Será Capaz De... |
-|--------|-------------------------------|
+| Módulo | Ao Final, Você Será Capaz De... |
+|--------|----------------------------------|
 | **01** | Explicar IA Generativa para leigos |
 | **02** | Compreender como LLMs processam linguagem |
 | **03** | Criar prompts eficazes para tarefas cotidianas |
 | **04** | Identificar oportunidades de IA em seu domínio |
-| **05** | Implementar técnicas avançadas (CoT, ToT, etc) |
+| **05** | Implementar técnicas avançadas (CoT, ToT, etc.) |
 | **06** | Arquitetar sistemas RAG conceituais |
 | **07** | Identificar e mitigar vieses em aplicações |
 | **08** | Relacionar IA com processos cognitivos humanos |
