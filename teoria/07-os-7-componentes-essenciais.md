@@ -512,7 +512,7 @@ Antes de entregar, confirmo:
 
 ## ➡️ Próximo Capítulo
 
-**[Capítulo 6: Padrões de Design de Agentes](06-padroes-design.md)**
+**[Capítulo 8: Padrões de Design de Agentes](08-padroes-design.md)**
 
 Aprenderemos arquiteturas comprovadas para diferentes tipos de agentes.
 
