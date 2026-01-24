@@ -13,9 +13,9 @@
 ```
 Leia nesta ordem:
 1. Módulo 01 (teoria/01-o-que-e-ia-generativa.md)
-2. Módulo 02 (Funcionamento)
-3. Módulo 03 (Prática Básica)
-4. Módulo 07 (Ética)
+2. Módulo 02 (teoria/02-como-funcionam-os-llms.md)
+3. Módulo 03 (teoria/03-o-que-sao-embeddings.md)
+4. Módulo 07 (teoria/07-os-7-componentes-essenciais.md)
 
 Tempo estimado: 8-12 horas
 Resultado: Compreensão sólida dos fundamentos
