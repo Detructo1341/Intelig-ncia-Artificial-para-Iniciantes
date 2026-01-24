@@ -443,8 +443,8 @@ Exploraremos um agente analítico que conecta campos diferentes do conhecimento.
 ## 📚 Arquivos Relacionados
 
 - **Agente completo**: [`/skills/tutor-ia-generativa/SKILL.md`](../skills/tutor-ia-generativa/SKILL.md)
-- **Teoria pedagógica**: [`/teoria/06-psicologia-do-prompt-eficaz.md`](../teoria/06-psicologia-do-prompt-eficaz.md)
-- **Fundamentos de IA**: [`/teoria/01-como-funcionam-os-llms.md`](../teoria/01-como-funcionam-os-llms.md)
+- **Teoria pedagógica**: [`/teoria/12-psicologia-do-prompt-eficaz.md`](../teoria/06-psicologia-do-prompt-eficaz.md)
+- **Fundamentos de IA**: [`/teoria/01-o-que-e-ia-generativa.md`](../teoria/01-como-funcionam-os-llms.md)
 
 ---
 
