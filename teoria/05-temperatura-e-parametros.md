@@ -280,8 +280,8 @@ Qual é melhor? Depende do seu objetivo!
 ## ➡️ Próximos Passos
 
 - **Pratique**: Teste diferentes temperaturas no [Playground da OpenAI](https://platform.openai.com/playground)
-- **Aprofunde**: Leia sobre [Como Funcionam os LLMs](como-funcionam-os-llms.md) para entender o que acontece internamente
-- **Explore**: Veja [Tipos de Prompting](tipos-de-prompting.md) para combinar parâmetros com técnicas de prompt
+- **Aprofunde**: Leia sobre [Como Funcionam os LLMs](02-como-funcionam-os-llms.md) para entender o que acontece internamente
+- **Explore**: Veja [Estruturas de Prompt](tipos-de-prompting.md) para combinar parâmetros com técnicas de prompt
 - **Avance**: Estude [Fine-tuning](fine-tuning-e-transfer-learning.md) para controle mais profundo
 
 ---
