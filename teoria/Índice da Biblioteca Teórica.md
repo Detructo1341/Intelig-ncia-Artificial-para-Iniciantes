@@ -13,12 +13,16 @@
 
 Abaixo está a ordem sugerida para o consumo dos materiais. Clique nos links para acessar cada módulo:
 
-### Biblioteca Teórica
+# Biblioteca Teórica
 
-1. [Módulo 01](#módulo-01-o-que-e-ia-generativa)
-2. [Módulo 02](02-como-funcionam-os-llms.md)
-3. [Módulo 03](03-o-que-sao-embeddings.md)
-4. [Módulo 07](07-os-7-componentes-essenciais.md)
+1. [Módulo 01](#módulo-01-o-que-é-ia-generativa)
+2. [Módulo 02](./02-como-funcionam-os-llms.md)
+3. [Módulo 03](./03-o-que-sao-embeddings.md)
+4. [Módulo 07](./07-os-7-componentes-essenciais.md)
+
+---
+
+## Módulo 01: O que é IA Generativa
 
 ---
 
