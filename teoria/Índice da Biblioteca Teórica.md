@@ -389,16 +389,3 @@ Não importa seu background — psicologia, medicina, engenharia, educação, ou
 *Autor: Gabriel — Psicólogo & Arquiteto Cognitivo*
 
 ---
-
-## 🎯 Objetivos de Domínio (Arquiteto Cognitivo)
-
-| Módulo | Ao final, você será capaz de... |
-| :--- | :--- |
-| **01-03** | Decodificar a matemática por trás do significado (Embeddings e LLMs). |
-| **04-05** | Calibrar o comportamento da IA manipulando janelas de contexto e entropia. |
-| **06-08** | Projetar sistemas agênticos modulares usando padrões de design técnico. |
-| **09-10** | Utilizar a IA como ferramenta de alta performance para metacognição. |
-| **11-13** | Auditar sistemas de IA sob a ótica da ética e da psicologia cognitiva. |
-| **14** | Consolidar a teoria em um framework prático de ensino personalizado. |
-
----
