@@ -103,8 +103,6 @@ Resultado: Base para pesquisa original
 **Pré-requisitos**: Módulos 01-03  
 **Conceitos-chave**: Multimodalidade, Code Generation, Creative AI
 
----
-
 #### [Módulo 05: Técnicas Avançadas de Prompt Engineering](05_prompt_engineering_avancado.md)
 **O que você vai aprender**:
 - Chain-of-Thought (raciocínio passo a passo)
@@ -257,16 +255,12 @@ Resultado: Base para pesquisa original
 **Para**: Psicólogos, psiquiatras, profissionais de saúde  
 **Resultado**: Aplicações clínicas + ética
 
----
-
 ### Trilha 4: **Pesquisador/Acadêmico** (18-24 horas)
 ```
 01 → 02 → 03 → 05 → 06 → 08 → 09 → 10 → 11 → 12
 ```
 **Para**: Pesquisa original ou especialização profunda  
 **Resultado**: Base científica completa
-
----
 
 ### Trilha 5: **Desenvolvedor/Arquiteto de IA** (14-18 horas)
 ```
@@ -275,11 +269,7 @@ Resultado: Base para pesquisa original
 **Para**: Criar produtos e sistemas com IA  
 **Resultado**: Arquitetura e implementação
 
----
-
 ## 📊 MAPA VISUAL DE DEPENDÊNCIAS
-
-```
         [01 Introdução]
               ↓
         [02 Como Funciona]
@@ -297,9 +287,6 @@ Resultado: Base para pesquisa original
     [12 Futuro]
 
     [07 Ética] ← TRANSVERSAL (leia cedo!)
-```
-
----
 
 ## 🎯 OBJETIVOS DE APRENDIZAGEM POR MÓDULO
 
@@ -318,8 +305,6 @@ Resultado: Base para pesquisa original
 | **11** | Projetar arquiteturas de agentes autônomos |
 | **12** | Antecipar tendências e preparar-se estrategicamente |
 
----
-
 ## 📚 GLOSSÁRIO INTEGRADO
 
 Ao longo dos módulos, você encontrará **150+ termos** explicados, incluindo:
@@ -330,8 +315,6 @@ Ao longo dos módulos, você encontrará **150+ termos** explicados, incluindo:
 - **Avançados**: AGI, MAS, Tool Use, Multi-Agent Systems
 
 **Glossário completo**: Disponível em cada módulo + arquivo separado
-
----
 
 ## 🔗 INTEGRAÇÃO COM OUTROS RECURSOS
 
@@ -351,8 +334,6 @@ Ao longo dos módulos, você encontrará **150+ termos** explicados, incluindo:
    - Tutor IA Generativa
    - Integrador Multidisciplinar
    - Assistente Saúde Mental
-
----
 
 ## 💡 COMO ESTUDAR EFETIVAMENTE
 
@@ -375,8 +356,6 @@ Ao longo dos módulos, você encontrará **150+ termos** explicados, incluindo:
 ✅ **Iniciante → Intermediário**: Consegue explicar conceitos para leigos  
 ✅ **Intermediário → Avançado**: Consegue implementar soluções práticas  
 ✅ **Avançado → Expert**: Consegue criar soluções originais
-
----
 
 ## 📈 MÉTRICAS DE PROGRESSO
 
@@ -409,8 +388,6 @@ Use este checklist para acompanhar:
 - [ ] Módulo 12 completo
 - [ ] Criou visão estratégica pessoal
 
----
-
 ## 🎓 CERTIFICAÇÃO (Auto-Avaliação)
 
 ### Nível Iniciante ✅
@@ -428,8 +405,6 @@ Completou 10+ módulos
 Domina área de especialização  
 Contribui com conhecimento original
 
----
-
 ## 🆘 SUPORTE E COMUNIDADE
 
 ### Dúvidas?
@@ -444,8 +419,6 @@ Contribui com conhecimento original
 - Traduza para outros idiomas
 - Crie recursos complementares
 
----
-
 ## 📅 ATUALIZAÇÃO E MANUTENÇÃO
 
 **Versão Atual**: 2.0 (Janeiro 2025)  
@@ -458,8 +431,6 @@ Contribui com conhecimento original
 - ✅ Módulos de especialização (Psicologia, Saúde Mental, Neurociência)
 - ✅ Integração com guias práticos
 - ✅ Objetivos de aprendizagem claros
-
----
 
 ## ⭐ DIFERENCIAIS DESTA BIBLIOTECA
 
@@ -487,8 +458,6 @@ Contribui com conhecimento original
 - Skills funcionais
 - Casos de uso reais
 
----
-
 ## 🎯 PRÓXIMOS PASSOS
 
 Após completar a biblioteca:
@@ -498,8 +467,6 @@ Após completar a biblioteca:
 3. **Contribua**: Compartilhe conhecimento
 4. **Continue**: IA evolui rápido, mantenha-se atualizado
 5. **Conecte**: Junte-se a comunidades
-
----
 
 ## 📞 CRÉDITOS E LICENÇA
 
@@ -516,8 +483,6 @@ Após completar a biblioteca:
 **Deve**:
 - 📌 Dar crédito
 - 📌 Compartilhar melhorias
-
----
 
 ## 🎊 MENSAGEM FINAL
 
