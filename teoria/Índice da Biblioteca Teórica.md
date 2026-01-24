@@ -1,61 +1,48 @@
-# 📚 Índice da Biblioteca Teórica: Arquitetura Cognitiva e IA
-**Curadoria de Alta Densidade Conceitual** *Versão 2.0 | Janeiro 2025 | Autor: Gabriel*
+# 📚 Índice da Biblioteca Teórica
+
+## 🎯 Para Iniciantes
+
+Leia nesta ordem:
+
+1. **[Módulo 01: O que é IA Generativa](01-o-que-e-ia-generativa.md)**
+   - Tempo: 40 min | Pré-requisitos: Nenhum
+   
+2. **[Módulo 02: Como Funcionam os LLMs](02-como-funcionam-llms.md)**
+   - Tempo: 60 min | Pré-requisitos: [Módulo 01](01-o-que-e-ia-generativa.md)
+   
+3. **[Módulo 03: Prompt Engineering Básico](03-prompt-engineering-basico.md)**
+   - Tempo: 50 min | Pré-requisitos: [Módulos 01](01-o-que-e-ia-generativa.md) e [02](02-como-funcionam-llms.md)
+   
+4. **[Módulo 07: Ética e Uso Responsável](07-etica-vieses-uso-responsavel.md)**
+   - Tempo: 50 min | Pré-requisitos: [Módulo 01](01-o-que-e-ia-generativa.md)
+
+**[▶️ Começar pelo Módulo 01](01-o-que-e-ia-generativa.md)**
 
 ---
 
-## 🎯 Mapa de Navegação do Sistema
-*Nota: Todos os módulos residem no mesmo diretório. Clique nos títulos para aceder.*
+## 📖 Todos os Módulos
 
-### 🌱 BLOCO 1: FUNDAMENTOS (Ontologia e Estrutura)
+### 🌱 Fundamentos
 
-#### 01. [Módulo 01: Ontologia da IA Generativa](./01_introducao_ia_generativa.md)
-**A Profundidade**: Superar a visão de "caixa mágica". Estudo da transição do paradigma de busca para o paradigma de **inferência estocástica**. A IA como reconstrutora de distribuições de probabilidade.
+- 📘 [Módulo 01: Introdução](01-o-que-e-ia-generativa.md)
+- 📘 [Módulo 02: Como Funciona](02-como-funcionam-llms.md)
+- 📘 [Módulo 03: Prompts Básicos](03-prompt-engineering-basico.md)
 
-#### 02. [Módulo 02: Geometria do Significado - LLMs e Transformers](./02_como_funcionam_llms.md)
-**A Profundidade**: O mecanismo de **Atenção** como simulacro da seletividade cognitiva humana. Como a arquitetura Transformer mapeia o mundo em espaços vetoriais multidimensionais.
+### 🚀 Aplicações
 
-#### 03. [Módulo 03: Prompting como Estruturação Metacognitiva](./03_prompt_engineering_basico.md)
-**A Profundidade**: A engenharia de prompt vista como a arte de fornecer um **esqueleto lógico** para sistemas probabilísticos. Do *Zero-shot* ao alinhamento de intenção.
-
----
-
-### 🚀 BLOCO 2: ARQUITETURAS PRÁTICAS E FLUXOS
-
-#### 04. [Módulo 04: Fenomenologia das Aplicações](./04_aplicacoes_ia_generativa.md)
-**A Profundidade**: Multimodalidade e a convergência de domínios (texto, código, imagem) sob uma única representação matemática.
-
-#### 05. [Módulo 05: Raciocínio Estruturado (CoT e ToT)](./05_prompt_engineering_avancado.md)
-**A Profundidade**: *Chain-of-Thought* e *Tree-of-Thought*. Como forçar a computação sequencial a emular processos de reflexão deliberada e exploração de caminhos heurísticos.
-
-#### 06. [Módulo 06: Memória Externa e RAG](./06_rag_retrieval_augmented_generation.md)
-**A Profundidade**: *Retrieval-Augmented Generation*. A distinção técnica entre o "conhecimento paramétrico" (o que a IA sabe) e o "conhecimento de contexto" (o que lhe damos para ler).
+- 📗 [Módulo 04: Aplicações](04-aplicacoes-ia-generativa.md)
+- 📗 [Módulo 05: Prompts Avançados](05-prompt-engineering-avancado.md)
+- 📗 [Módulo 06: RAG](06-rag-retrieval-augmented-generation.md)
 
 ---
 
-### ⚖️ BLOCO 3: ÉTICA E ALINHAMENTO
+## 🗺️ Navegação Rápida
 
-#### 07. [Módulo 07: Vieses e a Arquitetura da Responsabilidade](./07_etica_vieses_uso_responsavel.md)
-**A Profundidade**: O problema do alinhamento (*Alignment Problem*). Como os preconceitos humanos são codificados em estruturas matemáticas e como mitigá-los.
+**Por Nível**:
+- Iniciante: [01](01-o-que-e-ia-generativa.md) | [02](02-como-funcionam-llms.md) | [03](03-prompt-engineering-basico.md)
+- Intermediário: [04](04-aplicacoes-ia-generativa.md) | [05](05-prompt-engineering-avancado.md)
 
----
-
-### 🧠 BLOCO 4: A PONTE (Psicologia e Neurociência)
-
-#### 08. [Módulo 08: Psicologia Cognitiva e Sistemas Artificiais](./08_ia_psicologia_cognitiva.md)
-**A Profundidade**: Paralelos funcionais entre a memória de trabalho humana e a janela de contexto dos LLMs. Processamento de linguagem natural vs. representação mental.
-
-#### 09. [Módulo 09: Clínica e Tecnologia - Saúde Mental](./09_ia_saude_mental.md)
-**A Profundidade**: O uso de IA na detecção de padrões semânticos em crises e o debate ético sobre a empatia simulada.
-
-#### 10. [Módulo 10: Neurobiologia vs. Redes Neurais](./10_neurociencia_ia.md)
-**A Profundidade**: Neuroplasticidade vs. *Backpropagation*. Onde a analogia biológica termina e a matemática pura assume o controle.
-
----
-
-### 🔮 BLOCO 5: FRONTEIRAS (Sistemas Agênticos)
-
-#### 11. [Módulo 11: IA Agêntica e Autonomia](./11_agentes_autonomos.md)
-**A Profundidade**: A evolução de ferramentas passivas para **Agentes**. Arquiteturas que integram percepção, planejamento, uso de ferramentas e memória de longo prazo.
-
-#### 12. [Módulo 12: AGI e a Emergência de Novos Paradigmas](./12_tendencias_futuras.md)
-**A Profundidade**: Debate sobre a Inteligência Artificial Geral. Propriedades emergentes em modelos de grande escala e o futuro da colaboração humano-IA.
+**Guias Complementares**:
+- 📖 [Guia Conceitual](../guia-conceitual/README.md)
+- 💻 [Guia Prático](../guia-pratico/README.md)
+- 🤖 [Skills](../skills/README.md)
