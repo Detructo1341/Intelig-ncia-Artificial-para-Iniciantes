@@ -20,13 +20,6 @@ Abaixo está a ordem sugerida para o consumo dos materiais. Clique nos links par
 3. [Módulo 03](./03-o-que-sao-embeddings.md)
 4. [Módulo 07](./07-os-7-componentes-essenciais.md)
 
----
-
-## Módulo 01: O que é IA Generativa
-
----
-
-## Módulo 01: O que é IA Generativa
 
 Tempo estimado: 8-12 horas
 Resultado: Compreensão sólida dos fundamentos
