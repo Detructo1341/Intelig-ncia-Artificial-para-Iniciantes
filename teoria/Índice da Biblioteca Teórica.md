@@ -12,7 +12,7 @@
 ### Para Iniciantes (Zero → Funcional)
 ```
 Leia nesta ordem:
-1. Módulo 01 (teoria/01-o-que-e-ia-generativa.md)
+1. Módulo 01 [Ir para o Módulo 01](#módulo-01-o-que-e-ia-generativa.md)
 2. Módulo 02 (teoria/02-como-funcionam-os-llms.md)
 3. Módulo 03 (teoria/03-o-que-sao-embeddings.md)
 4. Módulo 07 (teoria/07-os-7-componentes-essenciais.md)
