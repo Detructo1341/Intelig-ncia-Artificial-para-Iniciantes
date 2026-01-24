@@ -15,7 +15,7 @@ Abaixo está a ordem sugerida para o consumo dos materiais. Clique nos links par
 
 # Biblioteca Teórica
 
-1. [Módulo 01]([#módulo-01-o-que-é-ia-generativa](https://github.com/Detructo1341/Intelig-ncia-Artificial-para-Iniciantes/blob/main/teoria/01-o-que-e-ia-generativa.md))
+1. [Módulo 01](01-o-que-e-ia-generativa.md)
 2. [Módulo 02](./02-como-funcionam-os-llms.md)
 3. [Módulo 03](./03-o-que-sao-embeddings.md)
 4. [Módulo 07](./07-os-7-componentes-essenciais.md)
