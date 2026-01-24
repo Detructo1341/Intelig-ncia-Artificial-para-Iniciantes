@@ -314,7 +314,7 @@ Sugestão metacognitiva:
 
 ## ➡️ Próximos Passos
 
-- **Aprofunde**: Leia sobre [Psicologia do Prompt Eficaz](psicologia-do-prompt-eficaz.md)
+- **Aprofunde**: Leia sobre [Psicologia do Prompt Eficaz](12-psicologia-do-prompt-eficaz.md)
 - **Pratique**: Use IA para analisar seu processo de aprendizagem esta semana
 - **Conecte**: Veja [Carga Cognitiva e Prompts](carga-cognitiva-e-prompts.md)
 - **Expanda**: Explore [IA na Educação](ia-na-educacao.md) para aplicações pedagógicas
