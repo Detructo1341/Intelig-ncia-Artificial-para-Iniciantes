@@ -1,0 +1,299 @@
+# Glossário Técnico: IA e Saúde Mental
+
+Definições de termos-chave na interseção entre inteligência artificial e saúde mental.
+
+---
+
+## A
+
+**Acurácia (Accuracy)**
+Proporção de predições corretas (verdadeiros positivos + verdadeiros negativos) sobre total de casos. Em saúde mental: "Modelo detectou corretamente 80% dos casos de depressão".
+
+**Algoritmo de Detecção**
+Sistema computacional que identifica padrões específicos (ex: ideação suicida em texto, sinais de ansiedade em voz).
+
+**Análise de Sentimento (Sentiment Analysis)**
+Técnica de NLP que classifica texto como positivo, negativo ou neutro. Aplicação: monitorar humor em diários digitais.
+
+**Aprendizado por Reforço (Reinforcement Learning)**
+IA aprende por tentativa-erro, recebendo recompensas. Aplicação: chatbots que melhoram interação baseado em feedback.
+
+---
+
+## B
+
+**Bias (Viés)**
+Tendência sistemática do modelo a favor/contra certo grupo. Exemplo: algoritmo treinado só com dados de população branca falha em minorias.
+
+**Biomarcadores Digitais**
+Indicadores mensuráveis via tecnologia (ex: padrões de sono via smartwatch, velocidade de digitação).
+
+**Brain-Computer Interface (BCI)**
+Interface cérebro-computador que lê sinais neurais e permite controle/feedback. Aplicação: neurofeedback para regulação emocional.
+
+---
+
+## C
+
+**Chatbot Terapêutico**
+Agente conversacional que oferece suporte emocional e técnicas psicológicas (geralmente TCC). Exemplos: Woebot, Wysa.
+
+**Classificação Binária**
+Modelo que prevê entre duas classes (ex: deprimido vs. não-deprimido).
+
+**Classificação Multiclasse**
+Modelo que prevê entre múltiplas classes (ex: ansiedade, depressão, bipolar, saudável).
+
+**Consentimento Informado Digital**
+Processo de explicar e obter permissão para coleta de dados digitais de saúde mental.
+
+**Córtex Pré-Frontal (CPF)**
+Região cerebral envolvida em regulação emocional e tomada de decisão. IA modela sua interação com amígdala/hipocampo.
+
+---
+
+## D
+
+**Dados Passivos**
+Informações coletadas automaticamente sem ação do usuário (ex: localização GPS, uso de apps, padrões de sono).
+
+**Deep Learning**
+Subcampo de ML usando redes neurais profundas (múltiplas camadas). Detecta padrões complexos e não-lineares.
+
+**Distorção Cognitiva**
+Padrões de pensamento tendenciosos (ex: catastrofização, pensamento dicotômico). IA pode detectá-las via NLP.
+
+**DSM-5**
+Manual Diagnóstico e Estatístico de Transtornos Mentais (5ª edição). IA usa taxonomia DSM para classificação.
+
+---
+
+## E
+
+**Embeddings**
+Representações numéricas de palavras/frases que capturam significado. Palavras similares têm embeddings próximos.
+
+**Explainability (Explicabilidade)**
+Capacidade de entender por que IA tomou certa decisão. Crítico em saúde: "Por que algoritmo indicou risco de suicídio?"
+
+**Exposição Gradual**
+Técnica TCC de enfrentar medos progressivamente. IA pode gerar hierarquias personalizadas de exposição.
+
+---
+
+## F
+
+**Falso Positivo**
+Modelo prevê condição que não existe (ex: diagnóstico de depressão em pessoa saudável).
+
+**Falso Negativo**
+Modelo falha em detectar condição existente (ex: não detecta risco suicida real). Mais grave em contextos clínicos.
+
+**Features (Características)**
+Variáveis que modelo usa para predição (ex: horas de sono, frequência de palavras negativas, latência de resposta).
+
+**Fine-tuning**
+Ajustar modelo pré-treinado com dados específicos (ex: treinar GPT adicional com protocolos de TCC).
+
+**fMRI (Functional Magnetic Resonance Imaging)**
+Imagem cerebral que mostra atividade neural. IA analisa padrões para detectar transtornos.
+
+---
+
+## G
+
+**Generalização**
+Capacidade do modelo de funcionar bem em dados novos (não-vistos no treino). Desafio: generalizar entre culturas.
+
+**Ground Truth**
+Verdade conhecida usada para treinar modelo (ex: diagnósticos confirmados por psiquiatras).
+
+---
+
+## H
+
+**HRV (Heart Rate Variability)**
+Variabilidade da frequência cardíaca. ↓ HRV associado a estresse crônico e ansiedade. Wearables monitoram.
+
+**Human-in-the-Loop**
+Abordagem onde humano supervisiona decisões de IA. Essencial em contextos clínicos.
+
+---
+
+## I
+
+**Ideação Suicida**
+Pensamentos sobre suicídio (sem necessariamente plano/intenção). IA detecta via linguagem ("não aguento mais", "quero sumir").
+
+**Interpretabilidade**
+Grau em que humanos entendem funcionamento interno de modelo. Trade-off: modelos complexos (deep learning) são menos interpretáveis.
+
+---
+
+## J
+
+**Journaling Digital**
+Prática de escrever diário via app. IA analisa texto para identificar padrões emocionais ao longo do tempo.
+
+---
+
+## L
+
+**Large Language Model (LLM)**
+Modelo de linguagem massivo treinado com bilhões de textos (ex: GPT, Claude). Aplicação: chatbots terapêuticos.
+
+**Latência de Resposta**
+Tempo entre receber mensagem e responder. ↑ Latência pode indicar depressão.
+
+---
+
+## M
+
+**Machine Learning (ML)**
+IA que aprende padrões de dados sem ser explicitamente programada. Base da maior parte de IA em saúde mental.
+
+**Marcadores Linguísticos**
+Padrões de linguagem associados a estados mentais (ex: uso excessivo de "eu" em depressão, palavras absolutas em ansiedade).
+
+**Micro-expressões**
+Expressões faciais breves e involuntárias. IA via visão computacional detecta emoções suprimidas.
+
+**Mindfulness**
+Atenção plena ao momento presente. Apps com IA personalizam práticas baseado em resposta do usuário.
+
+**Modelo Preditivo**
+Sistema que prevê resultado futuro (ex: probabilidade de recaída depressiva nos próximos 6 meses).
+
+**Multimodal**
+IA que integra múltiplos tipos de dados (texto + voz + imagem + fisiologia) para avaliação holística.
+
+---
+
+## N
+
+**Natural Language Processing (NLP)**
+Subárea de IA que processa e entende linguagem humana. Fundamento de análise de texto/fala em saúde mental.
+
+**Neuroplasticidade**
+Capacidade do cérebro de mudar conexões. IA simula como terapia induz neuroplasticidade.
+
+**Neurofeedback**
+Técnica onde pessoa vê atividade cerebral em tempo real e aprende a regulá-la. IA interpreta sinais EEG.
+
+---
+
+## O
+
+**Overfitting**
+Modelo "decora" dados de treino mas falha em dados novos. Problema: aprende ruído específico, não padrões gerais.
+
+---
+
+## P
+
+**Precision Medicine (Medicina de Precisão)**
+Tratamento personalizado baseado em características individuais. IA prevê qual medicamento/terapia funciona melhor.
+
+**Privacidade Diferencial**
+Técnica matemática para proteger privacidade individual em datasets agregados. Importante em pesquisa de saúde mental.
+
+**Prontuário Eletrônico (EHR - Electronic Health Record)**
+Registro digital de histórico médico. IA minera milhões de EHRs para descobrir padrões.
+
+---
+
+## R
+
+**Random Forest**
+Algoritmo de ML que combina múltiplas árvores de decisão. Usado para prever resposta a tratamento.
+
+**Redes Neurais**
+Modelos inspirados em neurônios biológicos, organizados em camadas. Base de deep learning.
+
+**Reinforcement Learning from Human Feedback (RLHF)**
+Técnica onde modelo aprende de feedback humano. Usado para alinhar chatbots com valores terapêuticos.
+
+---
+
+## S
+
+**Sensibilidade (Sensitivity / Recall)**
+Proporção de casos positivos corretamente identificados. Em saúde mental: "De 100 pessoas com depressão, modelo detectou 85" = 85% sensibilidade.
+
+**Especificidade (Specificity)**
+Proporção de casos negativos corretamente identificados. "De 100 pessoas sem depressão, modelo classificou 90 corretamente" = 90% especificidade.
+
+**Supervised Learning**
+ML onde modelo aprende de dados rotulados (ex: textos marcados como "deprimido" ou "saudável").
+
+---
+
+## T
+
+**TCC (Terapia Cognitivo-Comportamental)**
+Abordagem terapêutica que trabalha pensamentos e comportamentos. Facilmente estruturada em fluxos de chatbot.
+
+**Tokenização**
+Processo de dividir texto em unidades (tokens). "Estou triste" → ["Estou", "triste"]. Pré-processamento para NLP.
+
+**Transfer Learning**
+Usar modelo treinado em tarefa A para tarefa B relacionada. Ex: modelo de linguagem geral → fine-tuning para psicologia.
+
+**Transformer**
+Arquitetura de rede neural base de LLMs (GPT, Claude). Usa mecanismo de atenção para entender contexto.
+
+---
+
+## U
+
+**Unsupervised Learning**
+ML onde modelo encontra padrões sem rótulos prévios. Aplicação: descobrir subtipos de depressão por clustering.
+
+---
+
+## V
+
+**Validação Cruzada (Cross-Validation)**
+Técnica para avaliar modelo: treina em parte dos dados, testa em outra parte. Evita overfitting.
+
+**Variabilidade de Frequência Cardíaca (HRV)**
+Ver HRV.
+
+**Viés de Confirmação**
+Tendência de buscar/interpretar info que confirma crenças. IA pode tanto detectar quanto reforçar esse viés.
+
+---
+
+## W
+
+**Wearables**
+Dispositivos vestíveis (smartwatch, fitness tracker) que monitoram fisiologia. Coletam dados passivos para IA.
+
+**WEIRD Population**
+Western, Educated, Industrialized, Rich, Democratic. Maioria dos dados de pesquisa vem dessa população, causando viés.
+
+---
+
+## Acrônimos Comuns
+
+- **AI** - Artificial Intelligence (Inteligência Artificial)
+- **ML** - Machine Learning (Aprendizado de Máquina)
+- **DL** - Deep Learning (Aprendizado Profundo)
+- **NLP** - Natural Language Processing (Processamento de Linguagem Natural)
+- **LLM** - Large Language Model (Modelo de Linguagem Grande)
+- **EHR** - Electronic Health Record (Prontuário Eletrônico)
+- **TCC** - Terapia Cognitivo-Comportamental
+- **CBT** - Cognitive Behavioral Therapy (equivalente inglês de TCC)
+- **fMRI** - Functional Magnetic Resonance Imaging
+- **EEG** - Electroencephalography (Eletroencefalografia)
+- **HRV** - Heart Rate Variability (Variabilidade de Frequência Cardíaca)
+- **API** - Application Programming Interface
+- **GPT** - Generative Pre-trained Transformer
+- **BERT** - Bidirectional Encoder Representations from Transformers
+- **CNN** - Convolutional Neural Network (Rede Neural Convolucional)
+- **RNN** - Recurrent Neural Network (Rede Neural Recorrente)
+- **LSTM** - Long Short-Term Memory (tipo de RNN)
+
+---
+
+Este glossário cobre termos essenciais. Para definições mais técnicas de IA, consulte `tutor-ia-generativa` skill. Para termos clínicos de saúde mental, consulte `assistente-saude-mental` skill.
